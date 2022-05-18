@@ -24,7 +24,8 @@ pip install manifestoo-core
 
 <!--- features-begin -->
 
-TODO
+/!\ For now the API is not considered stable and is not documented. It is reserved for
+private use by `manifestoo`.
 
 <!--- features-end -->
 

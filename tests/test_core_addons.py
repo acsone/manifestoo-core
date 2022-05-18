@@ -1,10 +1,8 @@
-import pytest
-
 from manifestoo_core.core_addons import (
+    get_core_addon_license,
     is_core_addon,
     is_core_ce_addon,
     is_core_ee_addon,
-    get_core_addon_license
 )
 from manifestoo_core.odoo_series import OdooSeries
 

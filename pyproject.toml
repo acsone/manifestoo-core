@@ -1,10 +1,9 @@
 [build-system]
-requires = ["flit_core >=3.4,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [project]
 name = "manifestoo_core"
-version = "0.5.dev"
 description = "A library to reason about Odoo addons manifests"
 authors = [
   {name = "Stéphane Bidoul", email = "stephane.bidoul@acsone.eu"}
@@ -24,6 +23,7 @@ dependencies = [
     "importlib_resources ; python_version<'3.7'",
 ]
 requires-python = ">=3.6"
+dynamic = ["version"]
 
 [project.optional-dependencies]
 test = [
@@ -44,9 +44,13 @@ Documentation = "https://manifestoo-core.readthedocs.io/en/stable/"
 Changelog = "https://manifestoo-core.readthedocs.io/en/stable/changelog.html"
 Source = "https://github.com/sbidoul/manifestoo-core"
 
-[tool.flit.sdist]
-exclude = [".github/"]
+[tool.hatch.version]
+source = "vcs"
 
+[tool.hatch.build]
+exclude = [
+    "/.github",
+]
 
 [tool.isort]
 profile = "black"

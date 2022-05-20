@@ -107,7 +107,7 @@ class Manifest(BaseManifest):
         super().__init__(manifest_dict)
         self.manifest_path = manifest_path
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Manifest({self.manifest_path})"
 
     @classmethod

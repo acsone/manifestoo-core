@@ -2,12 +2,8 @@
 
 import sys
 from functools import lru_cache
+from importlib.resources import open_text
 from typing import Set
-
-if sys.version_info >= (3, 7):
-    from importlib.resources import open_text
-else:
-    from importlib_resources import open_text
 
 from ..odoo_series import OdooEdition, OdooSeries
 

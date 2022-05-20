@@ -56,21 +56,9 @@ class InvalidManifest(Exception):
     pass
 
 
-class Manifest:
-    def __init__(self, manifest_path: Path, manifest_dict: Dict[Any, Any]) -> None:
-        self.manifest_path = manifest_path
+class BaseManifest:
+    def __init__(self, manifest_dict: Dict[Any, Any]) -> None:
         self.manifest_dict = manifest_dict
-
-    @classmethod
-    def from_manifest_path(cls, manifest_path: Path) -> "Manifest":
-        try:
-            manifest = ast.literal_eval(manifest_path.read_text())
-        except SyntaxError as e:
-            raise InvalidManifest(f"Manifest {manifest_path} is invalid: {e}")
-        else:
-            if not isinstance(manifest, dict):
-                raise InvalidManifest(f"Manifest {manifest_path} is not a dictionary")
-            return Manifest(manifest_path, manifest)
 
     def _get(self, key: str, checker: Callable[[Any], T], default: T) -> T:
         """Get value with runtime type check."""
@@ -81,9 +69,7 @@ class Manifest:
         try:
             return checker(value)
         except TypeError:
-            raise InvalidManifest(
-                f"{value!r} has invalid type for {key!r} in {self.manifest_path}"
-            )
+            raise InvalidManifest(f"{value!r} has invalid type for {key!r} in {self}")
 
     @property
     def name(self) -> Optional[str]:
@@ -114,3 +100,23 @@ class Manifest:
     @property
     def development_status(self) -> Optional[str]:
         return self._get("development_status", _check_optional_str, default=None)
+
+
+class Manifest(BaseManifest):
+    def __init__(self, manifest_path: Path, manifest_dict: Dict[Any, Any]) -> None:
+        super().__init__(manifest_dict)
+        self.manifest_path = manifest_path
+
+    def __str__(self):
+        return f"Manifest({self.manifest_path})"
+
+    @classmethod
+    def from_manifest_path(cls, manifest_path: Path) -> "Manifest":
+        try:
+            manifest = ast.literal_eval(manifest_path.read_text())
+        except SyntaxError as e:
+            raise InvalidManifest(f"Manifest {manifest_path} is invalid: {e}")
+        else:
+            if not isinstance(manifest, dict):
+                raise InvalidManifest(f"Manifest {manifest_path} is not a dictionary")
+            return Manifest(manifest_path, manifest)

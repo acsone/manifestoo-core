@@ -1,3 +1,5 @@
+import pytest
+
 from manifestoo_core.odoo_series import (
     OdooSeries,
     detect_from_addon_version,
@@ -44,3 +46,12 @@ def test_detect_ambiguous():
         }
     )
     assert detect_from_addons_set(addons_set) == {OdooSeries.v12_0, OdooSeries.v13_0}
+
+
+def test_series_from_str():
+    assert OdooSeries("10.0") == OdooSeries.v10_0
+
+
+def test_unknown_series_from_str():
+    with pytest.raises(ValueError):
+        OdooSeries("45.0")

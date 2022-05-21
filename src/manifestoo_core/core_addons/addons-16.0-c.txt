@@ -1,4 +1,4 @@
-# generated on Thu May 12 18:11:50 2022
+# generated on Sat May 21 14:37:09 2022
 account
 account_check_printing
 account_debit_note
@@ -49,6 +49,7 @@ crm_iap_mine
 crm_livechat
 crm_mail_plugin
 crm_sms
+data_recycle
 delivery
 delivery_mondialrelay
 delivery_stock_picking_batch
@@ -102,6 +103,7 @@ iap_crm
 iap_mail
 im_livechat
 im_livechat_mail_bot
+knowledge
 l10n_ae
 l10n_ae_pos
 l10n_ar
@@ -169,6 +171,7 @@ l10n_it_edi
 l10n_it_edi_sdicoop
 l10n_it_stock_ddt
 l10n_jp
+l10n_ke
 l10n_latam_base
 l10n_latam_invoice_document
 l10n_lt
@@ -273,6 +276,7 @@ pos_restaurant_adyen
 pos_sale
 pos_sale_product_configurator
 pos_six
+privacy_lookup
 product
 product_email_template
 product_expiry
@@ -381,6 +385,7 @@ website_forum
 website_google_map
 website_hr_recruitment
 website_jitsi
+website_knowledge
 website_links
 website_livechat
 website_mail

@@ -6,6 +6,11 @@ Features
 
 - Update core addon lists. (`#5 <https://github.com/sbidoul/manifestoo-core/issues/5>`_)
 
+Removals
+--------
+
+- Drop python 3.6 support. (`#2 <https://github.com/sbidoul/manifestoo-core/pull/2>`_)
+
 
 0.5.0 (2022-05-18)
 ==================

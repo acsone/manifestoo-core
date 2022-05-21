@@ -38,6 +38,7 @@ release = version
 extensions = [
     "myst_parser",
     "sphinxcontrib.towncrier",
+    "sphinx.ext.autodoc",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -48,6 +49,18 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+# -- Options for Autodoc --------------------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
+
+autodoc_member_order = "bysource"
+autodoc_preserve_defaults = True
+
+# Keep the type hints outside the function signature, moving them to the
+# descriptions of the relevant function/methods.
+autodoc_typehints = "description"
+
+# Don't show the class signature with the class name.
+autodoc_class_signature = "separated"
 
 # -- Options for HTML output -------------------------------------------------
 

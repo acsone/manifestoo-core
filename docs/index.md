@@ -10,6 +10,7 @@
 :maxdepth: 2
 
 installation
+api
 Development <develop>
 Changelog <changelog>
 GitHub Repository <https://github.com/sbidoul/manifestoo-core>

@@ -42,8 +42,8 @@ def detect_from_addon_version(version: str) -> Optional[OdooSeries]:
     if len(parts) < 5:
         return None
     try:
-        return OdooSeries["v" + "_".join(parts[:2])]
-    except KeyError:
+        return OdooSeries(".".join(parts[:2]))
+    except ValueError:
         return None
 
 

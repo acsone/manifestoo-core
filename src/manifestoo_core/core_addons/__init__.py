@@ -1,6 +1,5 @@
 """List of Odoo official addons."""
 
-import sys
 from functools import lru_cache
 from importlib.resources import open_text
 from typing import Set

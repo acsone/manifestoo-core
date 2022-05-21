@@ -70,7 +70,7 @@ exclude_lines = [
 
 
 [tool.towncrier]
-package = "manifestoo-core"
+package = "manifestoo_core"
 package_dir = "src"
 filename = "HISTORY.rst"
 directory = "news"

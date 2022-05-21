@@ -1,3 +1,12 @@
+0.7 (2022-05-21)
+================
+
+Features
+--------
+
+- Restore python 3.6 support. (`#7 <https://github.com/sbidoul/manifestoo-core/issues/7>`_)
+
+
 0.6 (2022-05-21)
 ================
 

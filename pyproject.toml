@@ -19,8 +19,10 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
 ]
 readme = "README.md"
-dependencies = []
-requires-python = ">=3.7"
+dependencies = [
+    "importlib_resources ; python_version<'3.7'",
+]
+requires-python = ">=3.6"
 dynamic = ["version"]
 
 [project.optional-dependencies]

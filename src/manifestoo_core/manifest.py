@@ -110,6 +110,10 @@ class Manifest(BaseManifest):
     def __str__(self) -> str:
         return f"Manifest({self.manifest_path})"
 
+    @property
+    def addon_name(self) -> str:
+        return self.manifest_path.parent.name
+
     @classmethod
     def from_manifest_path(cls, manifest_path: Path) -> "Manifest":
         try:

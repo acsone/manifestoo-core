@@ -65,3 +65,8 @@ def test_manifest_invalid_value(key, value):
 def test_manifest_default_value(key, default):
     manifest = mock_manifest({})
     assert getattr(manifest, key) == default
+
+
+def test_manifest_addon_name():
+    manifest = mock_manifest({}, addon_name="addon1")
+    assert manifest.addon_name == "addon1"

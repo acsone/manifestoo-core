@@ -56,7 +56,7 @@ def get_core_addon_license(addon_name: str, odoo_series: OdooSeries) -> str:
     """Get the license of a core Odoo addon.
 
     This function overrides any license set in the upstream addon
-    manifest, as Odoo have a uniform license for each version and
+    manifest, as Odoo has a uniform license for each version and
     edition, and the manifests have been known to be unreliable in that
     respect.
     """

@@ -26,10 +26,11 @@ pip install manifestoo-core
 
 `manifestoo_core` provides the following features:
 
+* Detect the Odoo series from an addon version.
 * Information about core Odoo CE and EE addons for each Odoo version.
 
 ```{warning}
-Any part of the library that is not documented is may change without notice.
+Any part of the library that is not documented may change without notice.
 ```
 
 <!--- features-end -->

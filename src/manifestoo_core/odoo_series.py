@@ -1,4 +1,4 @@
-"""Odoo series and editions."""
+"""Odoo Series and Editions."""
 from enum import Enum
 from typing import Optional, Set
 
@@ -13,7 +13,7 @@ __all__ = [
 
 
 class OdooSeries(str, Enum):
-    """Enum that represents an Odoo Series (also known as Version)."""
+    """Enum representing an Odoo Series (also known as Version)."""
 
     v8_0 = "8.0"
     v9_0 = "9.0"
@@ -27,7 +27,7 @@ class OdooSeries(str, Enum):
 
 
 class OdooEdition(str, Enum):
-    """Enum that represents an Odoo Edition."""
+    """Enum representing an Odoo Edition."""
 
     CE = "c"
     EE = "e"

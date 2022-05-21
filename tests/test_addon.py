@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pytest
+from pytest import FixtureRequest
 
 from manifestoo_core.addon import (
     Addon,
@@ -20,7 +21,7 @@ from manifestoo_core.addon import (
         }
     ]
 )
-def addon_dir(request, tmp_path) -> Path:
+def addon_dir(request: FixtureRequest, tmp_path: Path) -> Path:
     addon_dir = tmp_path / request.param["dir"]
     addon_dir.mkdir()
     (addon_dir / "__init__.py").touch()
@@ -38,14 +39,14 @@ def addon_dir(request, tmp_path) -> Path:
     ],
     indirect=True,
 )
-def test_basic(addon_dir):
+def test_basic(addon_dir: Path) -> None:
     addon = Addon.from_addon_dir(addon_dir)
     assert addon.name == "theaddon"
     assert addon.path == addon_dir
     assert addon.manifest.name == "the addon"
 
 
-def test_not_a_directory(tmp_path):
+def test_not_a_directory(tmp_path: Path) -> None:
     with pytest.raises(AddonNotFoundNotADirectory):
         Addon.from_addon_dir(tmp_path / "not-a-dir")
 
@@ -60,7 +61,7 @@ def test_not_a_directory(tmp_path):
     ],
     indirect=True,
 )
-def test_not_installable(addon_dir):
+def test_not_installable(addon_dir: Path) -> None:
     with pytest.raises(AddonNotFoundNotInstallable):
         Addon.from_addon_dir(addon_dir)
     assert Addon.from_addon_dir(addon_dir, allow_not_installable=True)
@@ -76,7 +77,7 @@ def test_not_installable(addon_dir):
     ],
     indirect=True,
 )
-def test_invalid_manifest(addon_dir):
+def test_invalid_manifest(addon_dir: Path) -> None:
     with pytest.raises(AddonNotFoundInvalidManifest):
         Addon.from_addon_dir(addon_dir)
 
@@ -91,7 +92,7 @@ def test_invalid_manifest(addon_dir):
     ],
     indirect=True,
 )
-def test_manifest_syntax_error(addon_dir):
+def test_manifest_syntax_error(addon_dir: Path) -> None:
     with pytest.raises(AddonNotFoundInvalidManifest):
         Addon.from_addon_dir(addon_dir)
 
@@ -106,18 +107,18 @@ def test_manifest_syntax_error(addon_dir):
     ],
     indirect=True,
 )
-def test_manifest_type_error(addon_dir):
+def test_manifest_type_error(addon_dir: Path) -> None:
     with pytest.raises(AddonNotFoundInvalidManifest):
         Addon.from_addon_dir(addon_dir)
 
 
-def test_no_manifest(addon_dir):
+def test_no_manifest(addon_dir: Path) -> None:
     (addon_dir / "__manifest__.py").unlink()
     with pytest.raises(AddonNotFoundNoManifest):
         Addon.from_addon_dir(addon_dir)
 
 
-def test_no_init(addon_dir):
+def test_no_init(addon_dir: Path) -> None:
     (addon_dir / "__init__.py").unlink()
     with pytest.raises(AddonNotFoundNoInit):
         Addon.from_addon_dir(addon_dir)

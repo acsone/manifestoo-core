@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from manifestoo_core.manifest import InvalidManifest
@@ -22,7 +24,7 @@ from .common import mock_manifest
         ("installable", False),
     ],
 )
-def test_manifest_valid_value(key, value):
+def test_manifest_valid_value(key: str, value: Any) -> None:
     manifest = mock_manifest({key: value})
     assert getattr(manifest, key) == value
 
@@ -44,7 +46,7 @@ def test_manifest_valid_value(key, value):
         ("installable", None),
     ],
 )
-def test_manifest_invalid_value(key, value):
+def test_manifest_invalid_value(key: str, value: Any) -> None:
     manifest = mock_manifest({key: value})
     with pytest.raises(InvalidManifest):
         getattr(manifest, key)
@@ -62,11 +64,11 @@ def test_manifest_invalid_value(key, value):
         ("installable", True),
     ],
 )
-def test_manifest_default_value(key, default):
+def test_manifest_default_value(key: str, default: Any) -> None:
     manifest = mock_manifest({})
     assert getattr(manifest, key) == default
 
 
-def test_manifest_addon_name():
+def test_manifest_addon_name() -> None:
     manifest = mock_manifest({}, addon_name="addon1")
     assert manifest.addon_name == "addon1"

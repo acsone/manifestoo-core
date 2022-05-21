@@ -6,7 +6,7 @@ from manifestoo_core.addons_set import AddonsSet
 from manifestoo_core.manifest import Manifest
 
 
-def populate_addons_dir(addons_dir: Path, addons: Dict[str, Dict[str, Any]]):
+def populate_addons_dir(addons_dir: Path, addons: Dict[str, Dict[str, Any]]) -> None:
     if not addons_dir.is_dir():
         addons_dir.mkdir()
     for addon_name, manifest in addons.items():

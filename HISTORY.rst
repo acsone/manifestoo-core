@@ -1,3 +1,12 @@
+0.6 (2022-05-21)
+================
+
+Improved Documentation
+----------------------
+
+- Document the `core_addons` and `odoo_series` modules. (`#6 <https://github.com/sbidoul/manifestoo-core/issues/6>`_)
+
+
 0.5.2 (2022-05-21)
 ==================
 

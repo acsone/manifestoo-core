@@ -24,19 +24,15 @@ pip install manifestoo-core
 
 <!--- features-begin -->
 
-/!\ For now the API is not considered stable and is not documented. It is reserved for
-private use by `manifestoo`.
+`manifestoo_core` provides the following features:
+
+* Information about core Odoo CE and EE addons for each Odoo version.
+
+```{warning}
+Any part of the library that is not documented is may change without notice.
+```
 
 <!--- features-end -->
-
-## Quick start
-
-<!--- quickstart-begin -->
-
-TODO
-
-<!--- quickstart-end -->
-
 
 [github-ci]: https://github.com/sbidoul/manifestoo-core/actions/workflows/ci.yml/badge.svg
 [github-link]: https://github.com/sbidoul/manifestoo-core

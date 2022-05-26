@@ -2,9 +2,7 @@ from typing import Any
 
 import pytest
 
-from manifestoo_core.manifest import InvalidManifest
-
-from .common import mock_manifest
+from manifestoo_core.manifest import InvalidManifest, Manifest
 
 
 @pytest.mark.parametrize(
@@ -25,7 +23,7 @@ from .common import mock_manifest
     ],
 )
 def test_manifest_valid_value(key: str, value: Any) -> None:
-    manifest = mock_manifest({key: value})
+    manifest = Manifest.from_dict({key: value})
     assert getattr(manifest, key) == value
 
 
@@ -47,7 +45,7 @@ def test_manifest_valid_value(key: str, value: Any) -> None:
     ],
 )
 def test_manifest_invalid_value(key: str, value: Any) -> None:
-    manifest = mock_manifest({key: value})
+    manifest = Manifest.from_dict({key: value})
     with pytest.raises(InvalidManifest):
         getattr(manifest, key)
 
@@ -65,10 +63,5 @@ def test_manifest_invalid_value(key: str, value: Any) -> None:
     ],
 )
 def test_manifest_default_value(key: str, default: Any) -> None:
-    manifest = mock_manifest({})
+    manifest = Manifest.from_dict({})
     assert getattr(manifest, key) == default
-
-
-def test_manifest_addon_name() -> None:
-    manifest = mock_manifest({}, addon_name="addon1")
-    assert manifest.addon_name == "addon1"

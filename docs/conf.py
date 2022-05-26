@@ -5,10 +5,10 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 
-def find_version():
-    from importlib.metadata import version
+def find_version() -> str:
+    from importlib.metadata import version as get_version
 
-    return version("manifestoo-core")
+    return get_version("manifestoo-core")
 
 
 # -- Path setup --------------------------------------------------------------

@@ -1,3 +1,13 @@
+0.8 (2022-05-26)
+================
+
+Features
+--------
+
+- Add ``manifestoo_core.metadata.metadata_from_addon_dir`` function to produce
+  Python standard package metadata 2.2 from the addon manifest.
+
+
 0.7 (2022-05-21)
 ================
 

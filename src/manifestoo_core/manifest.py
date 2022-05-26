@@ -2,8 +2,12 @@ import ast
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, TypeVar
 
+from .exceptions import InvalidManifest
+
 T = TypeVar("T")
 VT = TypeVar("VT")
+
+__all__ = ["Manifest", "InvalidManifest", "get_manifest_path"]
 
 
 def _check_str(value: Any) -> str:
@@ -52,12 +56,20 @@ def _check_dict_of_list_of_str(value: Any) -> Dict[str, List[str]]:
     return _check_dict(value, key_checker=_check_str, value_checker=_check_list_of_str)
 
 
-class InvalidManifest(Exception):
-    pass
+def get_manifest_path(addon_dir: Path) -> Optional[Path]:
+    """Get the path to the manifest file for an addon directory.
+
+    Returns None if no manifest file is found.
+    """
+    for manifest_name in ("__manifest__.py", "__openerp__.py", "__terp__.py"):
+        manifest_path = addon_dir / manifest_name
+        if manifest_path.is_file():
+            return manifest_path
+    return None
 
 
-class BaseManifest:
-    def __init__(self, manifest_dict: Dict[Any, Any]) -> None:
+class Manifest:
+    def __init__(self, manifest_dict: Dict[str, Any]) -> None:
         self.manifest_dict = manifest_dict
 
     def _get(self, key: str, checker: Callable[[Any], T], default: T) -> T:
@@ -101,26 +113,37 @@ class BaseManifest:
     def development_status(self) -> Optional[str]:
         return self._get("development_status", _check_optional_str, default=None)
 
+    @classmethod
+    def from_dict(
+        cls, manifest_dict: Dict[Any, Any], source: str = "<manifest>"
+    ) -> "Manifest":
+        """Parse a manifest dictionary into a :class:`Manifest` object.
 
-class Manifest(BaseManifest):
-    def __init__(self, manifest_path: Path, manifest_dict: Dict[Any, Any]) -> None:
-        super().__init__(manifest_dict)
-        self.manifest_path = manifest_path
-
-    def __str__(self) -> str:
-        return f"Manifest({self.manifest_path})"
-
-    @property
-    def addon_name(self) -> str:
-        return self.manifest_path.parent.name
+        Raises :class:`InvalidManifest` if the manifest is invalid.
+        """
+        if not isinstance(manifest_dict, dict):
+            raise InvalidManifest(f"Manifest {source} is not a dictionary")
+        if any(not isinstance(k, str) for k in manifest_dict):
+            raise InvalidManifest(f"Manifest {source} has non-string keys")
+        return cls(manifest_dict)
 
     @classmethod
-    def from_manifest_path(cls, manifest_path: Path) -> "Manifest":
+    def from_str(cls, manifest_str: str, source: str = "<manifest>") -> "Manifest":
+        """Parse a manifest string into a :class:`Manifest` object.
+
+        Raises :class:`InvalidManifest` if the manifest is invalid.
+        """
         try:
-            manifest = ast.literal_eval(manifest_path.read_text())
+            manifest_dict = ast.literal_eval(manifest_str)
         except SyntaxError as e:
-            raise InvalidManifest(f"Manifest {manifest_path} is invalid: {e}")
-        else:
-            if not isinstance(manifest, dict):
-                raise InvalidManifest(f"Manifest {manifest_path} is not a dictionary")
-            return Manifest(manifest_path, manifest)
+            raise InvalidManifest(f"Manifest {source} has invalid syntax") from e
+        return cls.from_dict(manifest_dict)
+
+    @classmethod
+    def from_file(cls, manifest_path: Path) -> "Manifest":
+        """Parse a manifest file into a :class:`Manifest` object.
+
+        Raises :class:`InvalidManifest` if the manifest is invalid.
+        """
+        manifest_str = manifest_path.read_text()
+        return cls.from_str(manifest_str, source=f"{manifest_path!r}")

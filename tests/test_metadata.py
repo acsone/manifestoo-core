@@ -5,15 +5,16 @@ from typing import Any, Dict, List, Optional, Union
 import pytest
 from pkg_metadata import msg_to_json
 
-from manifestoo_core.manifest import Manifest
+from manifestoo_core.exceptions import (
+    UnsupportedManifestVersion,
+    UnsupportedOdooVersion,
+)
 from manifestoo_core.metadata import (
     POST_VERSION_STRATEGY_DOT_N,
     POST_VERSION_STRATEGY_NINETYNINE_DEVN,
     POST_VERSION_STRATEGY_NONE,
     POST_VERSION_STRATEGY_P1_DEVN,
-    UnsupportedManifestVersion,
-    UnsupportedOdooVersion,
-    manifest_to_metadata,
+    metadata_from_addon_dir,
 )
 
 
@@ -44,7 +45,7 @@ def _m(
     ] = None,
     odoo_version_override: Optional[str] = None,
     post_version_strategy_override: Optional[str] = None,
-    precomputed_metadata_path: Optional[Path] = None,
+    precomputed_metadata_file: Optional[Path] = None,
 ) -> Dict[str, Any]:
     addon_dir = tmp_path / addon_dir_name
     addon_dir.mkdir()
@@ -71,15 +72,15 @@ def _m(
         readme_path = addon_dir / "README.rst"
         readme_path.write_text(readme_rst)
     return msg_to_json(
-        manifest_to_metadata(
-            Manifest.from_manifest_path(manifest_path),
+        metadata_from_addon_dir(
+            addon_dir,
             options=dict(
                 depends_override=depends_override,
                 external_dependencies_override=external_dependencies_override,
                 odoo_version_override=odoo_version_override,
                 post_version_strategy_override=post_version_strategy_override,
             ),
-            precomputed_metadata_path=precomputed_metadata_path,
+            precomputed_metadata_file=precomputed_metadata_file,
         )
     )
 
@@ -432,7 +433,7 @@ def test_precomputed_metadata_path(tmp_path: Path) -> None:
         tmp_path,
         addon_dir_name="tmp",
         version="14.0.1.0.0",
-        precomputed_metadata_path=pkg_info_path,
+        precomputed_metadata_file=pkg_info_path,
     )
     assert metadata["name"] == "odoo14-addon-addon1"
     assert metadata["version"] == "14.0.1.0.0.3"
@@ -512,8 +513,8 @@ def test_git_post_version(
         post_commits=post_commits,
     )
     metadata = msg_to_json(
-        manifest_to_metadata(
-            Manifest.from_manifest_path(addon_dir / "__manifest__.py"),
+        metadata_from_addon_dir(
+            addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
         )
     )
@@ -546,8 +547,8 @@ def test_git_post_version_uncommitted_change(
     )
     addon_dir.joinpath("README.rst").write_text("stuff")
     metadata = msg_to_json(
-        manifest_to_metadata(
-            Manifest.from_manifest_path(addon_dir / "__manifest__.py"),
+        metadata_from_addon_dir(
+            addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
         )
     )
@@ -579,8 +580,8 @@ def test_git_post_version_bad_manifest_in_history(
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "good manifest"], cwd=addon_dir)
     metadata = msg_to_json(
-        manifest_to_metadata(
-            Manifest.from_manifest_path(addon_dir / "__manifest__.py"),
+        metadata_from_addon_dir(
+            addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
         )
     )
@@ -607,8 +608,8 @@ def test_git_post_version_good_manifest_in_history(
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "good manifest"], cwd=addon_dir)
     metadata = msg_to_json(
-        manifest_to_metadata(
-            Manifest.from_manifest_path(addon_dir / "__manifest__.py"),
+        metadata_from_addon_dir(
+            addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
         )
     )
@@ -637,8 +638,8 @@ def test_git_post_version_no_manifest_in_history(
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "good manifest"], cwd=addon_dir)
     metadata = msg_to_json(
-        manifest_to_metadata(
-            Manifest.from_manifest_path(addon_dir / "__manifest__.py"),
+        metadata_from_addon_dir(
+            addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
         )
     )

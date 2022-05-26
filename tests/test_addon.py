@@ -3,8 +3,8 @@ from pathlib import Path
 import pytest
 from pytest import FixtureRequest
 
-from manifestoo_core.addon import (
-    Addon,
+from manifestoo_core.addon import Addon
+from manifestoo_core.exceptions import (
     AddonNotFoundInvalidManifest,
     AddonNotFoundNoInit,
     AddonNotFoundNoManifest,
@@ -22,10 +22,12 @@ from manifestoo_core.addon import (
     ]
 )
 def addon_dir(request: FixtureRequest, tmp_path: Path) -> Path:
-    addon_dir = tmp_path / request.param["dir"]
+    addon_dir = tmp_path.joinpath(request.param["dir"])  # type: ignore
     addon_dir.mkdir()
-    (addon_dir / "__init__.py").touch()
-    (addon_dir / "__manifest__.py").write_text(request.param["manifest"])
+    addon_dir.joinpath("__init__.py").touch()
+    addon_dir.joinpath("__manifest__.py").write_text(
+        request.param["manifest"]  # type: ignore
+    )
     return addon_dir
 
 

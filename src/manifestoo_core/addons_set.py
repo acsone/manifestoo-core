@@ -2,7 +2,8 @@ import logging
 from pathlib import Path
 from typing import Dict, Iterable
 
-from .addon import Addon, AddonNotFound
+from .addon import Addon
+from .exceptions import AddonNotFound
 
 _logger = logging.getLogger(__name__)
 

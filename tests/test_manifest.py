@@ -50,6 +50,16 @@ def test_manifest_invalid_value(key: str, value: Any) -> None:
         getattr(manifest, key)
 
 
+def test_manifest_non_str_keys() -> None:
+    with pytest.raises(InvalidManifest):
+        Manifest.from_dict({"name": "the name", 1: "1"})
+
+
+def test_manifest_invalid_syntax() -> None:
+    with pytest.raises(InvalidManifest):
+        Manifest.from_str('{"name": "the name", ...}')
+
+
 @pytest.mark.parametrize(
     "key, default",
     [

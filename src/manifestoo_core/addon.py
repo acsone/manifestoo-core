@@ -26,6 +26,8 @@ class Addon:
         self.path = self.manifest_path.parent
         if name is None:
             self.name = self.path.name
+        else:
+            self.name = name
 
     @classmethod
     def from_addon_dir(

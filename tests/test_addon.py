@@ -11,6 +11,7 @@ from manifestoo_core.exceptions import (
     AddonNotFoundNotADirectory,
     AddonNotFoundNotInstallable,
 )
+from manifestoo_core.manifest import Manifest
 
 
 @pytest.fixture(
@@ -124,3 +125,13 @@ def test_no_init(addon_dir: Path) -> None:
     (addon_dir / "__init__.py").unlink()
     with pytest.raises(AddonNotFoundNoInit):
         Addon.from_addon_dir(addon_dir)
+
+
+def test_addon_constructor() -> None:
+    manifest = Manifest.from_dict({"name": "the addon"})
+    addon = Addon(manifest, manifest_path=Path("/tmp/theaddon/__manifest__.py"))
+    assert addon.name == "theaddon"
+    addon = Addon(
+        manifest, manifest_path=Path("/tmp/tmp/__manifest__.py"), name="theaddon"
+    )
+    assert addon.name == "theaddon"

@@ -8,6 +8,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Final, TypedDict
 
+from .addon import Addon
 from .exceptions import UnsupportedManifestVersion, UnsupportedOdooVersion
 
 POST_VERSION_STRATEGY_NONE: Final = "none"
@@ -51,7 +52,12 @@ def metadata_from_addon_dir(
     directory name or manifest version + VCS, respectively. This is useful to process a
     manifest from a sdist tarball with PKG-INFO, for example, when the original
     directory name or VCS is not available to compute the package name and version.
+
+    This function may raise :class:`manifestoo_core.exceptions.ManifestooException` if
+    ``addon_dir`` does not contain a valid installable Odoo addon for a supported Odoo
+    version.
     """
+    Addon.from_addon_dir(addon_dir)  # check we have a proper addon directory
     return _metadata_from_addon_dir_using_setuptools_odoo(
         addon_dir,
         options or MetadataOptions(),

@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 from pytest import FixtureRequest
 
-from manifestoo_core.addon import Addon
+from manifestoo_core.addon import Addon, is_addon_dir
 from manifestoo_core.exceptions import (
     AddonNotFoundInvalidManifest,
     AddonNotFoundNoInit,
@@ -135,3 +135,27 @@ def test_addon_constructor() -> None:
         manifest, manifest_path=Path("/tmp/tmp/__manifest__.py"), name="theaddon"
     )
     assert addon.name == "theaddon"
+
+
+@pytest.mark.parametrize(
+    "addon_dir, expected",
+    [
+        (
+            {
+                "dir": "a",
+                "manifest": "{}",
+            },
+            True,
+        ),
+        (
+            {
+                "dir": "a",
+                "manifest": "{'installable': '?'}",
+            },
+            False,
+        ),
+    ],
+    indirect=["addon_dir"],
+)
+def test_is_addon_dir_ok(addon_dir: Path, expected: bool) -> None:
+    assert is_addon_dir(addon_dir) is expected

@@ -28,6 +28,9 @@ pip install manifestoo-core
 
 * Detect the Odoo series from an addon version.
 * Information about core Odoo CE and EE addons for each Odoo version.
+* Convert Odoo manifest metadata to Python Packaging Metadata.
+
+Read the [documentation](https://manifestoo-core.readthedocs.io/) for more information.
 
 ```{warning}
 Any part of the library that is not documented may change without notice.

@@ -1,5 +1,12 @@
 # API Reference
 
+## `manifestoo_core.addon`
+
+```{eval-rst}
+.. automodule:: manifestoo_core.addon
+   :members:
+```
+
 ## `manifestoo_core.core_addons`
 
 ```{eval-rst}

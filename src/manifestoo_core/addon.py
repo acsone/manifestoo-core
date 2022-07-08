@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Optional
 
 from .exceptions import (
+    AddonNotFound,
     AddonNotFoundInvalidManifest,
     AddonNotFoundNoInit,
     AddonNotFoundNoManifest,
@@ -11,8 +12,23 @@ from .exceptions import (
 from .manifest import InvalidManifest, Manifest, get_manifest_path
 
 __all__ = [
-    "Addon",
+    "is_addon_dir",
 ]
+
+
+def is_addon_dir(addon_dir: Path, allow_not_installable: bool = False) -> bool:
+    """Detect if a directory contains an Odoo addon.
+
+    :param addon_dir: The directory to check.
+    :param allow_not_installable: Whether to allow the addon to be have
+        installable=False in its manifest.
+    """
+    try:
+        Addon.from_addon_dir(addon_dir, allow_not_installable)
+    except AddonNotFound:
+        return False
+    else:
+        return True
 
 
 class Addon:

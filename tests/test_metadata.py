@@ -49,6 +49,7 @@ def _m(
 ) -> Dict[str, Any]:
     addon_dir = tmp_path / addon_dir_name
     addon_dir.mkdir()
+    addon_dir.joinpath("__init__.py").touch()
     manifest_path = addon_dir / "__manifest__.py"
     manifest_path.write_text(
         repr(

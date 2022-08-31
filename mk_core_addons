@@ -12,9 +12,9 @@ SERIES = [
     # branch,  enterprise, target
     ("master", True, "16.0"),
     ("15.0", True, None),
-    # ("14.0", True, None),
-    # ("13.0", True, None),
-    # ("12.0", True, None),
+    ("14.0", True, None),
+    ("13.0", True, None),
+    ("12.0", True, None),
     # ("11.0", True, None),
     # ('10.0', True, None),
     # ('9.0', True, None),
@@ -96,7 +96,7 @@ def pr():
     check_call("git", "checkout", "-B", "update-core-addon-lists", "origin/main")
     check_call("git", "add", "src/manifestoo_core/core_addons")
     check_call("git", "commit", "-m", "Update core addon lists")
-    check_call("git", "push", "origin")
+    check_call("git", "push", "-f", "origin")
     output = check_output(
         "gh", "pr", "create", "--title", "Update core addon lists", "--body", ""
     )

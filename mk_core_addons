@@ -12,9 +12,9 @@ SERIES = [
     # branch,  enterprise, target
     ("master", True, "16.0"),
     ("15.0", True, None),
-    # ("14.0", True, None),
-    # ("13.0", True, None),
-    # ("12.0", True, None),
+    ("14.0", True, None),
+    ("13.0", True, None),
+    ("12.0", True, None),
     # ("11.0", True, None),
     # ('10.0', True, None),
     # ('9.0', True, None),

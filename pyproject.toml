@@ -39,7 +39,9 @@ doc = [
     "sphinx",
     "furo",
     "myst-parser",
-    "towncrier",
+    # towncrier pinned because of
+    # https://github.com/sphinx-contrib/sphinxcontrib-towncrier/issues/60
+    "towncrier<22.8",
     "sphinxcontrib-towncrier",
 ]
 

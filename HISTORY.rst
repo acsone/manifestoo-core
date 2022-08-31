@@ -1,3 +1,13 @@
+0.10 (2022-08-31)
+=================
+
+Features
+--------
+
+- ``metadata_from_addon_dir``: better detection of invalid addon directories. (`#9 <https://github.com/sbidoul/manifestoo-core/issues/9>`_)
+- Update core addon lists. (`#21 <https://github.com/sbidoul/manifestoo-core/issues/21>`_)
+
+
 0.9 (2022-07-08)
 ================
 

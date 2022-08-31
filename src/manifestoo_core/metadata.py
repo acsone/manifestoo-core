@@ -49,7 +49,7 @@ def metadata_from_addon_dir(
     ``precomputed_metadata_path`` may point to a file containing pre-computed metadata
     that will be used to obtain the Name and Version, instead of looking at the addon
     directory name or manifest version + VCS, respectively. This is useful to process a
-    manifest from a sdist tarball with PKG-INFO, for example, when then original
+    manifest from a sdist tarball with PKG-INFO, for example, when the original
     directory name or VCS is not available to compute the package name and version.
     """
     return _metadata_from_addon_dir_using_setuptools_odoo(

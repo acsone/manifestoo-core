@@ -23,12 +23,10 @@ from manifestoo_core.manifest import Manifest
     ]
 )
 def addon_dir(request: FixtureRequest, tmp_path: Path) -> Path:
-    addon_dir = tmp_path.joinpath(request.param["dir"])  # type: ignore
+    addon_dir = tmp_path.joinpath(request.param["dir"])
     addon_dir.mkdir()
     addon_dir.joinpath("__init__.py").touch()
-    addon_dir.joinpath("__manifest__.py").write_text(
-        request.param["manifest"]  # type: ignore
-    )
+    addon_dir.joinpath("__manifest__.py").write_text(request.param["manifest"])
     return addon_dir
 
 

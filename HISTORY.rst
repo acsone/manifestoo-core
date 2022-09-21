@@ -1,3 +1,12 @@
+0.10.1 (2022-09-21)
+===================
+
+Features
+--------
+
+- Update core addon lists. (`#25 <https://github.com/sbidoul/manifestoo-core/issues/25>`_, `#27 <https://github.com/sbidoul/manifestoo-core/issues/27>`_)
+
+
 0.10 (2022-08-31)
 =================
 

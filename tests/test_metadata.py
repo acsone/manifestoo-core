@@ -131,7 +131,7 @@ def test_requires_odoo(tmp_path: Path, odoo_series: str, expected: List[str]) ->
         ("13.0", ">=3.5"),
         ("14.0", ">=3.6"),
         ("15.0", ">=3.8"),
-        ("16.0", ">=3.8"),
+        ("16.0", ">=3.10"),
     ],
 )
 def test_requires_python(tmp_path: Path, odoo_series: str, expected: str) -> None:

@@ -36,7 +36,7 @@ def _m(
     external_dependencies: Optional[Dict[str, List[str]]] = None,
     website: Optional[str] = None,
     author: Optional[str] = None,
-    license: Optional[str] = None,
+    license: Optional[str] = None,  # noqa: A002
     development_status: Optional[str] = None,
     # options
     depends_override: Optional[Dict[str, str]] = None,
@@ -394,7 +394,7 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
     ],
 )
 def test_classifiers_license(
-    tmp_path: Path, license: str, expected_license: str
+    tmp_path: Path, license: str, expected_license: str  # noqa: A002
 ) -> None:
     assert expected_license in _m(tmp_path, license=license)["classifier"]
 
@@ -419,7 +419,7 @@ def test_classifiers_development_status(
     )
 
 
-def test_license(tmp_path: Path, license: str = "AGPL-3") -> None:
+def test_license(tmp_path: Path, license: str = "AGPL-3") -> None:  # noqa: A002
     assert _m(tmp_path, license=license)["license"] == license
 
 

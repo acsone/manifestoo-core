@@ -50,16 +50,20 @@ class Addon:
         cls, addon_dir: Path, allow_not_installable: bool = False
     ) -> "Addon":
         if not addon_dir.is_dir():
-            raise AddonNotFoundNotADirectory(f"{addon_dir} is not a directory")
+            msg = f"{addon_dir} is not a directory"
+            raise AddonNotFoundNotADirectory(msg)
         manifest_path = get_manifest_path(addon_dir)
         if not manifest_path:
-            raise AddonNotFoundNoManifest(f"No manifest file found in {addon_dir}")
+            msg = f"No manifest file found in {addon_dir}"
+            raise AddonNotFoundNoManifest(msg)
         try:
             manifest = Manifest.from_file(manifest_path)
             if not allow_not_installable and not manifest.installable:
-                raise AddonNotFoundNotInstallable(f"{addon_dir} is not installable")
+                msg = f"{addon_dir} is not installable"
+                raise AddonNotFoundNotInstallable(msg)
         except InvalidManifest as e:
             raise AddonNotFoundInvalidManifest(str(e)) from e
         if not addon_dir.joinpath("__init__.py").is_file():
-            raise AddonNotFoundNoInit(f"{addon_dir} is missing an __init__.py")
+            msg = f"{addon_dir} is missing an __init__.py"
+            raise AddonNotFoundNoInit(msg)
         return cls(manifest, manifest_path)

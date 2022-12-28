@@ -67,7 +67,6 @@ select = [
 ignore = [
     "ANN101", # Missing type annotation for `self` in method
     "ANN102", # Missing type annotation for `cls` in classmethod
-    "ANN204", # Missing return type annotation for special method `__init__`
     "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in `value`
     "D",      # Docstring issues
     "C408",   # Unnecessary `dict` call (rewrite as a literal)

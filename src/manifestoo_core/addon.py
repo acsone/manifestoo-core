@@ -36,7 +36,7 @@ class Addon:
 
     def __init__(
         self, manifest: Manifest, manifest_path: Path, name: Optional[str] = None
-    ):
+    ) -> None:
         self.manifest = manifest
         self.manifest_path = manifest_path
         self.path = self.manifest_path.parent

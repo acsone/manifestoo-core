@@ -10,14 +10,26 @@ on:
 jobs:
   tests:
     name: "Python ${{ matrix.python-version }}"
-    runs-on: "ubuntu-latest"
+    runs-on: ${{ matrix.machine }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10", "pypy3"]
+        include:
+          - python-version: "3.6"
+            machine: ubuntu-20.04
+          - python-version: "3.7"
+            machine: ubuntu-22.04
+          - python-version: "3.8"
+            machine: ubuntu-22.04
+          - python-version: "3.9"
+            machine: ubuntu-22.04
+          - python-version: "3.10"
+            machine: ubuntu-22.04
+          - python-version: "3.11"
+            machine: ubuntu-22.04
     steps:
-      - uses: "actions/checkout@v2"
-      - uses: "actions/setup-python@v2"
+      - uses: "actions/checkout@v3"
+      - uses: "actions/setup-python@v4"
         with:
           python-version: "${{ matrix.python-version }}"
       - name: "Install dependencies"
@@ -30,21 +42,19 @@ jobs:
       - name: "Run tox targets for ${{ matrix.python-version }}"
         run: |
           python -m tox
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v3
   publish:
     runs-on: ubuntu-latest
     needs:
       - tests
     if: startsWith(github.ref, 'refs/tags')
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - name: Install pypa/build
-        run: python -m pip install build
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
       - name: Build a binary wheel and a source tarball
-        run: python -m build
+        run: pipx run build
       - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
           password: ${{ secrets.pypi_token }}

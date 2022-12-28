@@ -59,9 +59,33 @@ exclude = [
     "/.github",
 ]
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
+[tool.ruff]
+fix = false
+select = [
+    "ALL",
+]
+ignore = [
+    "ANN101", # Missing type annotation for `self` in method
+    "ANN102", # Missing type annotation for `cls` in classmethod
+    "ANN204", # Missing return type annotation for special method `__init__`
+    "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in `value`
+    "D",      # Docstring issues
+    "C408",   # Unnecessary `dict` call (rewrite as a literal)
+    "FBT001", # Boolean positional arg in function definition
+    "FBT002", # Boolean default value in function definition
+    "PD",     # pandas-vet
+    "S101",   # Use of `assert` detected
+    "TID252", # Relative imports from parent modules are banned
+    "UP006",  # Use `dict` instead of `Dict` for type annotations (py 3.9+)
+    "UP007",  # Use `X | Y` for type annotations, (py 3.10+)
+    "UP011",  # Unnecessary parameters to `functools.lru_cache` (py 3.8+)
+]
+exclude = [
+    "docs/conf.py",
+]
+
+[tool.ruff.isort]
+known-first-party = ["manifestoo_core"]
 
 
 [tool.coverage.run]

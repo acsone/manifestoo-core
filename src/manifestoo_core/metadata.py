@@ -72,10 +72,10 @@ def _metadata_from_addon_dir_using_setuptools_odoo(
 ) -> Message:
     from distutils.errors import DistutilsSetupError
 
-    from setuptools_odoo import get_addon_metadata  # type: ignore
+    from setuptools_odoo import get_addon_metadata  # type: ignore[import]
 
     try:
-        return get_addon_metadata(  # type: ignore
+        return get_addon_metadata(  # type: ignore[no-any-return]
             str(addon_dir),
             depends_override=options.get("depends_override"),
             external_dependencies_override=options.get(
@@ -90,6 +90,6 @@ def _metadata_from_addon_dir_using_setuptools_odoo(
     except DistutilsSetupError as e:
         if "Unsupported odoo version" in str(e):
             raise UnsupportedOdooVersion(str(e)) from e
-        elif "Version in manifest must" in str(e):
+        if "Version in manifest must" in str(e):
             raise UnsupportedManifestVersion(str(e)) from e
         raise

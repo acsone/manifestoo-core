@@ -64,6 +64,7 @@ def get_core_addon_license(addon_name: str, odoo_series: OdooSeries) -> str:
         if odoo_series == OdooSeries.v8_0:
             return "AGPL-3"
         return "LGPL-3"
-    elif is_core_ee_addon(addon_name, odoo_series):
+    if is_core_ee_addon(addon_name, odoo_series):
         return "OEEL-1"
-    raise AssertionError(f"{addon_name} is not a core addon.")  # pragma: no cover
+    msg = f"{addon_name} is not a core addon."  # pragma: no cover
+    raise AssertionError(msg)  # pragma: no cover

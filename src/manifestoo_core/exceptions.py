@@ -1,4 +1,4 @@
-class ManifestooException(Exception):
+class ManifestooException(Exception):  # noqa: N818
     """Base class of all manifestoo_core exceptions."""
 
 

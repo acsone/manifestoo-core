@@ -80,8 +80,9 @@ class Manifest:
             return default
         try:
             return checker(value)
-        except TypeError:
-            raise InvalidManifest(f"{value!r} has invalid type for {key!r} in {self}")
+        except TypeError as e:
+            msg = f"{value!r} has invalid type for {key!r} in {self}"
+            raise InvalidManifest(msg) from e
 
     @property
     def name(self) -> Optional[str]:
@@ -106,7 +107,7 @@ class Manifest:
         )
 
     @property
-    def license(self) -> Optional[str]:
+    def license(self) -> Optional[str]:  # noqa: A003
         return self._get("license", _check_optional_str, default=None)
 
     @property
@@ -122,9 +123,11 @@ class Manifest:
         Raises :class:`InvalidManifest` if the manifest is invalid.
         """
         if not isinstance(manifest_dict, dict):
-            raise InvalidManifest(f"Manifest {source} is not a dictionary")
+            msg = f"Manifest {source} is not a dictionary"
+            raise InvalidManifest(msg)
         if any(not isinstance(k, str) for k in manifest_dict):
-            raise InvalidManifest(f"Manifest {source} has non-string keys")
+            msg = f"Manifest {source} has non-string keys"
+            raise InvalidManifest(msg)
         return cls(manifest_dict)
 
     @classmethod
@@ -136,7 +139,8 @@ class Manifest:
         try:
             manifest_dict = ast.literal_eval(manifest_str)
         except SyntaxError as e:
-            raise InvalidManifest(f"Manifest {source} has invalid syntax") from e
+            msg = f"Manifest {source} has invalid syntax"
+            raise InvalidManifest(msg) from e
         return cls.from_dict(manifest_dict)
 
     @classmethod

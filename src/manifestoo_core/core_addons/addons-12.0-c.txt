@@ -1,4 +1,4 @@
-# generated on Wed Dec 28 15:03:13 2022
+# generated on Wed Mar 15 12:05:34 2023
 account
 account_analytic_default
 account_bank_statement_import

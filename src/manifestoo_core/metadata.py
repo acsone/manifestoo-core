@@ -1,7 +1,8 @@
+import re
 import sys
 from email.message import Message
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, Iterator, List, Optional, Sequence, Union
 
 if sys.version_info >= (3, 8):
     from typing import Final, TypedDict
@@ -16,6 +17,22 @@ POST_VERSION_STRATEGY_NINETYNINE_DEVN: Final = ".99.devN"
 POST_VERSION_STRATEGY_P1_DEVN: Final = "+1.devN"
 POST_VERSION_STRATEGY_DOT_N: Final = ".N"
 
+ODOO_ADDON_DIST_RE = re.compile(
+    r"^(odoo(\d{1,2})?[-_]addon[-_].*|odoo$|odoo[^a-zA-Z0-9._-]+)",
+    re.IGNORECASE,
+)
+
+
+def _filter_odoo_addon_dependencies(dependencies: Sequence[str]) -> Iterator[str]:
+    """Filter a sequence of python packages dependencies to exclude 'odoo' and odoo
+    addons."""
+    for dependency in dependencies:
+        if dependency.startswith("odoo>="):
+            continue
+        if ODOO_ADDON_DIST_RE.match(dependency):
+            continue
+        yield dependency
+
 
 class MetadataOptions(TypedDict, total=False):
     """A dictionary of options for metadata conversion.
@@ -24,6 +41,7 @@ class MetadataOptions(TypedDict, total=False):
 
     - ``depends_override``
     - ``external_dependencies_override``
+    - ``external_dependencies_only``
     - ``odoo_version_override``
     - ``post_version_strategy_override``
     """
@@ -32,6 +50,7 @@ class MetadataOptions(TypedDict, total=False):
     external_dependencies_override: Optional[
         Dict[str, Dict[str, Union[str, List[str]]]]
     ]
+    external_dependencies_only: Optional[bool]
     odoo_version_override: Optional[str]
     post_version_strategy_override: Optional[str]
 
@@ -75,7 +94,7 @@ def _metadata_from_addon_dir_using_setuptools_odoo(
     from setuptools_odoo import get_addon_metadata  # type: ignore[import]
 
     try:
-        return get_addon_metadata(  # type: ignore[no-any-return]
+        metadata = get_addon_metadata(
             str(addon_dir),
             depends_override=options.get("depends_override"),
             external_dependencies_override=options.get(
@@ -93,3 +112,12 @@ def _metadata_from_addon_dir_using_setuptools_odoo(
         if "Version in manifest must" in str(e):
             raise UnsupportedManifestVersion(str(e)) from e
         raise
+
+    # Update Requires-Dist metadata with dependencies that are not odoo nor odoo addons
+    if options.get("external_dependencies_only"):
+        requires_dist = metadata.get_all("Requires-Dist")
+        del metadata["Requires-Dist"]
+        for requires_dist_entry in _filter_odoo_addon_dependencies(requires_dist):
+            metadata["Requires-Dist"] = requires_dist_entry
+
+    return metadata  # type: ignore[no-any-return]

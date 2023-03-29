@@ -14,6 +14,7 @@ from manifestoo_core.metadata import (
     POST_VERSION_STRATEGY_NINETYNINE_DEVN,
     POST_VERSION_STRATEGY_NONE,
     POST_VERSION_STRATEGY_P1_DEVN,
+    _filter_odoo_addon_dependencies,
     metadata_from_addon_dir,
 )
 
@@ -43,6 +44,7 @@ def _m(
     external_dependencies_override: Optional[
         Dict[str, Dict[str, Union[str, List[str]]]]
     ] = None,
+    external_dependencies_only: Optional[bool] = None,
     odoo_version_override: Optional[str] = None,
     post_version_strategy_override: Optional[str] = None,
     precomputed_metadata_file: Optional[Path] = None,
@@ -78,6 +80,7 @@ def _m(
             options=dict(
                 depends_override=depends_override,
                 external_dependencies_override=external_dependencies_override,
+                external_dependencies_only=external_dependencies_only,
                 odoo_version_override=odoo_version_override,
                 post_version_strategy_override=post_version_strategy_override,
             ),
@@ -231,6 +234,17 @@ def test_external_dependencies(tmp_path: Path) -> None:
     ] == [
         "lxml",
         "odoo>=14.0a,<14.1dev",
+    ]
+
+
+def test_external_dependencies_only(tmp_path: Path) -> None:
+    assert _m(
+        tmp_path,
+        depends=["mis_builder"],
+        external_dependencies={"python": ["lxml"]},
+        external_dependencies_only=True,
+    )["requires_dist"] == [
+        "lxml",
     ]
 
 
@@ -645,3 +659,27 @@ def test_git_post_version_no_manifest_in_history(
         )
     )
     assert metadata["version"] == "16.0.1.2.0"
+
+
+@pytest.mark.parametrize(
+    ("dependencies", "expected"),
+    [
+        (
+            [
+                "lxml",
+                "wrapt",
+                "odoo8-addon-toto",
+                "odoo12-addon-connector",
+                "odoo",
+                "odoo>=16",
+                "odoo-addon-mis_builder",
+                "odoorpc",
+            ],
+            ["lxml", "wrapt", "odoorpc"],
+        ),
+    ],
+)
+def test_filter_odoo_addon_dependencies(
+    dependencies: List[str], expected: List[str]
+) -> None:
+    assert list(_filter_odoo_addon_dependencies(dependencies)) == expected

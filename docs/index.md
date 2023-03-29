@@ -13,7 +13,7 @@ installation
 api
 Development <develop>
 Changelog <changelog>
-GitHub Repository <https://github.com/sbidoul/manifestoo-core>
+GitHub Repository <https://github.com/acsone/manifestoo-core>
 ```
 
 ```{include} ../README.md

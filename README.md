@@ -38,9 +38,9 @@ Any part of the library that is not documented may change without notice.
 
 <!--- features-end -->
 
-[github-ci]: https://github.com/sbidoul/manifestoo-core/actions/workflows/ci.yml/badge.svg
-[github-link]: https://github.com/sbidoul/manifestoo-core
-[codecov-badge]: https://codecov.io/gh/sbidoul/manifestoo-core/branch/master/graph/badge.svg
-[codecov-link]: https://codecov.io/gh/sbidoul/manifestoo-core
+[github-ci]: https://github.com/acsone/manifestoo-core/actions/workflows/ci.yml/badge.svg
+[github-link]: https://github.com/acsone/manifestoo-core
+[codecov-badge]: https://codecov.io/gh/acsone/manifestoo-core/branch/master/graph/badge.svg
+[codecov-link]: https://codecov.io/gh/acsone/manifestoo-core
 [pypi-badge]: https://img.shields.io/pypi/v/manifestoo-core.svg
 [pypi-link]: https://pypi.org/project/manifestoo-core

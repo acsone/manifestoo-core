@@ -7,7 +7,9 @@ from .exceptions import InvalidManifest
 T = TypeVar("T")
 VT = TypeVar("VT")
 
-__all__ = ["Manifest", "InvalidManifest", "get_manifest_path"]
+__all__ = ["Manifest", "InvalidManifest", "get_manifest_path", "MANIFEST_NAMES"]
+
+MANIFEST_NAMES = ("__manifest__.py", "__openerp__.py", "__terp__.py")
 
 
 def _check_str(value: Any) -> str:
@@ -61,7 +63,7 @@ def get_manifest_path(addon_dir: Path) -> Optional[Path]:
 
     Returns None if no manifest file is found.
     """
-    for manifest_name in ("__manifest__.py", "__openerp__.py", "__terp__.py"):
+    for manifest_name in MANIFEST_NAMES:
         manifest_path = addon_dir / manifest_name
         if manifest_path.is_file():
             return manifest_path
@@ -89,6 +91,14 @@ class Manifest:
         return self._get("name", _check_optional_str, default=None)
 
     @property
+    def summary(self) -> Optional[str]:
+        return self._get("summary", _check_optional_str, default=None)
+
+    @property
+    def description(self) -> Optional[str]:
+        return self._get("description", _check_optional_str, default=None)
+
+    @property
     def version(self) -> Optional[str]:
         return self._get("version", _check_optional_str, default=None)
 
@@ -109,6 +119,14 @@ class Manifest:
     @property
     def license(self) -> Optional[str]:  # noqa: A003
         return self._get("license", _check_optional_str, default=None)
+
+    @property
+    def author(self) -> Optional[str]:
+        return self._get("author", _check_optional_str, default=None)
+
+    @property
+    def website(self) -> Optional[str]:
+        return self._get("website", _check_optional_str, default=None)
 
     @property
     def development_status(self) -> Optional[str]:

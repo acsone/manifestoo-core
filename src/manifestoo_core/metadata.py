@@ -122,7 +122,7 @@ def metadata_from_addon_dir(
             options.get("odoo_version_override"),
             git_post_version=True,
             post_version_strategy_override=options.get(
-                "post_version_strategy_override"
+                "post_version_strategy_override",
             ),
         )
     install_requires = _get_install_requires(
@@ -296,13 +296,15 @@ def _addon_name_from_metadata_name(metadata_name: str) -> str:
 
 
 def _addon_name_to_metadata_name(
-    odoo_version_info: OdooVersionInfo, addon_name: str
+    odoo_version_info: OdooVersionInfo,
+    addon_name: str,
 ) -> str:
     return odoo_version_info.pkg_name_pfx + "-" + addon_name
 
 
 def _addon_name_to_requires_dist(
-    odoo_version_info: OdooVersionInfo, addon_name: str
+    odoo_version_info: OdooVersionInfo,
+    addon_name: str,
 ) -> str:
     pkg_name = _addon_name_to_metadata_name(odoo_version_info, addon_name)
     pkg_version_specifier = odoo_version_info.pkg_version_specifier
@@ -387,7 +389,7 @@ def _make_classifiers(odoo_series: str, manifest: Manifest) -> List[str]:
     development_status = manifest.development_status
     if development_status:
         development_status_classifer = development_statuses.get(
-            development_status.lower()
+            development_status.lower(),
         )
         if development_status_classifer:
             classifiers.append(development_status_classifer)

@@ -14,7 +14,7 @@ MANIFEST_NAMES = ("__manifest__.py", "__openerp__.py", "__terp__.py")
 
 def _check_str(value: Any) -> str:
     if not isinstance(value, str):
-        raise TypeError()
+        raise TypeError
     return value
 
 
@@ -26,22 +26,24 @@ def _check_optional_str(value: Any) -> Optional[str]:
 
 def _check_bool(value: Any) -> bool:
     if not isinstance(value, bool):
-        raise TypeError()
+        raise TypeError
     return value
 
 
 def _check_list(value: Any, item_checker: Callable[[Any], T]) -> List[T]:
     if not isinstance(value, list):
-        raise TypeError()
+        raise TypeError
     map(item_checker, value)
     return value
 
 
 def _check_dict(
-    value: Any, key_checker: Callable[[Any], T], value_checker: Callable[[Any], VT]
+    value: Any,
+    key_checker: Callable[[Any], T],
+    value_checker: Callable[[Any], VT],
 ) -> Dict[T, VT]:
     if not isinstance(value, dict):
-        raise TypeError()
+        raise TypeError
     for k, v in value.items():
         key_checker(k)
         value_checker(v)
@@ -113,7 +115,9 @@ class Manifest:
     @property
     def external_dependencies(self) -> Dict[str, List[str]]:
         return self._get(
-            "external_dependencies", _check_dict_of_list_of_str, default={}
+            "external_dependencies",
+            _check_dict_of_list_of_str,
+            default={},
         )
 
     @property
@@ -134,7 +138,9 @@ class Manifest:
 
     @classmethod
     def from_dict(
-        cls, manifest_dict: Dict[Any, Any], source: str = "<manifest>"
+        cls,
+        manifest_dict: Dict[Any, Any],
+        source: str = "<manifest>",
     ) -> "Manifest":
         """Parse a manifest dictionary into a :class:`Manifest` object.
 

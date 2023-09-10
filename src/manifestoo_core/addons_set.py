@@ -19,7 +19,7 @@ class AddonsSet(Dict[str, Addon]):
         for addon_dir in addons_dir.iterdir():
             try:
                 addon = Addon.from_addon_dir(addon_dir)
-            except AddonNotFound as e:
+            except AddonNotFound as e:  # noqa: PERF203
                 _logger.debug(f"ignoring {addon_dir}: {e}")
                 continue
             else:

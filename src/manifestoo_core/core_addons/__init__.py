@@ -4,7 +4,7 @@ import sys
 from functools import lru_cache
 from typing import Set
 
-if sys.version_info >= (3, 7):
+if sys.version_info >= (3, 7):  # noqa: UP036
     from importlib.resources import open_text
 else:
     from importlib_resources import open_text
@@ -33,7 +33,8 @@ def _get_core_addons(odoo_series: OdooSeries, odoo_edition: OdooEdition) -> Set[
 def get_core_addons(odoo_series: OdooSeries) -> Set[str]:
     """Return the set of core Odoo addons for a given Odoo series."""
     return _get_core_addons(odoo_series, OdooEdition.CE) | _get_core_addons(
-        odoo_series, OdooEdition.EE
+        odoo_series,
+        OdooEdition.EE,
     )
 
 

@@ -21,6 +21,8 @@ def mock_addons_set(addons: Dict[str, Dict[str, Any]]) -> AddonsSet:
     addons_set = AddonsSet()
     for addon_name, manifest_dict in addons.items():
         manifest = Manifest.from_dict(manifest_dict)
-        manifest_path = Path("/tmp/fake-addons-dir") / addon_name / "__manifest__.py"
+        manifest_path = (
+            Path("/tmp/fake-addons-dir") / addon_name / "__manifest__.py"  # noqa: S108
+        )
         addons_set[addon_name] = Addon(manifest, manifest_path)
     return addons_set

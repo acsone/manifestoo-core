@@ -22,29 +22,42 @@ POST_VERSION_STRATEGY_DOT_N: Final = ".N"
 
 
 def _run_git_command_exit_code(
-    args: List[str], cwd: Optional[Path] = None, stderr: Optional[TextIO] = None
+    args: List[str],
+    cwd: Optional[Path] = None,
+    stderr: Optional[TextIO] = None,
 ) -> int:
-    return subprocess.call(["git", *args], cwd=cwd, stderr=stderr)
+    return subprocess.call(
+        ["git", *args],  # noqa: S603, S607
+        cwd=cwd,
+        stderr=stderr,
+    )
 
 
 def _run_git_command_bytes(
-    args: List[str], cwd: Optional[Path] = None, stderr: Optional[TextIO] = None
+    args: List[str],
+    cwd: Optional[Path] = None,
+    stderr: Optional[TextIO] = None,
 ) -> str:
     output = subprocess.check_output(
-        ["git", *args], cwd=cwd, universal_newlines=True, stderr=stderr
+        ["git", *args],  # noqa: S603, S607
+        cwd=cwd,
+        universal_newlines=True,
+        stderr=stderr,
     )
     return output.strip()
 
 
 def _run_git_command_lines(
-    args: List[str], cwd: Optional[Path] = None, stderr: Optional[TextIO] = None
+    args: List[str],
+    cwd: Optional[Path] = None,
+    stderr: Optional[TextIO] = None,
 ) -> List[str]:
     output = _run_git_command_bytes(args, cwd=cwd, stderr=stderr)
     return output.split("\n")
 
 
 def _is_git_controlled(path: Path) -> bool:
-    with open(os.devnull, "w") as devnull:
+    with Path(os.devnull).open("w") as devnull:
         r = _run_git_command_exit_code(["rev-parse"], cwd=path, stderr=devnull)
         return r == 0
 
@@ -76,7 +89,9 @@ def _git_log_iterator(path: Path) -> Iterator[str]:
 
 
 def _read_manifest_from_sha(
-    sha: str, addon_dir: Path, git_root: Path
+    sha: str,
+    addon_dir: Path,
+    git_root: Path,
 ) -> Optional[Manifest]:
     rel_addon_dir = addon_dir.relative_to(git_root)
     for manifest_name in MANIFEST_NAMES:
@@ -84,7 +99,9 @@ def _read_manifest_from_sha(
         try:
             with Path(os.devnull).open("w") as devnull:
                 s = _run_git_command_bytes(
-                    ["show", f"{sha}:{manifest_path}"], cwd=git_root, stderr=devnull
+                    ["show", f"{sha}:{manifest_path}"],
+                    cwd=git_root,
+                    stderr=devnull,
                 )
         except subprocess.CalledProcessError:
             continue
@@ -101,7 +118,10 @@ def _bump_last(version: str) -> str:
     return ".".join(str(i) for i in int_version)
 
 
-def get_git_postversion(addon: Addon, strategy: str) -> str:  # noqa: C901 too complex
+def get_git_postversion(  # noqa: C901, PLR0911, PLR0912 too complex
+    addon: Addon,
+    strategy: str,
+) -> str:
     """return the addon version number, with a developmental version increment
     if there were git commits in the addon_dir after the last version change.
 

@@ -38,7 +38,9 @@ def _check_list(value: Any, item_checker: Callable[[Any], T]) -> List[T]:
 
 
 def _check_dict(
-    value: Any, key_checker: Callable[[Any], T], value_checker: Callable[[Any], VT]
+    value: Any,
+    key_checker: Callable[[Any], T],
+    value_checker: Callable[[Any], VT],
 ) -> Dict[T, VT]:
     if not isinstance(value, dict):
         raise TypeError
@@ -113,7 +115,9 @@ class Manifest:
     @property
     def external_dependencies(self) -> Dict[str, List[str]]:
         return self._get(
-            "external_dependencies", _check_dict_of_list_of_str, default={}
+            "external_dependencies",
+            _check_dict_of_list_of_str,
+            default={},
         )
 
     @property
@@ -134,7 +138,9 @@ class Manifest:
 
     @classmethod
     def from_dict(
-        cls, manifest_dict: Dict[Any, Any], source: str = "<manifest>"
+        cls,
+        manifest_dict: Dict[Any, Any],
+        source: str = "<manifest>",
     ) -> "Manifest":
         """Parse a manifest dictionary into a :class:`Manifest` object.
 

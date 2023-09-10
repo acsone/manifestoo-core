@@ -71,9 +71,9 @@ def _m(  # noqa: PLR0913 too many arguments
                     author=author,
                     license=license,
                     development_status=development_status,
-                )
-            )
-        )
+                ),
+            ),
+        ),
     )
     if readme_rst:
         readme_path = addon_dir / "README.rst"
@@ -89,7 +89,7 @@ def _m(  # noqa: PLR0913 too many arguments
                 post_version_strategy_override=post_version_strategy_override,
             ),
             precomputed_metadata_file=precomputed_metadata_file,
-        )
+        ),
     )
 
 
@@ -169,7 +169,7 @@ def test_name_prefix(tmp_path: Path, odoo_series: str, expected_prefix: str) -> 
 def test_depends_core_addon(tmp_path: Path) -> None:
     """A dependency on a core addon should be ignored."""
     assert _m(tmp_path, version="14.0.1.0.0", depends=["base"])["requires_dist"] == [
-        "odoo>=14.0a,<14.1dev"
+        "odoo>=14.0a,<14.1dev",
     ]
 
 
@@ -211,7 +211,10 @@ def test_depends_core_addon(tmp_path: Path) -> None:
     ],
 )
 def test_depends_noncore_addon(
-    tmp_path: Path, odoo_series: str, depends: List[str], expected: List[str]
+    tmp_path: Path,
+    odoo_series: str,
+    depends: List[str],
+    expected: List[str],
 ) -> None:
     """A dependency on a non-core addon appears in requires_dist."""
     requires_dist = _m(tmp_path, version=f"{odoo_series}.1.0.0", depends=depends)[
@@ -268,7 +271,7 @@ def test_external_dependencies_override_multi(tmp_path: Path) -> None:
         tmp_path,
         external_dependencies={"python": ["lxml"]},
         external_dependencies_override={
-            "python": {"lxml": ["lxml>=3.8.0", "something"]}
+            "python": {"lxml": ["lxml>=3.8.0", "something"]},
         },
     )["requires_dist"] == ["lxml>=3.8.0", "odoo>=14.0a,<14.1dev", "something"]
 
@@ -299,13 +302,15 @@ def test_summary_from_summary(tmp_path: Path) -> None:
 
 
 def test_description(
-    tmp_path: Path, description: str = "A description\n\nwith two lines"
+    tmp_path: Path,
+    description: str = "A description\n\nwith two lines",
 ) -> None:
     assert _m(tmp_path, description=description)["description"] == description
 
 
 def test_description_from_readme(
-    tmp_path: Path, readme_rst: str = "A readme\n\nwith two lines"
+    tmp_path: Path,
+    readme_rst: str = "A readme\n\nwith two lines",
 ) -> None:
     assert _m(tmp_path, readme_rst=readme_rst)["description"] == readme_rst
 
@@ -412,7 +417,9 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
     ],
 )
 def test_classifiers_license(
-    tmp_path: Path, license: str, expected_license: str  # noqa: A002
+    tmp_path: Path,
+    license: str,  # noqa: A002 shadowing Python builtin
+    expected_license: str,
 ) -> None:
     assert expected_license in _m(tmp_path, license=license)["classifier"]
 
@@ -429,7 +436,9 @@ def test_classifiers_license(
     ],
 )
 def test_classifiers_development_status(
-    tmp_path: Path, development_status: str, expected_development_status: str
+    tmp_path: Path,
+    development_status: str,
+    expected_development_status: str,
 ) -> None:
     assert (
         expected_development_status
@@ -467,12 +476,13 @@ def _make_git_addon(
     addon_dir = tmp_path / addon_name
     addon_dir.mkdir()
     addon_dir.joinpath("__manifest__.py").write_text(
-        f"{{'name': '{addon_name}', 'version': '{manifest_version}'}}"
+        f"{{'name': '{addon_name}', 'version': '{manifest_version}'}}",
     )
     addon_dir.joinpath("__init__.py").touch()
     subprocess.check_call(["git", "init"], cwd=addon_dir)
     subprocess.check_call(
-        ["git", "config", "user.email", "test@example.com"], cwd=addon_dir
+        ["git", "config", "user.email", "test@example.com"],
+        cwd=addon_dir,
     )
     subprocess.check_call(["git", "config", "user.name", "test"], cwd=addon_dir)
     subprocess.check_call(["git", "add", "."], cwd=addon_dir)
@@ -535,7 +545,7 @@ def test_git_post_version(
         metadata_from_addon_dir(
             addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
-        )
+        ),
     )
     assert metadata["version"] == expected_version
 
@@ -562,14 +572,16 @@ def test_git_post_version_uncommitted_change(
     expected_version: str,
 ) -> None:
     addon_dir = _make_git_addon(
-        tmp_path, manifest_version=manifest_version, post_commits=post_commits
+        tmp_path,
+        manifest_version=manifest_version,
+        post_commits=post_commits,
     )
     addon_dir.joinpath("README.rst").write_text("stuff")
     metadata = msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
-        )
+        ),
     )
     assert metadata["version"] == expected_version
 
@@ -589,12 +601,12 @@ def test_git_post_version_bad_manifest_in_history(
 ) -> None:
     addon_dir = _make_git_addon(tmp_path, manifest_version="16.0.1.1.0")
     addon_dir.joinpath("__manifest__.py").write_text(
-        "{syntaxerror, 'version': '16.0.1.2.0'}"
+        "{syntaxerror, 'version': '16.0.1.2.0'}",
     )
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "bad manifest"], cwd=addon_dir)
     addon_dir.joinpath("__manifest__.py").write_text(
-        "{'name': 'A', 'version': '16.0.1.3.0'}"
+        "{'name': 'A', 'version': '16.0.1.3.0'}",
     )
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "good manifest"], cwd=addon_dir)
@@ -602,7 +614,7 @@ def test_git_post_version_bad_manifest_in_history(
         metadata_from_addon_dir(
             addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
-        )
+        ),
     )
     assert metadata["version"] == "16.0.1.3.0"
 
@@ -622,7 +634,7 @@ def test_git_post_version_good_manifest_in_history(
 ) -> None:
     addon_dir = _make_git_addon(tmp_path, manifest_version="16.0.1.1.0")
     addon_dir.joinpath("__manifest__.py").write_text(
-        "{'name': 'A', 'version': '16.0.1.2.0'}"
+        "{'name': 'A', 'version': '16.0.1.2.0'}",
     )
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "good manifest"], cwd=addon_dir)
@@ -630,7 +642,7 @@ def test_git_post_version_good_manifest_in_history(
         metadata_from_addon_dir(
             addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
-        )
+        ),
     )
     assert metadata["version"] == "16.0.1.2.0"
 
@@ -652,7 +664,7 @@ def test_git_post_version_no_manifest_in_history(
     subprocess.check_call(["git", "rm", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "no manifest"], cwd=addon_dir)
     addon_dir.joinpath("__manifest__.py").write_text(
-        "{'name': 'A', 'version': '16.0.1.2.0'}"
+        "{'name': 'A', 'version': '16.0.1.2.0'}",
     )
     subprocess.check_call(["git", "add", "__manifest__.py"], cwd=addon_dir)
     subprocess.check_call(["git", "commit", "-m", "good manifest"], cwd=addon_dir)
@@ -660,7 +672,7 @@ def test_git_post_version_no_manifest_in_history(
         metadata_from_addon_dir(
             addon_dir,
             options=dict(post_version_strategy_override=post_version_strategy_override),
-        )
+        ),
     )
     assert metadata["version"] == "16.0.1.2.0"
 
@@ -684,7 +696,8 @@ def test_git_post_version_no_manifest_in_history(
     ],
 )
 def test_filter_odoo_addon_dependencies(
-    dependencies: List[str], expected: List[str]
+    dependencies: List[str],
+    expected: List[str],
 ) -> None:
     assert list(_filter_odoo_addon_dependencies(dependencies)) == expected
 

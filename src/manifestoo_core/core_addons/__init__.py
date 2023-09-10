@@ -33,7 +33,8 @@ def _get_core_addons(odoo_series: OdooSeries, odoo_edition: OdooEdition) -> Set[
 def get_core_addons(odoo_series: OdooSeries) -> Set[str]:
     """Return the set of core Odoo addons for a given Odoo series."""
     return _get_core_addons(odoo_series, OdooEdition.CE) | _get_core_addons(
-        odoo_series, OdooEdition.EE
+        odoo_series,
+        OdooEdition.EE,
     )
 
 

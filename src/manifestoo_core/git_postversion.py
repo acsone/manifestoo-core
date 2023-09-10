@@ -22,7 +22,9 @@ POST_VERSION_STRATEGY_DOT_N: Final = ".N"
 
 
 def _run_git_command_exit_code(
-    args: List[str], cwd: Optional[Path] = None, stderr: Optional[TextIO] = None
+    args: List[str],
+    cwd: Optional[Path] = None,
+    stderr: Optional[TextIO] = None,
 ) -> int:
     return subprocess.call(
         ["git", *args],  # noqa: S603, S607
@@ -32,7 +34,9 @@ def _run_git_command_exit_code(
 
 
 def _run_git_command_bytes(
-    args: List[str], cwd: Optional[Path] = None, stderr: Optional[TextIO] = None
+    args: List[str],
+    cwd: Optional[Path] = None,
+    stderr: Optional[TextIO] = None,
 ) -> str:
     output = subprocess.check_output(
         ["git", *args],  # noqa: S603, S607
@@ -44,7 +48,9 @@ def _run_git_command_bytes(
 
 
 def _run_git_command_lines(
-    args: List[str], cwd: Optional[Path] = None, stderr: Optional[TextIO] = None
+    args: List[str],
+    cwd: Optional[Path] = None,
+    stderr: Optional[TextIO] = None,
 ) -> List[str]:
     output = _run_git_command_bytes(args, cwd=cwd, stderr=stderr)
     return output.split("\n")
@@ -83,7 +89,9 @@ def _git_log_iterator(path: Path) -> Iterator[str]:
 
 
 def _read_manifest_from_sha(
-    sha: str, addon_dir: Path, git_root: Path
+    sha: str,
+    addon_dir: Path,
+    git_root: Path,
 ) -> Optional[Manifest]:
     rel_addon_dir = addon_dir.relative_to(git_root)
     for manifest_name in MANIFEST_NAMES:
@@ -91,7 +99,9 @@ def _read_manifest_from_sha(
         try:
             with Path(os.devnull).open("w") as devnull:
                 s = _run_git_command_bytes(
-                    ["show", f"{sha}:{manifest_path}"], cwd=git_root, stderr=devnull
+                    ["show", f"{sha}:{manifest_path}"],
+                    cwd=git_root,
+                    stderr=devnull,
                 )
         except subprocess.CalledProcessError:
             continue

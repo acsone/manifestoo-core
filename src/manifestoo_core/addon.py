@@ -35,7 +35,10 @@ class Addon:
     """Represent a concrete addon manifest."""
 
     def __init__(
-        self, manifest: Manifest, manifest_path: Path, name: Optional[str] = None
+        self,
+        manifest: Manifest,
+        manifest_path: Path,
+        name: Optional[str] = None,
     ) -> None:
         self.manifest = manifest
         self.manifest_path = manifest_path
@@ -47,7 +50,9 @@ class Addon:
 
     @classmethod
     def from_addon_dir(
-        cls, addon_dir: Path, allow_not_installable: bool = False
+        cls,
+        addon_dir: Path,
+        allow_not_installable: bool = False,
     ) -> "Addon":
         if not addon_dir.is_dir():
             msg = f"{addon_dir} is not a directory"

@@ -23,7 +23,7 @@ def test_detect_none() -> None:
         {
             "a": {"version": "1.0.0"},
             "b": {},
-        }
+        },
     )
     assert detect_from_addons_set(addons_set) == set()
 
@@ -33,7 +33,7 @@ def test_detect_one() -> None:
         {
             "a": {"version": "1.0.0"},
             "b": {"version": "12.0.1.0.0"},
-        }
+        },
     )
     assert detect_from_addons_set(addons_set) == {OdooSeries.v12_0}
 
@@ -43,7 +43,7 @@ def test_detect_ambiguous() -> None:
         {
             "a": {"version": "13.0.1.0.0"},
             "b": {"version": "12.0.1.0.0"},
-        }
+        },
     )
     assert detect_from_addons_set(addons_set) == {OdooSeries.v12_0, OdooSeries.v13_0}
 

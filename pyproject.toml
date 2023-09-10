@@ -60,7 +60,7 @@ exclude = [
 ]
 
 [tool.ruff]
-fix = false
+fix = true
 select = [
     "ALL",
 ]

@@ -18,8 +18,8 @@ from manifestoo_core.manifest import Manifest
         {
             "dir": "a",
             "manifest": "{}",
-        }
-    ]
+        },
+    ],
 )
 def addon_dir(request: pytest.FixtureRequest, tmp_path: Path) -> Path:
     addon_dir = tmp_path.joinpath(request.param["dir"])
@@ -35,7 +35,7 @@ def addon_dir(request: pytest.FixtureRequest, tmp_path: Path) -> Path:
         {
             "dir": "theaddon",
             "manifest": "{'name': 'the addon'}",
-        }
+        },
     ],
     indirect=True,
 )
@@ -57,7 +57,7 @@ def test_not_a_directory(tmp_path: Path) -> None:
         {
             "dir": "a",
             "manifest": "{'installable': False}",
-        }
+        },
     ],
     indirect=True,
 )
@@ -73,7 +73,7 @@ def test_not_installable(addon_dir: Path) -> None:
         {
             "dir": "a",
             "manifest": "[]",
-        }
+        },
     ],
     indirect=True,
 )
@@ -88,7 +88,7 @@ def test_invalid_manifest(addon_dir: Path) -> None:
         {
             "dir": "a",
             "manifest": "{'installable':}",
-        }
+        },
     ],
     indirect=True,
 )
@@ -103,7 +103,7 @@ def test_manifest_syntax_error(addon_dir: Path) -> None:
         {
             "dir": "a",
             "manifest": "{'installable': '?'}",
-        }
+        },
     ],
     indirect=True,
 )

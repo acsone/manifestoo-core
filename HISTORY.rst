@@ -1,3 +1,13 @@
+1.0 (2023-09-10)
+================
+
+Features
+--------
+
+- Remove ``setuptools-odoo`` dependency. Let ``metadata_from_addon_dir`` emit Python
+  Package Metadata 2.1 (same format, but compatible with PyPI). (`#44 <https://github.com/acsone/manifestoo-core/issues/44>`_)
+- Update core addon lists. (`#46 <https://github.com/acsone/manifestoo-core/issues/46>`_)
+
 0.11.0 (2023-03-29)
 ===================
 

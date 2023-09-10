@@ -21,7 +21,7 @@ classifiers = [
 readme = "README.md"
 dependencies = [
     "dataclasses ; python_version<'3.7'",
-    "importlib_resources ; python_version<'3.7'",
+    "importlib_resources ; python_version<'3.9'",
     "packaging",
     "typing-extensions ; python_version < '3.8'",
 ]

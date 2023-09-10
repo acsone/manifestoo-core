@@ -4,10 +4,10 @@ import sys
 from functools import lru_cache
 from typing import Set
 
-if sys.version_info >= (3, 7):  # noqa: UP036
-    from importlib.resources import open_text
+if sys.version_info >= (3, 9):
+    from importlib.resources import files as package_files
 else:
-    from importlib_resources import open_text
+    from importlib_resources import files as package_files
 
 from ..odoo_series import OdooEdition, OdooSeries
 
@@ -22,10 +22,9 @@ __all__ = [
 
 @lru_cache()
 def _get_core_addons(odoo_series: OdooSeries, odoo_edition: OdooEdition) -> Set[str]:
-    with open_text(
-        "manifestoo_core.core_addons",
+    with package_files("manifestoo_core.core_addons").joinpath(
         f"addons-{odoo_series.value}-{odoo_edition.value}.txt",
-    ) as f:
+    ).open() as f:
         return {a.strip() for a in f if not a.startswith("#")}
 
 

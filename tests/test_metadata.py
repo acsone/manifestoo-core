@@ -27,7 +27,7 @@ def _no_none(d: Dict[str, Any]) -> Dict[str, Any]:
     return {k: v for k, v in d.items() if v is not None}
 
 
-def _m(
+def _m(  # noqa: PLR0913 too many arguments
     tmp_path: Path,
     *,
     addon_dir_name: str = "addon1",
@@ -120,7 +120,7 @@ def test_basic(tmp_path: Path) -> None:
         ("13.0", ["odoo>=13.0a,<13.1dev"]),
         ("14.0", ["odoo>=14.0a,<14.1dev"]),
         ("15.0", ["odoo>=15.0a,<15.1dev"]),
-        ("16.0", ["odoo>=16.0a,<16.1dev"]),  # TODO >=16.0dev ?
+        ("16.0", ["odoo>=16.0a,<16.1dev"]),
     ],
 )
 def test_requires_odoo(tmp_path: Path, odoo_series: str, expected: List[str]) -> None:

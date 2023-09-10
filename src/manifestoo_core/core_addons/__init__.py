@@ -4,7 +4,7 @@ import sys
 from functools import lru_cache
 from typing import Set
 
-if sys.version_info >= (3, 7):
+if sys.version_info >= (3, 7):  # noqa: UP036
     from importlib.resources import open_text
 else:
     from importlib_resources import open_text

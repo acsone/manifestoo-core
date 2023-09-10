@@ -1,7 +1,6 @@
 from pathlib import Path
 
 import pytest
-from pytest import FixtureRequest
 
 from manifestoo_core.addon import Addon, is_addon_dir
 from manifestoo_core.exceptions import (
@@ -22,7 +21,7 @@ from manifestoo_core.manifest import Manifest
         }
     ]
 )
-def addon_dir(request: FixtureRequest, tmp_path: Path) -> Path:
+def addon_dir(request: pytest.FixtureRequest, tmp_path: Path) -> Path:
     addon_dir = tmp_path.joinpath(request.param["dir"])
     addon_dir.mkdir()
     addon_dir.joinpath("__init__.py").touch()
@@ -127,16 +126,21 @@ def test_no_init(addon_dir: Path) -> None:
 
 def test_addon_constructor() -> None:
     manifest = Manifest.from_dict({"name": "the addon"})
-    addon = Addon(manifest, manifest_path=Path("/tmp/theaddon/__manifest__.py"))
+    addon = Addon(
+        manifest,
+        manifest_path=Path("/tmp/theaddon/__manifest__.py"),  # noqa: S108
+    )
     assert addon.name == "theaddon"
     addon = Addon(
-        manifest, manifest_path=Path("/tmp/tmp/__manifest__.py"), name="theaddon"
+        manifest,
+        manifest_path=Path("/tmp/tmp/__manifest__.py"),  # noqa: S108
+        name="theaddon",
     )
     assert addon.name == "theaddon"
 
 
 @pytest.mark.parametrize(
-    "addon_dir, expected",
+    ("addon_dir", "expected"),
     [
         (
             {

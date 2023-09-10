@@ -53,5 +53,5 @@ def test_series_from_str() -> None:
 
 
 def test_unknown_series_from_str() -> None:
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError):  # noqa: PT011
         OdooSeries("45.0")

@@ -6,7 +6,7 @@ from manifestoo_core.manifest import InvalidManifest, Manifest
 
 
 @pytest.mark.parametrize(
-    "key, value",
+    ("key", "value"),
     [
         ("name", "the name"),
         ("name", None),
@@ -28,7 +28,7 @@ def test_manifest_valid_value(key: str, value: Any) -> None:
 
 
 @pytest.mark.parametrize(
-    "key, value",
+    ("key", "value"),
     [
         ("name", 1),
         ("version", 1),
@@ -61,7 +61,7 @@ def test_manifest_invalid_syntax() -> None:
 
 
 @pytest.mark.parametrize(
-    "key, default",
+    ("key", "default"),
     [
         ("name", None),
         ("version", None),

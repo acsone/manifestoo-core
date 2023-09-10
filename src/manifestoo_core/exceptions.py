@@ -36,3 +36,11 @@ class AddonNotFoundNotADirectory(AddonNotFound):
 
 class AddonNotFoundInvalidManifest(AddonNotFound):
     pass
+
+
+class InvalidDistributionName(ManifestooException):
+    pass
+
+
+class UnknownPostVersionStrategy(ManifestooException):
+    pass

@@ -1,4 +1,4 @@
-# generated on Sun Sep 10 14:47:28 2023
+# generated on Sat Oct 21 15:23:38 2023
 account
 account_check_printing
 account_debit_note
@@ -293,6 +293,7 @@ pos_mrp
 pos_restaurant
 pos_restaurant_adyen
 pos_sale
+pos_sale_gift_card
 pos_sale_margin
 pos_sale_product_configurator
 pos_six

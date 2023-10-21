@@ -49,6 +49,7 @@ def _m(  # noqa: PLR0913 too many arguments
         Dict[str, Dict[str, Union[str, List[str]]]]
     ] = None,
     external_dependencies_only: Optional[bool] = None,
+    odoo_series_override: Optional[str] = None,
     odoo_version_override: Optional[str] = None,
     post_version_strategy_override: Optional[str] = None,
     precomputed_metadata_file: Optional[Path] = None,
@@ -85,6 +86,7 @@ def _m(  # noqa: PLR0913 too many arguments
                 depends_override=depends_override,
                 external_dependencies_override=external_dependencies_override,
                 external_dependencies_only=external_dependencies_only,
+                odoo_series_override=odoo_series_override,
                 odoo_version_override=odoo_version_override,
                 post_version_strategy_override=post_version_strategy_override,
             ),
@@ -276,7 +278,7 @@ def test_external_dependencies_override_multi(tmp_path: Path) -> None:
     )["requires_dist"] == ["lxml>=3.8.0", "odoo>=14.0a,<14.1dev", "something"]
 
 
-def test_odoo_version_unsupported(tmp_path: Path) -> None:
+def test_odoo_series_unsupported(tmp_path: Path) -> None:
     with pytest.raises(UnsupportedOdooSeries):
         _m(tmp_path, version="45.0.1.0.0")
 
@@ -289,6 +291,12 @@ def test_manifest_version_undetermined(tmp_path: Path, version: str) -> None:
 
 def test_odoo_version_override(tmp_path: Path) -> None:
     assert _m(tmp_path, version="45.0.1.0.0", odoo_version_override="14.0")[
+        "requires_dist"
+    ] == ["odoo>=14.0a,<14.1dev"]
+
+
+def test_odoo_series_override(tmp_path: Path) -> None:
+    assert _m(tmp_path, version="45.0.1.0.0", odoo_series_override="14.0")[
         "requires_dist"
     ] == ["odoo>=14.0a,<14.1dev"]
 

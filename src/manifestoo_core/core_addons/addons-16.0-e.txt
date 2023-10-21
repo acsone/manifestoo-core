@@ -1,4 +1,4 @@
-# generated on Sun Sep 10 14:47:13 2023
+# generated on Sat Oct 21 15:23:13 2023
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -189,6 +189,7 @@ l10n_de_pos_res_cert
 l10n_de_reports
 l10n_din5008_account_followup
 l10n_din5008_industry_fsm
+l10n_din5008_sale_renting
 l10n_dk_reports
 l10n_ec_edi
 l10n_ec_reports
@@ -298,6 +299,7 @@ pos_blackbox_be
 pos_enterprise
 pos_hr_mobile
 pos_iot
+pos_iot_six
 pos_l10n_se
 pos_restaurant_iot
 pos_sale_stock_renting

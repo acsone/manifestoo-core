@@ -66,7 +66,7 @@ class MetadataOptions(TypedDict, total=False):
     - ``depends_override``
     - ``external_dependencies_override``
     - ``external_dependencies_only``
-    - ``odoo_version_override``
+    - ``odoo_series_override`` and ``odoo_version_override``
     - ``post_version_strategy_override``
     """
 
@@ -75,6 +75,7 @@ class MetadataOptions(TypedDict, total=False):
         Dict[str, Dict[str, Union[str, List[str]]]]
     ]
     external_dependencies_only: Optional[bool]
+    odoo_series_override: Optional[str]
     odoo_version_override: Optional[str]
     post_version_strategy_override: Optional[str]
 
@@ -110,23 +111,23 @@ def metadata_from_addon_dir(
             pkg_info = email.parser.HeaderParser().parse(fp)
             addon_name = _addon_name_from_metadata_name(pkg_info["Name"])
             version = pkg_info["Version"]
-        _, odoo_series, odoo_version_info = _get_version(
+        _, odoo_series, odoo_series_info = _get_version(
             addon,
-            options.get("odoo_version_override"),
+            options.get("odoo_series_override") or options.get("odoo_version_override"),
             git_post_version=False,
         )
     else:
         addon_name = addon_dir.absolute().name
-        version, odoo_series, odoo_version_info = _get_version(
+        version, odoo_series, odoo_series_info = _get_version(
             addon,
-            options.get("odoo_version_override"),
+            options.get("odoo_series_override") or options.get("odoo_version_override"),
             git_post_version=True,
             post_version_strategy_override=options.get(
                 "post_version_strategy_override",
             ),
         )
     install_requires = _get_install_requires(
-        odoo_version_info,
+        odoo_series_info,
         manifest,
         depends_override=options.get("depends_override"),
         external_dependencies_override=options.get("external_dependencies_override"),
@@ -146,9 +147,9 @@ def metadata_from_addon_dir(
 
     meta = Message()
     _set("Metadata-Version", "2.1")
-    _set("Name", _addon_name_to_metadata_name(odoo_version_info, addon_name))
+    _set("Name", _addon_name_to_metadata_name(odoo_series_info, addon_name))
     _set("Version", version)
-    _set("Requires-Python", odoo_version_info.python_requires)
+    _set("Requires-Python", odoo_series_info.python_requires)
     _set("Requires-Dist", install_requires)
     _set("Summary", _no_nl(manifest.summary or manifest.name))
     _set("Home-page", manifest.website)
@@ -164,7 +165,7 @@ def metadata_from_addon_dir(
 
 
 @dataclass
-class OdooVersionInfo:
+class OdooSeriesInfo:
     odoo_dep: str
     pkg_name_pfx: str
     python_requires: str
@@ -176,8 +177,8 @@ class OdooVersionInfo:
     namespace_packages: Optional[List[str]] = None
 
 
-ODOO_VERSION_INFO = {
-    "8.0": OdooVersionInfo(
+ODOO_SERIES_INFO = {
+    OdooSeries.v8_0: OdooSeriesInfo(
         odoo_dep="odoo>=8.0a,<9.0a",
         pkg_name_pfx="odoo8-addon",
         addons_ns="odoo_addons",
@@ -187,7 +188,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_NINETYNINE_DEVN,
         core_addons=get_core_addons(OdooSeries.v8_0),
     ),
-    "9.0": OdooVersionInfo(
+    OdooSeries.v9_0: OdooSeriesInfo(
         odoo_dep="odoo>=9.0a,<9.1a",
         pkg_name_pfx="odoo9-addon",
         addons_ns="odoo_addons",
@@ -197,7 +198,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_NINETYNINE_DEVN,
         core_addons=get_core_addons(OdooSeries.v9_0),
     ),
-    "10.0": OdooVersionInfo(
+    OdooSeries.v10_0: OdooSeriesInfo(
         odoo_dep="odoo>=10.0,<10.1dev",
         pkg_name_pfx="odoo10-addon",
         addons_ns="odoo.addons",
@@ -207,7 +208,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_NINETYNINE_DEVN,
         core_addons=get_core_addons(OdooSeries.v10_0),
     ),
-    "11.0": OdooVersionInfo(
+    OdooSeries.v11_0: OdooSeriesInfo(
         odoo_dep="odoo>=11.0a,<11.1dev",
         pkg_name_pfx="odoo11-addon",
         addons_ns="odoo.addons",
@@ -217,7 +218,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_NINETYNINE_DEVN,
         core_addons=get_core_addons(OdooSeries.v11_0),
     ),
-    "12.0": OdooVersionInfo(
+    OdooSeries.v12_0: OdooSeriesInfo(
         odoo_dep="odoo>=12.0a,<12.1dev",
         pkg_name_pfx="odoo12-addon",
         addons_ns="odoo.addons",
@@ -227,7 +228,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_NINETYNINE_DEVN,
         core_addons=get_core_addons(OdooSeries.v12_0),
     ),
-    "13.0": OdooVersionInfo(
+    OdooSeries.v13_0: OdooSeriesInfo(
         odoo_dep="odoo>=13.0a,<13.1dev",
         pkg_name_pfx="odoo13-addon",
         addons_ns="odoo.addons",
@@ -237,7 +238,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_P1_DEVN,
         core_addons=get_core_addons(OdooSeries.v13_0),
     ),
-    "14.0": OdooVersionInfo(
+    OdooSeries.v14_0: OdooSeriesInfo(
         odoo_dep="odoo>=14.0a,<14.1dev",
         pkg_name_pfx="odoo14-addon",
         addons_ns="odoo.addons",
@@ -247,7 +248,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_P1_DEVN,
         core_addons=get_core_addons(OdooSeries.v14_0),
     ),
-    "15.0": OdooVersionInfo(
+    OdooSeries.v15_0: OdooSeriesInfo(
         odoo_dep="odoo>=15.0a,<15.1dev",
         pkg_name_pfx="odoo-addon",
         pkg_version_specifier=">=15.0dev,<15.1dev",
@@ -258,7 +259,7 @@ ODOO_VERSION_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
         core_addons=get_core_addons(OdooSeries.v15_0),
     ),
-    "16.0": OdooVersionInfo(
+    OdooSeries.v16_0: OdooSeriesInfo(
         odoo_dep="odoo>=16.0a,<16.1dev",
         pkg_name_pfx="odoo-addon",
         pkg_version_specifier=">=16.0dev,<16.1dev",
@@ -296,18 +297,18 @@ def _addon_name_from_metadata_name(metadata_name: str) -> str:
 
 
 def _addon_name_to_metadata_name(
-    odoo_version_info: OdooVersionInfo,
+    odoo_series_info: OdooSeriesInfo,
     addon_name: str,
 ) -> str:
-    return odoo_version_info.pkg_name_pfx + "-" + addon_name
+    return odoo_series_info.pkg_name_pfx + "-" + addon_name
 
 
 def _addon_name_to_requires_dist(
-    odoo_version_info: OdooVersionInfo,
+    odoo_series_info: OdooSeriesInfo,
     addon_name: str,
 ) -> str:
-    pkg_name = _addon_name_to_metadata_name(odoo_version_info, addon_name)
-    pkg_version_specifier = odoo_version_info.pkg_version_specifier
+    pkg_name = _addon_name_to_metadata_name(odoo_series_info, addon_name)
+    pkg_version_specifier = odoo_series_info.pkg_version_specifier
     return pkg_name + pkg_version_specifier
 
 
@@ -330,11 +331,11 @@ def _long_description(addon: Addon) -> Optional[str]:
     return addon.manifest.description
 
 
-def _make_classifiers(odoo_series: str, manifest: Manifest) -> List[str]:
+def _make_classifiers(odoo_series: OdooSeries, manifest: Manifest) -> List[str]:
     classifiers = [
         "Programming Language :: Python",
         "Framework :: Odoo",
-        f"Framework :: Odoo :: {odoo_series}",
+        f"Framework :: Odoo :: {odoo_series.value}",
     ]
 
     # commonly used licenses in OCA
@@ -398,7 +399,7 @@ def _make_classifiers(odoo_series: str, manifest: Manifest) -> List[str]:
 
 
 def _get_install_requires(
-    odoo_version_info: OdooVersionInfo,
+    odoo_series_info: OdooSeriesInfo,
     manifest: Manifest,
     no_depends: Optional[Set[str]] = None,
     depends_override: Optional[Dict[str, str]] = None,
@@ -408,17 +409,17 @@ def _get_install_requires(
 ) -> List[str]:
     install_requires = []
     # dependency on Odoo
-    install_requires.append(odoo_version_info.odoo_dep)
+    install_requires.append(odoo_series_info.odoo_dep)
     # dependencies on other addons (except Odoo official addons)
     for depend in manifest.depends:
-        if depend in odoo_version_info.core_addons:
+        if depend in odoo_series_info.core_addons:
             continue
         if no_depends and depend in no_depends:
             continue
         if depends_override and depend in depends_override:
             install_require = depends_override[depend]
         else:
-            install_require = _addon_name_to_requires_dist(odoo_version_info, depend)
+            install_require = _addon_name_to_requires_dist(odoo_series_info, depend)
         if install_require:
             install_requires.append(install_require)
     # python external_dependencies
@@ -439,17 +440,17 @@ def _get_install_requires(
 
 def _get_version(
     addon: Addon,
-    odoo_version_override: Optional[str] = None,
+    odoo_series_override: Optional[str] = None,
     git_post_version: bool = True,
     post_version_strategy_override: Optional[str] = None,
-) -> Tuple[str, str, OdooVersionInfo]:
+) -> Tuple[str, OdooSeries, OdooSeriesInfo]:
     """Get addon version information from an addon directory"""
     version = addon.manifest.version
     if not version:
         msg = f"No version in manifest in {addon.path}"
         warnings.warn(msg, stacklevel=1)
         version = "0.0.0"
-    if not odoo_version_override:
+    if not odoo_series_override:
         version_parts = version.split(".")
         if len(version_parts) < 5:
             msg = (
@@ -458,17 +459,21 @@ def _get_version(
                 f"the Odoo series number (in {addon.path})"
             )
             raise UnsupportedManifestVersion(msg)
-        odoo_version = ".".join(version_parts[:2])
+        odoo_series_str = ".".join(version_parts[:2])
     else:
-        odoo_version = odoo_version_override
-    if odoo_version not in ODOO_VERSION_INFO:
-        msg = f"Unsupported odoo version '{odoo_version}' in {addon.path}"
+        odoo_series_str = odoo_series_override
+    try:
+        odoo_series = OdooSeries(odoo_series_str)
+    except ValueError as e:
+        msg = f"Unsupported odoo series '{odoo_series_str}' in {addon.path}"
+        raise UnsupportedOdooSeries(msg) from e
+    if odoo_series not in ODOO_SERIES_INFO:
+        msg = f"Unsupported odoo series '{odoo_series_str}' in {addon.path}"
         raise UnsupportedOdooSeries(msg)
-    odoo_version_info = ODOO_VERSION_INFO[odoo_version]
+    odoo_series_info = ODOO_SERIES_INFO[odoo_series]
     if git_post_version:
         version = get_git_postversion(
             addon,
-            post_version_strategy_override
-            or odoo_version_info.git_postversion_strategy,
+            post_version_strategy_override or odoo_series_info.git_postversion_strategy,
         )
-    return version, odoo_version, odoo_version_info
+    return version, odoo_series, odoo_series_info

@@ -1,5 +1,6 @@
 import pytest
 
+from manifestoo_core.exceptions import UnsupportedOdooSeries
 from manifestoo_core.odoo_series import (
     OdooSeries,
     detect_from_addon_version,
@@ -49,9 +50,9 @@ def test_detect_ambiguous() -> None:
 
 
 def test_series_from_str() -> None:
-    assert OdooSeries("10.0") == OdooSeries.v10_0
+    assert OdooSeries.from_str("10.0") == OdooSeries.v10_0
 
 
-def test_unknown_series_from_str() -> None:
-    with pytest.raises(ValueError):  # noqa: PT011
-        OdooSeries("45.0")
+def test_unsupported_series_from_str() -> None:
+    with pytest.raises(UnsupportedOdooSeries):
+        OdooSeries.from_str("7.0")

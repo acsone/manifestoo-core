@@ -3,6 +3,7 @@ from enum import Enum
 from typing import Optional, Set
 
 from .addons_set import AddonsSet
+from .exceptions import UnsupportedOdooSeries
 
 __all__ = [
     "OdooSeries",
@@ -24,6 +25,20 @@ class OdooSeries(str, Enum):
     v14_0 = "14.0"
     v15_0 = "15.0"
     v16_0 = "16.0"
+
+    @classmethod
+    def from_str(cls, value: str, context: Optional[str] = None) -> "OdooSeries":
+        """Get the OdooSeries from a string.
+
+        Raise UnsupportedOdooSeries if the string is not recognized.
+        """
+        try:
+            return cls(value)
+        except ValueError as e:
+            msg = f"Unsupported Odoo Series: {value}"
+            if context:
+                msg = f"{msg} in {context}"
+            raise UnsupportedOdooSeries(msg) from e
 
 
 class OdooEdition(str, Enum):

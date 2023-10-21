@@ -17,7 +17,7 @@ from .core_addons import get_core_addons
 from .exceptions import (
     InvalidDistributionName,
     UnsupportedManifestVersion,
-    UnsupportedOdooVersion,
+    UnsupportedOdooSeries,
 )
 from .git_postversion import (
     POST_VERSION_STRATEGY_DOT_N,
@@ -463,7 +463,7 @@ def _get_version(
         odoo_version = odoo_version_override
     if odoo_version not in ODOO_VERSION_INFO:
         msg = f"Unsupported odoo version '{odoo_version}' in {addon.path}"
-        raise UnsupportedOdooVersion(msg)
+        raise UnsupportedOdooSeries(msg)
     odoo_version_info = ODOO_VERSION_INFO[odoo_version]
     if git_post_version:
         version = get_git_postversion(

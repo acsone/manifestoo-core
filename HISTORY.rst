@@ -1,3 +1,19 @@
+v1.1 (2023-10-21)
+=================
+
+Features
+--------
+
+- Renamed ``UnsupportedOdooVersion`` exception to ``UnsupportedOdooSeries``.
+  ``UnsupportedOdooVersion`` is preserved as a compatibility alias. (`#50 <https://github.com/acsone/manifestoo-core/issues/50>`_)
+- Add functions to convert addon names to and from distribution names and requirements
+  (including the Odoo version specifier): ``addon_name_to_distribution_name``,
+  ``addon_name_to_requirement`` and ``distribution_name_to_addon_name``. (`#52 <https://github.com/acsone/manifestoo-core/issues/52>`_)
+- Add support for ``odoo_series_override`` metadata option, as a preferred alias to
+  ``odoo_version_override``. (`#53 <https://github.com/acsone/manifestoo-core/issues/53>`_)
+- Update core addon lists. (`#55 <https://github.com/acsone/manifestoo-core/issues/55>`_)
+
+
 1.0 (2023-09-10)
 ================
 

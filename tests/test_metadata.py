@@ -18,9 +18,12 @@ from manifestoo_core.metadata import (
     _author_email,
     _filter_odoo_addon_dependencies,
     _no_nl,
+    addon_name_to_distribution_name,
+    addon_name_to_requirement,
     distribution_name_to_addon_name,
     metadata_from_addon_dir,
 )
+from manifestoo_core.odoo_series import OdooSeries
 
 
 def _no_none(d: Dict[str, Any]) -> Dict[str, Any]:
@@ -710,7 +713,7 @@ def test_filter_odoo_addon_dependencies(
     assert list(_filter_odoo_addon_dependencies(dependencies)) == expected
 
 
-def test_addon_name_from_metadata_name() -> None:
+def test_distribution_name_to_addon_name() -> None:
     assert distribution_name_to_addon_name("odoo14-addon-addon1") == "addon1"
     assert distribution_name_to_addon_name("odoo-addon-addon1") == "addon1"
     assert distribution_name_to_addon_name("odoo-addon-addon-1") == "addon_1"
@@ -719,6 +722,27 @@ def test_addon_name_from_metadata_name() -> None:
         distribution_name_to_addon_name("odoo14-addon-")
     with pytest.raises(InvalidDistributionName):
         distribution_name_to_addon_name("addon1")
+
+
+def test_addon_name_to_distribution_name() -> None:
+    assert (
+        addon_name_to_distribution_name("addon1", OdooSeries.v14_0)
+        == "odoo14-addon-addon1"
+    )
+    assert (
+        addon_name_to_distribution_name("addon_1", OdooSeries.v16_0)
+        == "odoo-addon-addon_1"
+    )
+
+
+def test_addon_name_to_requirement() -> None:
+    assert (
+        addon_name_to_requirement("addon1", OdooSeries.v14_0) == "odoo14-addon-addon1"
+    )
+    assert (
+        addon_name_to_requirement("addon1", OdooSeries.v16_0)
+        == "odoo-addon-addon1>=16.0dev,<16.1dev"
+    )
 
 
 def test_get_author_email() -> None:

@@ -2,8 +2,12 @@ class ManifestooException(Exception):  # noqa: N818
     """Base class of all manifestoo_core exceptions."""
 
 
-class UnsupportedOdooVersion(ManifestooException):
+class UnsupportedOdooSeries(ManifestooException):
     pass
+
+
+# compatibility alias
+UnsupportedOdooVersion = UnsupportedOdooSeries
 
 
 class UnsupportedManifestVersion(ManifestooException):

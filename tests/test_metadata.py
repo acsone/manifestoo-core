@@ -8,7 +8,7 @@ from pkg_metadata import msg_to_json
 from manifestoo_core.exceptions import (
     InvalidDistributionName,
     UnsupportedManifestVersion,
-    UnsupportedOdooVersion,
+    UnsupportedOdooSeries,
 )
 from manifestoo_core.metadata import (
     POST_VERSION_STRATEGY_DOT_N,
@@ -277,7 +277,7 @@ def test_external_dependencies_override_multi(tmp_path: Path) -> None:
 
 
 def test_odoo_version_unsupported(tmp_path: Path) -> None:
-    with pytest.raises(UnsupportedOdooVersion):
+    with pytest.raises(UnsupportedOdooSeries):
         _m(tmp_path, version="45.0.1.0.0")
 
 

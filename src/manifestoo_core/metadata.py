@@ -44,6 +44,9 @@ __all__ = [
     "POST_VERSION_STRATEGY_NONE",
     "POST_VERSION_STRATEGY_P1_DEVN",
     "metadata_from_addon_dir",
+    "addon_name_to_distribution_name",
+    "addon_name_to_requirement",
+    "distribution_name_to_addon_name",
 ]
 
 
@@ -109,7 +112,7 @@ def metadata_from_addon_dir(
     if precomputed_metadata_file and precomputed_metadata_file.is_file():
         with precomputed_metadata_file.open(encoding="utf-8") as fp:
             pkg_info = email.parser.HeaderParser().parse(fp)
-            addon_name = _addon_name_from_metadata_name(pkg_info["Name"])
+            addon_name = distribution_name_to_addon_name(pkg_info["Name"])
             version = pkg_info["Version"]
         _, odoo_series, odoo_series_info = _get_version(
             addon,
@@ -147,7 +150,7 @@ def metadata_from_addon_dir(
 
     meta = Message()
     _set("Metadata-Version", "2.1")
-    _set("Name", _addon_name_to_metadata_name(odoo_series_info, addon_name))
+    _set("Name", _addon_name_to_metadata_name(addon_name, odoo_series_info))
     _set("Version", version)
     _set("Requires-Python", odoo_series_info.python_requires)
     _set("Requires-Dist", install_requires)
@@ -175,6 +178,20 @@ class OdooSeriesInfo:
     pkg_version_specifier: str = ""
     addons_ns: Optional[str] = None
     namespace_packages: Optional[List[str]] = None
+
+    @classmethod
+    def from_odoo_series(
+        cls,
+        odoo_series: OdooSeries,
+        context: Optional[str] = None,
+    ) -> "OdooSeriesInfo":
+        try:
+            return ODOO_SERIES_INFO[odoo_series]
+        except KeyError as e:
+            msg = "Unsupported odoo series '{odoo_series_str}'"
+            if context:
+                msg = f"{msg} in {context}"
+            raise UnsupportedOdooSeries(msg) from e
 
 
 ODOO_SERIES_INFO = {
@@ -288,7 +305,8 @@ EXTERNAL_DEPENDENCIES_MAP = {
 }
 
 
-def _addon_name_from_metadata_name(metadata_name: str) -> str:
+def distribution_name_to_addon_name(metadata_name: str) -> str:
+    """Convert a packaging distribution name to the corresponding Odoo addon name."""
     mo = ODOO_ADDON_METADATA_NAME_RE.match(metadata_name)
     if not mo:
         msg = f"{metadata_name} does not look like an Odoo addon package name"
@@ -297,19 +315,35 @@ def _addon_name_from_metadata_name(metadata_name: str) -> str:
 
 
 def _addon_name_to_metadata_name(
-    odoo_series_info: OdooSeriesInfo,
     addon_name: str,
+    odoo_series_info: OdooSeriesInfo,
 ) -> str:
     return odoo_series_info.pkg_name_pfx + "-" + addon_name
 
 
+def addon_name_to_distribution_name(addon_name: str, odoo_series: OdooSeries) -> str:
+    """Convert an Odoo addon name to the corresponding packaging distribution name."""
+    return _addon_name_to_metadata_name(
+        addon_name,
+        OdooSeriesInfo.from_odoo_series(odoo_series),
+    )
+
+
 def _addon_name_to_requires_dist(
-    odoo_series_info: OdooSeriesInfo,
     addon_name: str,
+    odoo_series_info: OdooSeriesInfo,
 ) -> str:
-    pkg_name = _addon_name_to_metadata_name(odoo_series_info, addon_name)
+    pkg_name = _addon_name_to_metadata_name(addon_name, odoo_series_info)
     pkg_version_specifier = odoo_series_info.pkg_version_specifier
     return pkg_name + pkg_version_specifier
+
+
+def addon_name_to_requirement(addon_name: str, odoo_series: OdooSeries) -> str:
+    """Convert an Odoo addon name to a requirement specifier."""
+    return _addon_name_to_requires_dist(
+        addon_name,
+        OdooSeriesInfo.from_odoo_series(odoo_series),
+    )
 
 
 def _author_email(author: Optional[str]) -> Optional[str]:
@@ -419,7 +453,7 @@ def _get_install_requires(
         if depends_override and depend in depends_override:
             install_require = depends_override[depend]
         else:
-            install_require = _addon_name_to_requires_dist(odoo_series_info, depend)
+            install_require = _addon_name_to_requires_dist(depend, odoo_series_info)
         if install_require:
             install_requires.append(install_require)
     # python external_dependencies
@@ -462,15 +496,14 @@ def _get_version(
         odoo_series_str = ".".join(version_parts[:2])
     else:
         odoo_series_str = odoo_series_override
-    try:
-        odoo_series = OdooSeries(odoo_series_str)
-    except ValueError as e:
-        msg = f"Unsupported odoo series '{odoo_series_str}' in {addon.path}"
-        raise UnsupportedOdooSeries(msg) from e
-    if odoo_series not in ODOO_SERIES_INFO:
-        msg = f"Unsupported odoo series '{odoo_series_str}' in {addon.path}"
-        raise UnsupportedOdooSeries(msg)
-    odoo_series_info = ODOO_SERIES_INFO[odoo_series]
+    odoo_series = OdooSeries.from_str(
+        odoo_series_str,
+        context=str(addon.path),
+    )
+    odoo_series_info = OdooSeriesInfo.from_odoo_series(
+        odoo_series,
+        context=str(addon.path),
+    )
     if git_post_version:
         version = get_git_postversion(
             addon,

@@ -15,10 +15,10 @@ from manifestoo_core.metadata import (
     POST_VERSION_STRATEGY_NINETYNINE_DEVN,
     POST_VERSION_STRATEGY_NONE,
     POST_VERSION_STRATEGY_P1_DEVN,
-    _addon_name_from_metadata_name,
     _author_email,
     _filter_odoo_addon_dependencies,
     _no_nl,
+    distribution_name_to_addon_name,
     metadata_from_addon_dir,
 )
 
@@ -711,14 +711,14 @@ def test_filter_odoo_addon_dependencies(
 
 
 def test_addon_name_from_metadata_name() -> None:
-    assert _addon_name_from_metadata_name("odoo14-addon-addon1") == "addon1"
-    assert _addon_name_from_metadata_name("odoo-addon-addon1") == "addon1"
-    assert _addon_name_from_metadata_name("odoo-addon-addon-1") == "addon_1"
-    assert _addon_name_from_metadata_name("odoo-addon-addon_1") == "addon_1"
+    assert distribution_name_to_addon_name("odoo14-addon-addon1") == "addon1"
+    assert distribution_name_to_addon_name("odoo-addon-addon1") == "addon1"
+    assert distribution_name_to_addon_name("odoo-addon-addon-1") == "addon_1"
+    assert distribution_name_to_addon_name("odoo-addon-addon_1") == "addon_1"
     with pytest.raises(InvalidDistributionName):
-        _addon_name_from_metadata_name("odoo14-addon-")
+        distribution_name_to_addon_name("odoo14-addon-")
     with pytest.raises(InvalidDistributionName):
-        _addon_name_from_metadata_name("addon1")
+        distribution_name_to_addon_name("addon1")
 
 
 def test_get_author_email() -> None:

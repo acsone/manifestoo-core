@@ -287,6 +287,17 @@ ODOO_SERIES_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
         core_addons=get_core_addons(OdooSeries.v16_0),
     ),
+    OdooSeries.v17_0: OdooSeriesInfo(
+        odoo_dep="odoo>=17.0a,<17.1dev",
+        pkg_name_pfx="odoo-addon",
+        pkg_version_specifier=">=17.0dev,<17.1dev",
+        addons_ns="odoo.addons",
+        namespace_packages=None,
+        python_requires=">=3.10",
+        universal_wheel=False,
+        git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
+        core_addons=get_core_addons(OdooSeries.v17_0),
+    ),
 }
 
 # map names of common python external dependencies in Odoo manifest files

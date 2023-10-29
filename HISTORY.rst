@@ -1,3 +1,12 @@
+v1.2 (2023-10-29)
+=================
+
+Features
+--------
+
+- Initial support for Odoo 17. (`#56 <https://github.com/acsone/manifestoo-core/issues/56>`_)
+
+
 v1.1 (2023-10-21)
 =================
 

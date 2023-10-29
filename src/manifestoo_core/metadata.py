@@ -469,9 +469,8 @@ def _get_install_requires(
             install_requires.append(install_require)
     # python external_dependencies
     for dep in manifest.external_dependencies.get("python", []):
-        if (
-            external_dependencies_override
-            and dep in external_dependencies_override.get("python", {})
+        if external_dependencies_override and dep in external_dependencies_override.get(
+            "python", {}
         ):
             final_dep = external_dependencies_override.get("python", {})[dep]
         else:

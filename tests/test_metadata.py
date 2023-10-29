@@ -64,18 +64,18 @@ def _m(  # noqa: PLR0913 too many arguments
     manifest_path.write_text(
         repr(
             _no_none(
-                dict(
-                    name=name,
-                    version=version,
-                    summary=summary,
-                    description=description,
-                    depends=depends,
-                    external_dependencies=external_dependencies,
-                    website=website,
-                    author=author,
-                    license=license,
-                    development_status=development_status,
-                ),
+                {
+                    "name": name,
+                    "version": version,
+                    "summary": summary,
+                    "description": description,
+                    "depends": depends,
+                    "external_dependencies": external_dependencies,
+                    "website": website,
+                    "author": author,
+                    "license": license,
+                    "development_status": development_status,
+                },
             ),
         ),
     )
@@ -85,33 +85,33 @@ def _m(  # noqa: PLR0913 too many arguments
     return msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
-            options=dict(
-                depends_override=depends_override,
-                external_dependencies_override=external_dependencies_override,
-                external_dependencies_only=external_dependencies_only,
-                odoo_series_override=odoo_series_override,
-                odoo_version_override=odoo_version_override,
-                post_version_strategy_override=post_version_strategy_override,
-            ),
+            options={
+                "depends_override": depends_override,
+                "external_dependencies_override": external_dependencies_override,
+                "external_dependencies_only": external_dependencies_only,
+                "odoo_series_override": odoo_series_override,
+                "odoo_version_override": odoo_version_override,
+                "post_version_strategy_override": post_version_strategy_override,
+            },
             precomputed_metadata_file=precomputed_metadata_file,
         ),
     )
 
 
 def test_basic(tmp_path: Path) -> None:
-    assert _m(tmp_path) == dict(
-        name="odoo14-addon-addon1",
-        version="14.0.1.0.0",
-        summary="Addon 1",
-        requires_dist=["odoo>=14.0a,<14.1dev"],
-        requires_python=">=3.6",
-        classifier=[
+    assert _m(tmp_path) == {
+        "name": "odoo14-addon-addon1",
+        "version": "14.0.1.0.0",
+        "summary": "Addon 1",
+        "requires_dist": ["odoo>=14.0a,<14.1dev"],
+        "requires_python": ">=3.6",
+        "classifier": [
             "Programming Language :: Python",
             "Framework :: Odoo",
             "Framework :: Odoo :: 14.0",
         ],
-        metadata_version="2.1",
-    )
+        "metadata_version": "2.1",
+    }
 
 
 @pytest.mark.parametrize(
@@ -555,7 +555,7 @@ def test_git_post_version(
     metadata = msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
-            options=dict(post_version_strategy_override=post_version_strategy_override),
+            options={"post_version_strategy_override": post_version_strategy_override},
         ),
     )
     assert metadata["version"] == expected_version
@@ -591,7 +591,7 @@ def test_git_post_version_uncommitted_change(
     metadata = msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
-            options=dict(post_version_strategy_override=post_version_strategy_override),
+            options={"post_version_strategy_override": post_version_strategy_override},
         ),
     )
     assert metadata["version"] == expected_version
@@ -624,7 +624,7 @@ def test_git_post_version_bad_manifest_in_history(
     metadata = msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
-            options=dict(post_version_strategy_override=post_version_strategy_override),
+            options={"post_version_strategy_override": post_version_strategy_override},
         ),
     )
     assert metadata["version"] == "16.0.1.3.0"
@@ -652,7 +652,7 @@ def test_git_post_version_good_manifest_in_history(
     metadata = msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
-            options=dict(post_version_strategy_override=post_version_strategy_override),
+            options={"post_version_strategy_override": post_version_strategy_override},
         ),
     )
     assert metadata["version"] == "16.0.1.2.0"
@@ -682,7 +682,7 @@ def test_git_post_version_no_manifest_in_history(
     metadata = msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
-            options=dict(post_version_strategy_override=post_version_strategy_override),
+            options={"post_version_strategy_override": post_version_strategy_override},
         ),
     )
     assert metadata["version"] == "16.0.1.2.0"

@@ -13,6 +13,9 @@ __all__ = [
 ]
 
 
+MIN_VERSION_PARTS = 5
+
+
 class OdooSeries(str, Enum):
     """Enum representing an Odoo Series (also known as Version)."""
 
@@ -55,7 +58,7 @@ def detect_from_addon_version(version: str) -> Optional[OdooSeries]:
     Returns ``None`` if the version is not recognized.
     """
     parts = version.split(".")
-    if len(parts) < 5:
+    if len(parts) < MIN_VERSION_PARTS:
         return None
     try:
         return OdooSeries(".".join(parts[:2]))

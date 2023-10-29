@@ -121,7 +121,7 @@ class Manifest:
         )
 
     @property
-    def license(self) -> Optional[str]:  # noqa: A003
+    def license(self) -> Optional[str]:
         return self._get("license", _check_optional_str, default=None)
 
     @property

@@ -44,7 +44,7 @@ def _m(  # noqa: PLR0913 too many arguments
     external_dependencies: Optional[Dict[str, List[str]]] = None,
     website: Optional[str] = None,
     author: Optional[str] = None,
-    license: Optional[str] = None,  # noqa: A002
+    license: Optional[str] = None,
     development_status: Optional[str] = None,
     # options
     depends_override: Optional[Dict[str, str]] = None,
@@ -429,7 +429,7 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
 )
 def test_classifiers_license(
     tmp_path: Path,
-    license: str,  # noqa: A002 shadowing Python builtin
+    license: str,  # shadowing Python builtin
     expected_license: str,
 ) -> None:
     assert expected_license in _m(tmp_path, license=license)["classifier"]
@@ -457,7 +457,7 @@ def test_classifiers_development_status(
     )
 
 
-def test_license(tmp_path: Path, license: str = "AGPL-3") -> None:  # noqa: A002
+def test_license(tmp_path: Path, license: str = "AGPL-3") -> None:
     assert _m(tmp_path, license=license)["license"] == license
 
 

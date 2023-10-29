@@ -27,7 +27,7 @@ from .git_postversion import (
     get_git_postversion,
 )
 from .manifest import Manifest
-from .odoo_series import OdooSeries
+from .odoo_series import MIN_VERSION_PARTS, OdooSeries
 
 ODOO_ADDON_DIST_RE = re.compile(
     r"^(odoo(\d{1,2})?[-_]addon[-_].*|odoo$|odoo[^a-zA-Z0-9._-]+)",
@@ -36,7 +36,6 @@ ODOO_ADDON_DIST_RE = re.compile(
 ODOO_ADDON_METADATA_NAME_RE = re.compile(
     r"^odoo(\d{1,2})?[-_]addon[-_](?P<addon_name>[a-z0-9_-]+)$",
 )
-
 
 __all__ = [
     "POST_VERSION_STRATEGY_DOT_N",
@@ -417,7 +416,7 @@ def _make_classifiers(odoo_series: OdooSeries, manifest: Manifest) -> List[str]:
             "GNU Lesser General Public License v3 or later (LGPLv3+)"
         ),
     }
-    license = manifest.license  # noqa: A001 `license` is shadowing a python builtin
+    license = manifest.license  # `license` is shadowing a python builtin
     if license:
         license_classifier = licenses.get(license.lower())
         if license_classifier:
@@ -496,10 +495,10 @@ def _get_version(
         version = "0.0.0"
     if not odoo_series_override:
         version_parts = version.split(".")
-        if len(version_parts) < 5:
+        if len(version_parts) < MIN_VERSION_PARTS:
             msg = (
                 f"Version in manifest must have at least "
-                f"5 components and start with "
+                f"{MIN_VERSION_PARTS} components and start with "
                 f"the Odoo series number (in {addon.path})"
             )
             raise UnsupportedManifestVersion(msg)

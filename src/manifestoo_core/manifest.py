@@ -141,6 +141,11 @@ class Manifest:
         return self._get("author", _check_optional_str, default=None)
 
     @property
+    def category(self) -> Optional[str]:
+        """The value of the category field."""
+        return self._get("category", _check_optional_str, default=None)
+
+    @property
     def website(self) -> Optional[str]:
         """The value of the website field."""
         return self._get("website", _check_optional_str, default=None)

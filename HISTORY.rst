@@ -1,3 +1,13 @@
+v1.3 (2023-10-30)
+=================
+
+Features
+--------
+
+- Add the ``category`` field to ``Manifest``. (`#57 <https://github.com/acsone/manifestoo-core/issues/57>`_)
+- Document the ``Addon`` and ``Manifest`` classes and assorted methods. (`#58 <https://github.com/acsone/manifestoo-core/issues/58>`_)
+
+
 v1.2 (2023-10-29)
 =================
 

@@ -7,6 +7,13 @@
    :members:
 ```
 
+## `manifestoo_core.manifest`
+
+```{eval-rst}
+.. automodule:: manifestoo_core.manifest
+   :members:
+```
+
 ## `manifestoo_core.core_addons`
 
 ```{eval-rst}

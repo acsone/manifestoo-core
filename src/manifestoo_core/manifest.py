@@ -73,7 +73,10 @@ def get_manifest_path(addon_dir: Path) -> Optional[Path]:
 
 
 class Manifest:
+    """Represent an Odoo manifest file."""
+
     def __init__(self, manifest_dict: Dict[str, Any]) -> None:
+        """Do not use this contructor, use the from_* classmethods instead."""
         self.manifest_dict = manifest_dict
 
     def _get(self, key: str, checker: Callable[[Any], T], default: T) -> T:
@@ -90,30 +93,37 @@ class Manifest:
 
     @property
     def name(self) -> Optional[str]:
+        """The name field."""
         return self._get("name", _check_optional_str, default=None)
 
     @property
     def summary(self) -> Optional[str]:
+        """The value of the summary field."""
         return self._get("summary", _check_optional_str, default=None)
 
     @property
     def description(self) -> Optional[str]:
+        """The value of the description field."""
         return self._get("description", _check_optional_str, default=None)
 
     @property
     def version(self) -> Optional[str]:
+        """The value of the version field."""
         return self._get("version", _check_optional_str, default=None)
 
     @property
     def installable(self) -> bool:
+        """The value of the installable field if set, else True."""
         return self._get("installable", _check_bool, default=True)
 
     @property
     def depends(self) -> List[str]:
+        """The value of the depends field if set, else []."""
         return self._get("depends", _check_list_of_str, default=[])
 
     @property
     def external_dependencies(self) -> Dict[str, List[str]]:
+        """The value of the external_dependencies field if set, else {}."""
         return self._get(
             "external_dependencies",
             _check_dict_of_list_of_str,
@@ -122,18 +132,22 @@ class Manifest:
 
     @property
     def license(self) -> Optional[str]:
+        """The value of the license field."""
         return self._get("license", _check_optional_str, default=None)
 
     @property
     def author(self) -> Optional[str]:
+        """The value of the author field."""
         return self._get("author", _check_optional_str, default=None)
 
     @property
     def website(self) -> Optional[str]:
+        """The value of the website field."""
         return self._get("website", _check_optional_str, default=None)
 
     @property
     def development_status(self) -> Optional[str]:
+        """The value of the development_status field."""
         return self._get("development_status", _check_optional_str, default=None)
 
     @classmethod

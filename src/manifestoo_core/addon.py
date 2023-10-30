@@ -13,6 +13,7 @@ from .manifest import InvalidManifest, Manifest, get_manifest_path
 
 __all__ = [
     "is_addon_dir",
+    "Addon",
 ]
 
 
@@ -34,12 +35,20 @@ def is_addon_dir(addon_dir: Path, allow_not_installable: bool = False) -> bool:
 class Addon:
     """Represent a concrete addon manifest."""
 
+    manifest: Manifest
+    "The addon's manifest."
+    manifest_path: Path
+    "The path to the addon's manifest file."
+    name: str
+    "The addon's name."
+
     def __init__(
         self,
         manifest: Manifest,
         manifest_path: Path,
         name: Optional[str] = None,
     ) -> None:
+        """Do not use this constructor, use the from_addon_dir classmethod instead."""
         self.manifest = manifest
         self.manifest_path = manifest_path
         self.path = self.manifest_path.parent
@@ -54,6 +63,12 @@ class Addon:
         addon_dir: Path,
         allow_not_installable: bool = False,
     ) -> "Addon":
+        """Obtain an Addon object from an addon directory path.
+
+        Raises an :class:`AddonNotFound` exception if the directory is not a valid addon
+        directory, or if ``allow_not_installable`` is False and the addon is not
+        installable.
+        """
         if not addon_dir.is_dir():
             msg = f"{addon_dir} is not a directory"
             raise AddonNotFoundNotADirectory(msg)

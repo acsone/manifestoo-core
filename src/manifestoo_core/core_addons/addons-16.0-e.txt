@@ -1,4 +1,4 @@
-# generated on Sat Oct 21 15:23:13 2023
+# generated on Sat Dec  2 00:11:01 2023
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -66,6 +66,7 @@ delivery_iot
 delivery_sendcloud
 delivery_shiprocket
 delivery_ups
+delivery_ups_rest
 delivery_usps
 digest_enterprise
 documents

@@ -1,4 +1,4 @@
-# generated on Fri Oct 27 18:50:38 2023
+# generated on Sat Dec  2 00:09:59 2023
 account
 account_check_printing
 account_debit_note
@@ -107,6 +107,7 @@ l10n_ae
 l10n_ar
 l10n_ar_pos
 l10n_ar_website_sale
+l10n_ar_withholding
 l10n_at
 l10n_au
 l10n_be
@@ -180,6 +181,7 @@ l10n_it_edi
 l10n_it_edi_withholding
 l10n_it_stock_ddt
 l10n_jp
+l10n_jp_ubl_pint
 l10n_ke
 l10n_ke_edi_tremol
 l10n_kz
@@ -312,6 +314,7 @@ pos_self_order_sale
 pos_self_order_stripe
 pos_six
 pos_stripe
+pos_viva_wallet
 privacy_lookup
 product
 product_email_template

@@ -1,4 +1,4 @@
-# generated on Fri Oct 27 18:51:01 2023
+# generated on Sat Dec  2 00:10:31 2023
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -69,6 +69,7 @@ delivery_iot
 delivery_sendcloud
 delivery_shiprocket
 delivery_ups
+delivery_ups_rest
 delivery_usps
 digest_enterprise
 documents
@@ -155,6 +156,7 @@ industry_fsm_sms
 industry_fsm_stock
 iot
 knowledge
+l10n_account_customer_statements
 l10n_ae_hr_payroll
 l10n_ae_hr_payroll_account
 l10n_ar_edi
@@ -336,7 +338,6 @@ planning_hr_skills
 pos_account_reports
 pos_blackbox_be
 pos_enterprise
-pos_hr_l10n_be
 pos_hr_mobile
 pos_iot
 pos_iot_six
@@ -480,6 +481,7 @@ website_event_social
 website_event_track_gantt
 website_event_track_social
 website_event_twitter_wall
+website_generator
 website_helpdesk
 website_helpdesk_forum
 website_helpdesk_knowledge

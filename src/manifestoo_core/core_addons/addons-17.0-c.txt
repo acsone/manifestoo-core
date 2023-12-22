@@ -1,5 +1,6 @@
-# generated on Sat Dec  2 00:09:59 2023
+# generated on Fri Dec 22 11:10:31 2023
 account
+account_audit_trail
 account_check_printing
 account_debit_note
 account_edi
@@ -8,6 +9,7 @@ account_edi_ubl_cii
 account_fleet
 account_lock
 account_payment
+account_payment_term
 account_peppol
 account_qr_code_emv
 account_qr_code_sepa
@@ -115,6 +117,7 @@ l10n_bg
 l10n_bo
 l10n_br
 l10n_br_sales
+l10n_br_website_sale
 l10n_ca
 l10n_ch
 l10n_cl
@@ -131,6 +134,7 @@ l10n_din5008_repair
 l10n_din5008_sale
 l10n_din5008_stock
 l10n_dk
+l10n_dk_bookkeeping
 l10n_dk_oioubl
 l10n_do
 l10n_dz
@@ -140,6 +144,7 @@ l10n_eg
 l10n_eg_edi_eta
 l10n_es
 l10n_es_edi_facturae
+l10n_es_edi_facturae_adm_centers
 l10n_es_edi_sii
 l10n_es_edi_tbai
 l10n_es_pos

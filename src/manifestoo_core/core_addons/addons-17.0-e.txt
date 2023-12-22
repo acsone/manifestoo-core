@@ -1,4 +1,4 @@
-# generated on Sat Dec  2 00:10:31 2023
+# generated on Fri Dec 22 11:10:58 2023
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -33,6 +33,7 @@ account_reports
 account_reports_cash_basis
 account_reports_tax_reminder
 account_saft
+account_saft_import
 account_sepa
 account_sepa_direct_debit
 account_taxcloud
@@ -188,6 +189,8 @@ l10n_be_us_consolidation_demo
 l10n_bg_reports
 l10n_bo_reports
 l10n_br_avatax
+l10n_br_edi
+l10n_br_edi_sale
 l10n_br_reports
 l10n_br_test_avatax_sale
 l10n_ca_check_printing
@@ -212,6 +215,7 @@ l10n_din5008_industry_fsm
 l10n_din5008_sale_renting
 l10n_dk_edi
 l10n_dk_reports
+l10n_dk_saft_import
 l10n_do_reports
 l10n_dz_reports
 l10n_ec_edi
@@ -245,6 +249,7 @@ l10n_lt_hr_payroll
 l10n_lt_hr_payroll_account
 l10n_lt_reports
 l10n_lt_saft
+l10n_lt_saft_import
 l10n_lu_hr_payroll
 l10n_lu_hr_payroll_account
 l10n_lu_reports
@@ -287,6 +292,7 @@ l10n_ro_hr_payroll
 l10n_ro_hr_payroll_account
 l10n_ro_reports
 l10n_ro_saft
+l10n_ro_saft_import
 l10n_rs_reports
 l10n_sa_hr_payroll
 l10n_sa_hr_payroll_account
@@ -345,6 +351,7 @@ pos_l10n_se
 pos_online_payment_self_order_preparation_display
 pos_order_tracking_display
 pos_preparation_display
+pos_pricer
 pos_restaurant_appointment
 pos_restaurant_preparation_display
 pos_sale_stock_renting

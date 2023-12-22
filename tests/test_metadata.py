@@ -718,6 +718,7 @@ def test_distribution_name_to_addon_name() -> None:
     assert distribution_name_to_addon_name("odoo-addon-addon1") == "addon1"
     assert distribution_name_to_addon_name("odoo-addon-addon-1") == "addon_1"
     assert distribution_name_to_addon_name("odoo-addon-addon_1") == "addon_1"
+    assert distribution_name_to_addon_name("odoo-addon-aDDon_1") == "aDDon_1"
     with pytest.raises(InvalidDistributionName):
         distribution_name_to_addon_name("odoo14-addon-")
     with pytest.raises(InvalidDistributionName):

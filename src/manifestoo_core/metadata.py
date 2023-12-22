@@ -34,7 +34,7 @@ ODOO_ADDON_DIST_RE = re.compile(
     re.IGNORECASE,
 )
 ODOO_ADDON_METADATA_NAME_RE = re.compile(
-    r"^odoo(\d{1,2})?[-_]addon[-_](?P<addon_name>[a-z0-9_-]+)$",
+    r"^odoo(\d{1,2})?[-_]addon[-_](?P<addon_name>[a-zA-Z0-9_-]+)$",
 )
 
 __all__ = [

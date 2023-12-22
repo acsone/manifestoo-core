@@ -1,4 +1,4 @@
-# generated on Sat Dec  2 00:10:49 2023
+# generated on Fri Dec 22 11:11:16 2023
 account
 account_check_printing
 account_debit_note
@@ -109,6 +109,7 @@ l10n_ar_website_sale
 l10n_at
 l10n_au
 l10n_be
+l10n_be_pos_sale
 l10n_bg
 l10n_bo
 l10n_br

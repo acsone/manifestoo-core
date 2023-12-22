@@ -1,3 +1,18 @@
+v1.4 (2023-12-22)
+=================
+
+Features
+--------
+
+- Update core addon lists. (`#60 <https://github.com/acsone/manifestoo-core/issues/60>`_, `#65 <https://github.com/acsone/manifestoo-core/issues/65>`_)
+
+
+Bugfixes
+--------
+
+- Fix metadata generation for addons containing upper case letters in their name. (`#63 <https://github.com/acsone/manifestoo-core/issues/63>`_)
+
+
 v1.3 (2023-10-30)
 =================
 

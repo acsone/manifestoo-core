@@ -1,4 +1,4 @@
-# generated on Fri Dec 22 11:10:31 2023
+# generated on Fri Mar 15 20:02:50 2024
 account
 account_audit_trail
 account_check_printing
@@ -113,9 +113,11 @@ l10n_ar_withholding
 l10n_at
 l10n_au
 l10n_be
+l10n_be_pos_sale
 l10n_bg
 l10n_bo
 l10n_br
+l10n_br_pix
 l10n_br_sales
 l10n_br_website_sale
 l10n_ca
@@ -134,17 +136,20 @@ l10n_din5008_repair
 l10n_din5008_sale
 l10n_din5008_stock
 l10n_dk
+l10n_dk_audit_trail
 l10n_dk_bookkeeping
 l10n_dk_oioubl
 l10n_do
 l10n_dz
 l10n_ec
+l10n_ec_website_sale
 l10n_ee
 l10n_eg
 l10n_eg_edi_eta
 l10n_es
 l10n_es_edi_facturae
 l10n_es_edi_facturae_adm_centers
+l10n_es_edi_facturae_invoice_period
 l10n_es_edi_sii
 l10n_es_edi_tbai
 l10n_es_pos
@@ -183,6 +188,7 @@ l10n_in_sale_stock
 l10n_in_stock
 l10n_it
 l10n_it_edi
+l10n_it_edi_website_sale
 l10n_it_edi_withholding
 l10n_it_stock_ddt
 l10n_jp
@@ -207,6 +213,8 @@ l10n_no
 l10n_nz
 l10n_pa
 l10n_pe
+l10n_pe_pos
+l10n_pe_website_sale
 l10n_ph
 l10n_pk
 l10n_pl
@@ -227,12 +235,14 @@ l10n_tn
 l10n_tr
 l10n_tw
 l10n_ua
+l10n_ug
 l10n_uk
 l10n_us
 l10n_uy
 l10n_ve
 l10n_vn
 l10n_za
+l10n_zm_account
 link_tracker
 loyalty
 lunch
@@ -290,6 +300,7 @@ payment_payumoney
 payment_razorpay
 payment_sips
 payment_stripe
+payment_xendit
 phone_validation
 point_of_sale
 portal
@@ -305,6 +316,7 @@ pos_mrp
 pos_online_payment
 pos_online_payment_self_order
 pos_paytm
+pos_razorpay
 pos_restaurant
 pos_restaurant_adyen
 pos_restaurant_stripe
@@ -396,6 +408,7 @@ stock_account
 stock_delivery
 stock_dropshipping
 stock_landed_costs
+stock_landed_costs_company
 stock_picking_batch
 stock_sms
 survey

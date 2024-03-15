@@ -1,4 +1,4 @@
-# generated on Fri Dec 22 11:11:27 2023
+# generated on Fri Mar 15 20:03:53 2024
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -194,6 +194,7 @@ l10n_din5008_sale_renting
 l10n_dk_reports
 l10n_ec_edi
 l10n_ec_reports
+l10n_ec_reports_ats
 l10n_ee_reports
 l10n_es_real_estates
 l10n_es_reports
@@ -214,11 +215,13 @@ l10n_in_hr_payroll_account
 l10n_in_reports
 l10n_in_reports_gstr
 l10n_in_reports_gstr_pos
+l10n_in_reports_gstr_spreadsheet
 l10n_it_reports
 l10n_ke_hr_payroll
 l10n_ke_hr_payroll_account
 l10n_ke_hr_payroll_bik
 l10n_ke_reports
+l10n_lt_intrastat
 l10n_lt_reports
 l10n_lt_saft
 l10n_lu_hr_payroll
@@ -232,8 +235,10 @@ l10n_mx_edi_extended
 l10n_mx_edi_extended_40
 l10n_mx_edi_landing
 l10n_mx_edi_stock
+l10n_mx_edi_stock_30
 l10n_mx_edi_stock_40
 l10n_mx_edi_stock_extended
+l10n_mx_edi_stock_extended_30
 l10n_mx_edi_stock_extended_40
 l10n_mx_reports
 l10n_mx_reports_closing

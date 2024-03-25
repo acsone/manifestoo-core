@@ -1,4 +1,5 @@
 """Odoo Series and Editions."""
+
 from enum import Enum
 from typing import Optional, Set
 

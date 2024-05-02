@@ -175,11 +175,11 @@ def get_git_postversion(  # noqa: C901, PLR0911, PLR0912 too complex
         return last_version
     if last_sha:
         if strategy == POST_VERSION_STRATEGY_NINETYNINE_DEVN:
-            return last_version + ".99.dev%s" % count
+            return last_version + f".99.dev{count}"
         if strategy == POST_VERSION_STRATEGY_P1_DEVN:
-            return _bump_last(last_version) + ".dev%s" % count
+            return _bump_last(last_version) + f".dev{count}"
         if strategy == POST_VERSION_STRATEGY_DOT_N:
-            return last_version + ".%s" % count
+            return last_version + f".{count}"
         msg = f"Unknown postversion strategy: {strategy}"
         raise UnknownPostVersionStrategy(msg)
     if uncommitted:

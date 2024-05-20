@@ -1,4 +1,4 @@
-# generated on Fri Mar 15 20:02:50 2024
+# generated on Tue May 14 15:20:20 2024
 account
 account_audit_trail
 account_check_printing
@@ -114,15 +114,22 @@ l10n_at
 l10n_au
 l10n_be
 l10n_be_pos_sale
+l10n_bf
 l10n_bg
+l10n_bj
 l10n_bo
 l10n_br
 l10n_br_pix
 l10n_br_sales
 l10n_br_website_sale
 l10n_ca
+l10n_cd
+l10n_cf
+l10n_cg
 l10n_ch
+l10n_ci
 l10n_cl
+l10n_cm
 l10n_cn
 l10n_cn_city
 l10n_co
@@ -163,16 +170,21 @@ l10n_fr_fec
 l10n_fr_hr_holidays
 l10n_fr_hr_work_entry_holidays
 l10n_fr_pos_cert
+l10n_ga
 l10n_gcc_invoice
 l10n_gcc_invoice_stock_account
 l10n_gcc_pos
+l10n_gn
+l10n_gq
 l10n_gr
 l10n_gt
+l10n_gw
 l10n_hk
 l10n_hn
 l10n_hr
 l10n_hr_kuna
 l10n_hu
+l10n_hu_edi
 l10n_id
 l10n_id_efaktur
 l10n_ie
@@ -195,6 +207,7 @@ l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
 l10n_ke_edi_tremol
+l10n_km
 l10n_kz
 l10n_latam_base
 l10n_latam_check
@@ -203,11 +216,17 @@ l10n_lt
 l10n_lu
 l10n_lv
 l10n_ma
+l10n_ml
 l10n_mn
+l10n_mt
+l10n_mu_account
 l10n_mx
 l10n_mx_hr
 l10n_my
+l10n_my_ubl_pint
 l10n_mz
+l10n_ne
+l10n_ng
 l10n_nl
 l10n_no
 l10n_nz
@@ -222,6 +241,7 @@ l10n_pt
 l10n_ro
 l10n_ro_edi
 l10n_rs
+l10n_rw
 l10n_sa
 l10n_sa_edi
 l10n_sa_pos
@@ -229,7 +249,10 @@ l10n_se
 l10n_sg
 l10n_si
 l10n_sk
+l10n_sn
 l10n_syscohada
+l10n_td
+l10n_tg
 l10n_th
 l10n_tn
 l10n_tr
@@ -311,6 +334,7 @@ pos_epson_printer
 pos_hr
 pos_hr_restaurant
 pos_loyalty
+pos_mercado_pago
 pos_mercury
 pos_mrp
 pos_online_payment
@@ -360,6 +384,7 @@ rating
 repair
 resource
 sale
+sale_async_emails
 sale_crm
 sale_expense
 sale_expense_margin

@@ -27,7 +27,7 @@ def _run_git_command_exit_code(
     stderr: Optional[TextIO] = None,
 ) -> int:
     return subprocess.call(
-        ["git", *args],  # noqa: S603, S607
+        ["git", *args],  # noqa: S607
         cwd=cwd,
         stderr=stderr,
     )
@@ -39,7 +39,7 @@ def _run_git_command_bytes(
     stderr: Optional[TextIO] = None,
 ) -> str:
     output = subprocess.check_output(
-        ["git", *args],  # noqa: S603, S607
+        ["git", *args],  # noqa: S607
         cwd=cwd,
         universal_newlines=True,
         stderr=stderr,

@@ -1,4 +1,4 @@
-# generated on Tue May 14 15:21:47 2024
+# generated on Mon Jul 15 11:04:25 2024
 account
 account_check_printing
 account_debit_note
@@ -150,6 +150,7 @@ l10n_fi_sale
 l10n_fr
 l10n_fr_facturx_chorus_pro
 l10n_fr_fec
+l10n_fr_invoice_addr
 l10n_fr_pos_cert
 l10n_gcc_invoice
 l10n_gcc_invoice_stock_account

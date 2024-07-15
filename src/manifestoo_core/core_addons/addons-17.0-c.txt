@@ -1,4 +1,4 @@
-# generated on Tue May 14 15:20:20 2024
+# generated on Mon Jul 15 11:03:02 2024
 account
 account_audit_trail
 account_check_printing
@@ -112,6 +112,7 @@ l10n_ar_website_sale
 l10n_ar_withholding
 l10n_at
 l10n_au
+l10n_bd
 l10n_be
 l10n_be_pos_sale
 l10n_bf
@@ -127,6 +128,7 @@ l10n_cd
 l10n_cf
 l10n_cg
 l10n_ch
+l10n_ch_pos
 l10n_ci
 l10n_cl
 l10n_cm
@@ -137,6 +139,7 @@ l10n_co_pos
 l10n_cr
 l10n_cz
 l10n_de
+l10n_de_audit_trail
 l10n_din5008
 l10n_din5008_purchase
 l10n_din5008_repair
@@ -160,6 +163,7 @@ l10n_es_edi_facturae_invoice_period
 l10n_es_edi_sii
 l10n_es_edi_tbai
 l10n_es_pos
+l10n_es_pos_tbai
 l10n_et
 l10n_eu_oss
 l10n_fi
@@ -169,6 +173,7 @@ l10n_fr_facturx_chorus_pro
 l10n_fr_fec
 l10n_fr_hr_holidays
 l10n_fr_hr_work_entry_holidays
+l10n_fr_invoice_addr
 l10n_fr_pos_cert
 l10n_ga
 l10n_gcc_invoice
@@ -192,6 +197,7 @@ l10n_il
 l10n_in
 l10n_in_edi
 l10n_in_edi_ewaybill
+l10n_in_ewaybill_stock
 l10n_in_pos
 l10n_in_purchase
 l10n_in_purchase_stock
@@ -200,6 +206,7 @@ l10n_in_sale_stock
 l10n_in_stock
 l10n_it
 l10n_it_edi
+l10n_it_edi_doi
 l10n_it_edi_website_sale
 l10n_it_edi_withholding
 l10n_it_stock_ddt
@@ -240,6 +247,7 @@ l10n_pl
 l10n_pt
 l10n_ro
 l10n_ro_edi
+l10n_ro_efactura
 l10n_rs
 l10n_rw
 l10n_sa
@@ -257,6 +265,7 @@ l10n_th
 l10n_tn
 l10n_tr
 l10n_tw
+l10n_tz_account
 l10n_ua
 l10n_ug
 l10n_uk

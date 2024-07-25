@@ -114,6 +114,16 @@ def test_basic(tmp_path: Path) -> None:
     }
 
 
+def test_no_git(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("PATH", "/foo")  # make sure git is not in PATH
+    assert (
+        _m(tmp_path, post_version_strategy_override=POST_VERSION_STRATEGY_NONE)[
+            "version"
+        ]
+        == "14.0.1.0.0"
+    )
+
+
 @pytest.mark.parametrize(
     ("odoo_series", "expected"),
     [

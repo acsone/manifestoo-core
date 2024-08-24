@@ -334,7 +334,7 @@ def _addon_name_to_metadata_name(
 def addon_name_to_distribution_name(addon_name: str, odoo_series: OdooSeries) -> str:
     """Convert an Odoo addon name to the corresponding packaging distribution name."""
     return _addon_name_to_metadata_name(
-        addon_name,
+        addon_name.replace("_", "-"),
         OdooSeriesInfo.from_odoo_series(odoo_series),
     )
 

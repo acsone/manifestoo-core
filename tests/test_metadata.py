@@ -40,6 +40,7 @@ def _m(  # noqa: PLR0913 too many arguments
     summary: Optional[str] = None,
     description: Optional[str] = None,
     readme_rst: Optional[str] = None,
+    readme_md: Optional[str] = None,
     depends: Optional[List[str]] = None,
     external_dependencies: Optional[Dict[str, List[str]]] = None,
     website: Optional[str] = None,
@@ -82,6 +83,9 @@ def _m(  # noqa: PLR0913 too many arguments
     if readme_rst:
         readme_path = addon_dir / "README.rst"
         readme_path.write_text(readme_rst)
+    if readme_md:
+        readme_path = addon_dir / "README.md"
+        readme_path.write_text(readme_md)
     return msg_to_json(
         metadata_from_addon_dir(
             addon_dir,
@@ -111,6 +115,7 @@ def test_basic(tmp_path: Path) -> None:
             "Framework :: Odoo :: 14.0",
         ],
         "metadata_version": "2.1",
+        "description_content_type": "text/x-rst",
     }
 
 
@@ -333,7 +338,18 @@ def test_description_from_readme(
     tmp_path: Path,
     readme_rst: str = "A readme\n\nwith two lines",
 ) -> None:
-    assert _m(tmp_path, readme_rst=readme_rst)["description"] == readme_rst
+    m = _m(tmp_path, readme_rst=readme_rst)
+    assert m["description"] == readme_rst
+    assert m["description_content_type"] == "text/x-rst"
+
+
+def test_description_from_readme_md(
+    tmp_path: Path,
+    readme_md: str = "A readme\n\nwith two lines",
+) -> None:
+    m = _m(tmp_path, readme_md=readme_md)
+    assert m["description"] == readme_md
+    assert m["description_content_type"] == "text/markdown"
 
 
 def test_description_from_description_and_readme(
@@ -341,10 +357,9 @@ def test_description_from_description_and_readme(
     description: str = "A description",
     readme_rst: str = "A readme\n\nwith two lines",
 ) -> None:
-    assert (
-        _m(tmp_path, description=description, readme_rst=readme_rst)["description"]
-        == readme_rst
-    )
+    m = _m(tmp_path, description=description, readme_rst=readme_rst)
+    assert m["description"] == readme_rst
+    assert m["description_content_type"] == "text/x-rst"
 
 
 def test_author(tmp_path: Path) -> None:

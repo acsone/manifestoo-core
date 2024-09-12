@@ -1,4 +1,4 @@
-# generated on Mon Jul 15 11:03:02 2024
+# generated on Thu Sep 12 15:26:34 2024
 account
 account_audit_trail
 account_check_printing
@@ -15,6 +15,7 @@ account_qr_code_emv
 account_qr_code_sepa
 account_tax_python
 account_test
+account_update_tax_tags
 analytic
 attachment_indexation
 auth_ldap
@@ -137,6 +138,7 @@ l10n_cn_city
 l10n_co
 l10n_co_pos
 l10n_cr
+l10n_cy
 l10n_cz
 l10n_de
 l10n_de_audit_trail
@@ -162,6 +164,7 @@ l10n_es_edi_facturae_adm_centers
 l10n_es_edi_facturae_invoice_period
 l10n_es_edi_sii
 l10n_es_edi_tbai
+l10n_es_modelo130
 l10n_es_pos
 l10n_es_pos_tbai
 l10n_et
@@ -204,17 +207,21 @@ l10n_in_purchase_stock
 l10n_in_sale
 l10n_in_sale_stock
 l10n_in_stock
+l10n_in_withholding
 l10n_it
 l10n_it_edi
 l10n_it_edi_doi
+l10n_it_edi_ndd
 l10n_it_edi_website_sale
 l10n_it_edi_withholding
 l10n_it_stock_ddt
+l10n_jo
 l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
 l10n_ke_edi_tremol
 l10n_km
+l10n_kw
 l10n_kz
 l10n_latam_base
 l10n_latam_check
@@ -252,6 +259,7 @@ l10n_rs
 l10n_rw
 l10n_sa
 l10n_sa_edi
+l10n_sa_edi_pos
 l10n_sa_pos
 l10n_se
 l10n_sg
@@ -273,6 +281,7 @@ l10n_us
 l10n_uy
 l10n_ve
 l10n_vn
+l10n_vn_edi_viettel
 l10n_za
 l10n_zm_account
 link_tracker

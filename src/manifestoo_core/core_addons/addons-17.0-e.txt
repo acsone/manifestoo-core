@@ -1,4 +1,4 @@
-# generated on Mon Jul 15 11:03:17 2024
+# generated on Thu Sep 12 15:26:41 2024
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -171,6 +171,7 @@ l10n_au_hr_payroll
 l10n_au_hr_payroll_account
 l10n_au_keypay
 l10n_au_reports
+l10n_bd_reports
 l10n_be_account_disallowed_expenses_fleet
 l10n_be_coda
 l10n_be_codabox
@@ -216,7 +217,9 @@ l10n_cl_edi_stock
 l10n_cl_edi_website_sale
 l10n_cl_reports
 l10n_co_edi
+l10n_co_edi_website_sale
 l10n_co_reports
+l10n_cy_reports
 l10n_cz_reports
 l10n_de_pos_cert
 l10n_de_pos_res_cert
@@ -225,6 +228,7 @@ l10n_din5008_account_followup
 l10n_din5008_industry_fsm
 l10n_din5008_sale_renting
 l10n_dk_edi
+l10n_dk_intrastat
 l10n_dk_reports
 l10n_dk_saft_import
 l10n_do_reports
@@ -236,6 +240,7 @@ l10n_ec_reports_ats
 l10n_ee_reports
 l10n_es_real_estates
 l10n_es_reports
+l10n_es_reports_modelo130
 l10n_es_sale_amazon
 l10n_eu_oss_reports
 l10n_fi_reports
@@ -249,6 +254,7 @@ l10n_hk_hr_payroll_account
 l10n_hr_reports
 l10n_hu_reports
 l10n_ie_reports
+l10n_in_asset
 l10n_in_documents
 l10n_in_hr_payroll
 l10n_in_hr_payroll_account
@@ -309,8 +315,11 @@ l10n_nl_reports_sbr_status_info
 l10n_no_reports
 l10n_no_saft
 l10n_pe_edi
+l10n_pe_edi_pos
 l10n_pe_edi_stock
 l10n_pe_reports
+l10n_pe_reports_stock
+l10n_ph_check_printing
 l10n_ph_reports
 l10n_pk_reports
 l10n_pl_hr_payroll
@@ -345,8 +354,10 @@ l10n_us_1099
 l10n_us_check_printing
 l10n_us_hr_payroll
 l10n_us_hr_payroll_account
+l10n_us_hr_payroll_state_calculation
 l10n_us_payment_nacha
 l10n_us_reports
+l10n_uy_edi
 l10n_zm_reports
 mail_enterprise
 mail_mobile

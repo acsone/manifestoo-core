@@ -5,7 +5,7 @@ import warnings
 from dataclasses import dataclass
 from email.message import Message
 from pathlib import Path
-from typing import Dict, Iterator, List, Optional, Sequence, Set, Tuple, Union
+from typing import Dict, Iterator, List, Literal, Optional, Sequence, Set, Tuple, Union
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -37,11 +37,14 @@ ODOO_ADDON_METADATA_NAME_RE = re.compile(
     r"^odoo(\d{1,2})?[-_]addon[-_](?P<addon_name>[a-zA-Z0-9_-]+)$",
 )
 
+PostVersionStrategyOverrideStr = Literal[".N", "none", ".99.devN", "+1.devN"]
+
 __all__ = [
     "POST_VERSION_STRATEGY_DOT_N",
     "POST_VERSION_STRATEGY_NINETYNINE_DEVN",
     "POST_VERSION_STRATEGY_NONE",
     "POST_VERSION_STRATEGY_P1_DEVN",
+    "PostVersionStrategyOverrideStr",
     "metadata_from_addon_dir",
     "addon_name_to_distribution_name",
     "addon_name_to_requirement",
@@ -79,7 +82,7 @@ class MetadataOptions(TypedDict, total=False):
     external_dependencies_only: Optional[bool]
     odoo_series_override: Optional[str]
     odoo_version_override: Optional[str]
-    post_version_strategy_override: Optional[str]
+    post_version_strategy_override: Optional[PostVersionStrategyOverrideStr]
 
 
 def metadata_from_addon_dir(

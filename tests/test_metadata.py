@@ -15,6 +15,7 @@ from manifestoo_core.metadata import (
     POST_VERSION_STRATEGY_NINETYNINE_DEVN,
     POST_VERSION_STRATEGY_NONE,
     POST_VERSION_STRATEGY_P1_DEVN,
+    PostVersionStrategyOverrideStr,
     _author_email,
     _filter_odoo_addon_dependencies,
     _no_nl,
@@ -54,7 +55,7 @@ def _m(  # noqa: PLR0913 too many arguments
     external_dependencies_only: Optional[bool] = None,
     odoo_series_override: Optional[str] = None,
     odoo_version_override: Optional[str] = None,
-    post_version_strategy_override: Optional[str] = None,
+    post_version_strategy_override: Optional[PostVersionStrategyOverrideStr] = None,
     precomputed_metadata_file: Optional[Path] = None,
 ) -> Dict[str, Any]:
     addon_dir = tmp_path / addon_dir_name
@@ -554,7 +555,7 @@ def test_git_post_version(
     tmp_path: Path,
     manifest_version: str,
     post_commits: int,
-    post_version_strategy_override: Optional[str],
+    post_version_strategy_override: Optional[PostVersionStrategyOverrideStr],
     expected_version: str,
 ) -> None:
     addon_dir = _make_git_addon(
@@ -589,7 +590,7 @@ def test_git_post_version_uncommitted_change(
     tmp_path: Path,
     manifest_version: str,
     post_commits: int,
-    post_version_strategy_override: str,
+    post_version_strategy_override: PostVersionStrategyOverrideStr,
     expected_version: str,
 ) -> None:
     addon_dir = _make_git_addon(
@@ -618,7 +619,7 @@ def test_git_post_version_uncommitted_change(
 )
 def test_git_post_version_bad_manifest_in_history(
     tmp_path: Path,
-    post_version_strategy_override: str,
+    post_version_strategy_override: PostVersionStrategyOverrideStr,
 ) -> None:
     addon_dir = _make_git_addon(tmp_path, manifest_version="16.0.1.1.0")
     addon_dir.joinpath("__manifest__.py").write_text(
@@ -651,7 +652,7 @@ def test_git_post_version_bad_manifest_in_history(
 )
 def test_git_post_version_good_manifest_in_history(
     tmp_path: Path,
-    post_version_strategy_override: str,
+    post_version_strategy_override: PostVersionStrategyOverrideStr,
 ) -> None:
     addon_dir = _make_git_addon(tmp_path, manifest_version="16.0.1.1.0")
     addon_dir.joinpath("__manifest__.py").write_text(
@@ -679,7 +680,7 @@ def test_git_post_version_good_manifest_in_history(
 )
 def test_git_post_version_no_manifest_in_history(
     tmp_path: Path,
-    post_version_strategy_override: str,
+    post_version_strategy_override: PostVersionStrategyOverrideStr,
 ) -> None:
     addon_dir = _make_git_addon(tmp_path, manifest_version="16.0.1.1.0")
     subprocess.check_call(["git", "rm", "__manifest__.py"], cwd=addon_dir)

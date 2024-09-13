@@ -1,3 +1,19 @@
+v1.8 (2024-09-13)
+=================
+
+Features
+--------
+
+- Update core addon lists. (`#80 <https://github.com/acsone/manifestoo-core/issues/80>`_)
+- Add preliminary Odoo 18 support. (`#81 <https://github.com/acsone/manifestoo-core/issues/81>`_)
+
+
+Misc
+----
+
+- `#75 <https://github.com/acsone/manifestoo-core/issues/75>`_
+
+
 v1.7 (2024-07-15)
 =================
 

@@ -30,6 +30,7 @@ class OdooSeries(str, Enum):
     v15_0 = "15.0"
     v16_0 = "16.0"
     v17_0 = "17.0"
+    v18_0 = "18.0"
 
     @classmethod
     def from_str(cls, value: str, context: Optional[str] = None) -> "OdooSeries":

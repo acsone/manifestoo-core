@@ -1,4 +1,4 @@
-# generated on Thu Sep 12 15:26:34 2024
+# generated on Sat Oct  5 15:14:12 2024
 account
 account_audit_trail
 account_check_printing
@@ -6,6 +6,7 @@ account_debit_note
 account_edi
 account_edi_proxy_client
 account_edi_ubl_cii
+account_edi_ubl_cii_tax_extension
 account_fleet
 account_lock
 account_payment
@@ -252,6 +253,7 @@ l10n_ph
 l10n_pk
 l10n_pl
 l10n_pt
+l10n_qa
 l10n_ro
 l10n_ro_edi
 l10n_ro_efactura

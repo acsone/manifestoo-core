@@ -1,4 +1,4 @@
-# generated on Thu Sep 12 15:26:55 2024
+# generated on Sat Oct  5 15:14:33 2024
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -201,6 +201,7 @@ l10n_ec_reports_ats
 l10n_ee_reports
 l10n_es_real_estates
 l10n_es_reports
+l10n_es_reports_2024
 l10n_eu_oss_reports
 l10n_fi_reports
 l10n_fr_fec_import

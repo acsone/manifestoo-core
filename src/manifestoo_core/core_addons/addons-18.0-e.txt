@@ -1,4 +1,4 @@
-# generated on Thu Sep 12 15:26:27 2024
+# generated on Sat Oct  5 15:14:04 2024
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -29,12 +29,14 @@ account_inter_company_rules
 account_intrastat
 account_invoice_extract
 account_invoice_extract_purchase
+account_iso20022
+account_loans
+account_online_payment
 account_online_synchronization
 account_reports
 account_reports_cash_basis
 account_saft
 account_saft_import
-account_sepa
 account_sepa_direct_debit
 account_winbooks_import
 accountant
@@ -55,6 +57,7 @@ contacts_enterprise
 crm_enterprise
 crm_enterprise_partner_assign
 crm_helpdesk
+crm_sale_subscription
 currency_rate_live
 data_cleaning
 data_merge_crm
@@ -132,13 +135,18 @@ hr_holidays_gantt
 hr_mobile
 hr_payroll
 hr_payroll_account
-hr_payroll_account_sepa
+hr_payroll_account_iso20022
 hr_payroll_attendance
 hr_payroll_expense
 hr_payroll_fleet
 hr_payroll_holidays
 hr_payroll_planning
 hr_recruitment_extract
+hr_recruitment_integration_base
+hr_recruitment_integration_monster
+hr_recruitment_integration_skills_monster
+hr_recruitment_integration_website
+hr_recruitment_integration_website_monster
 hr_recruitment_reports
 hr_recruitment_sign
 hr_referral
@@ -158,7 +166,7 @@ industry_fsm_sms
 industry_fsm_stock
 iot
 knowledge
-l10n_account_customer_statements
+l10n_ae_corporate_tax_report
 l10n_ae_hr_payroll
 l10n_ae_hr_payroll_account
 l10n_ae_reports
@@ -183,7 +191,10 @@ l10n_be_hr_payroll_account
 l10n_be_hr_payroll_attendance
 l10n_be_hr_payroll_dimona
 l10n_be_hr_payroll_fleet
+l10n_be_hr_payroll_group_s
+l10n_be_hr_payroll_partena
 l10n_be_hr_payroll_sd_worx
+l10n_be_hr_payroll_ucm
 l10n_be_intrastat
 l10n_be_reports
 l10n_be_reports_post_wizard
@@ -196,6 +207,7 @@ l10n_br_avatax
 l10n_br_avatax_sale
 l10n_br_edi
 l10n_br_edi_sale
+l10n_br_edi_website_sale
 l10n_br_reports
 l10n_br_sale_subscription
 l10n_br_test_avatax_sale
@@ -238,6 +250,7 @@ l10n_eg_hr_payroll_account
 l10n_employment_hero
 l10n_es_real_estates
 l10n_es_reports
+l10n_es_reports_2024
 l10n_es_reports_modelo130
 l10n_es_sale_amazon
 l10n_eu_oss_reports
@@ -258,6 +271,7 @@ l10n_id_hr_payroll_account
 l10n_ie_reports
 l10n_in_asset
 l10n_in_documents
+l10n_in_enet_batch_payment
 l10n_in_hr_payroll
 l10n_in_hr_payroll_account
 l10n_in_qr_code_bill_scan
@@ -265,6 +279,7 @@ l10n_in_reports
 l10n_in_reports_gstr
 l10n_in_reports_gstr_pos
 l10n_in_reports_gstr_spreadsheet
+l10n_in_reports_tds_tcs
 l10n_it_reports
 l10n_jo_hr_payroll
 l10n_jo_hr_payroll_account
@@ -315,6 +330,8 @@ l10n_nl_reports_sbr_ob_nummer
 l10n_nl_reports_sbr_status_info
 l10n_no_reports
 l10n_no_saft
+l10n_nz_eft
+l10n_nz_reports
 l10n_pe_edi
 l10n_pe_edi_pos
 l10n_pe_edi_stock
@@ -354,7 +371,6 @@ l10n_tr_reports
 l10n_tw_reports
 l10n_tz_reports
 l10n_uk_bacs
-l10n_uk_customer_statements
 l10n_uk_reports
 l10n_us_1099
 l10n_us_check_printing
@@ -373,6 +389,8 @@ maintenance_worksheet
 marketing_automation
 marketing_automation_crm
 marketing_automation_sms
+marketing_automation_website_sale
+marketing_automation_whatsapp
 mass_mailing_sale_subscription
 mrp_account_enterprise
 mrp_accountant
@@ -416,6 +434,9 @@ pos_self_order_iot
 pos_self_order_preparation_display
 pos_settle_due
 pos_urban_piper
+pos_urban_piper_swiggy
+pos_urban_piper_ubereats
+pos_urban_piper_zomato
 product_barcodelookup
 product_unspsc
 project_account_asset
@@ -452,7 +473,6 @@ sale_amazon_avatax
 sale_commission
 sale_commission_margin
 sale_commission_subscription
-sale_ebay
 sale_external_tax
 sale_intrastat
 sale_management_renting
@@ -494,7 +514,9 @@ spreadsheet_dashboard_helpdesk
 spreadsheet_dashboard_hr_contract
 spreadsheet_dashboard_hr_payroll
 spreadsheet_dashboard_hr_referral
+spreadsheet_dashboard_marketing_automation
 spreadsheet_dashboard_mrp_account
+spreadsheet_dashboard_purchase_stock
 spreadsheet_dashboard_sale_renting
 spreadsheet_dashboard_sale_subscription
 spreadsheet_dashboard_stock
@@ -516,6 +538,7 @@ stock_intrastat
 test_appointment_full
 test_data_cleaning
 test_discuss_full_enterprise
+test_event_full_enterprise
 test_l10n_be_hr_payroll_account
 test_l10n_ch_hr_payroll_account
 test_l10n_hk_hr_payroll_account

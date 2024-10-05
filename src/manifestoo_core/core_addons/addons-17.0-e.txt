@@ -1,4 +1,4 @@
-# generated on Thu Sep 12 15:26:41 2024
+# generated on Sat Oct  5 15:14:18 2024
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -160,6 +160,7 @@ industry_fsm_stock
 iot
 knowledge
 l10n_account_customer_statements
+l10n_ae_corporate_tax_report
 l10n_ae_hr_payroll
 l10n_ae_hr_payroll_account
 l10n_ar_edi
@@ -240,6 +241,7 @@ l10n_ec_reports_ats
 l10n_ee_reports
 l10n_es_real_estates
 l10n_es_reports
+l10n_es_reports_2024
 l10n_es_reports_modelo130
 l10n_es_sale_amazon
 l10n_eu_oss_reports
@@ -314,6 +316,7 @@ l10n_nl_reports_sbr_ob_nummer
 l10n_nl_reports_sbr_status_info
 l10n_no_reports
 l10n_no_saft
+l10n_nz_eft
 l10n_pe_edi
 l10n_pe_edi_pos
 l10n_pe_edi_stock

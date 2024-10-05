@@ -70,6 +70,7 @@ def test_manifest_invalid_syntax() -> None:
         ("depends", []),
         ("external_dependencies", {}),
         ("installable", True),
+        ("category", None),
     ],
 )
 def test_manifest_default_value(key: str, default: Any) -> None:

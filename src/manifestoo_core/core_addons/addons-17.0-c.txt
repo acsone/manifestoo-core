@@ -1,4 +1,4 @@
-# generated on Sat Oct  5 15:14:12 2024
+# generated on Fri Dec 20 15:29:50 2024
 account
 account_audit_trail
 account_check_printing
@@ -108,6 +108,7 @@ im_livechat
 im_livechat_mail_bot
 l10n_account_edi_ubl_cii_tests
 l10n_ae
+l10n_anz_ubl_pint
 l10n_ar
 l10n_ar_pos
 l10n_ar_website_sale
@@ -119,6 +120,7 @@ l10n_be
 l10n_be_pos_sale
 l10n_bf
 l10n_bg
+l10n_bh
 l10n_bj
 l10n_bo
 l10n_br
@@ -155,6 +157,7 @@ l10n_dk_oioubl
 l10n_do
 l10n_dz
 l10n_ec
+l10n_ec_stock
 l10n_ec_website_sale
 l10n_ee
 l10n_eg
@@ -209,6 +212,7 @@ l10n_in_sale
 l10n_in_sale_stock
 l10n_in_stock
 l10n_in_withholding
+l10n_iq
 l10n_it
 l10n_it_edi
 l10n_it_edi_doi
@@ -217,6 +221,7 @@ l10n_it_edi_website_sale
 l10n_it_edi_withholding
 l10n_it_stock_ddt
 l10n_jo
+l10n_jo_edi
 l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
@@ -227,6 +232,7 @@ l10n_kz
 l10n_latam_base
 l10n_latam_check
 l10n_latam_invoice_document
+l10n_lb_account
 l10n_lt
 l10n_lu
 l10n_lv
@@ -234,10 +240,12 @@ l10n_ma
 l10n_ml
 l10n_mn
 l10n_mt
+l10n_mt_pos
 l10n_mu_account
 l10n_mx
 l10n_mx_hr
 l10n_my
+l10n_my_edi
 l10n_my_ubl_pint
 l10n_mz
 l10n_ne
@@ -265,6 +273,7 @@ l10n_sa_edi_pos
 l10n_sa_pos
 l10n_se
 l10n_sg
+l10n_sg_ubl_pint
 l10n_si
 l10n_sk
 l10n_sn
@@ -341,6 +350,7 @@ payment_paypal
 payment_payulatam
 payment_payumoney
 payment_razorpay
+payment_razorpay_oauth
 payment_sips
 payment_stripe
 payment_xendit
@@ -363,6 +373,7 @@ pos_paytm
 pos_razorpay
 pos_restaurant
 pos_restaurant_adyen
+pos_restaurant_loyalty
 pos_restaurant_stripe
 pos_sale
 pos_sale_loyalty

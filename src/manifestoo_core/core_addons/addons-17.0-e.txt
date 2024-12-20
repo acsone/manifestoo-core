@@ -1,4 +1,4 @@
-# generated on Sat Oct  5 15:14:18 2024
+# generated on Fri Dec 20 15:30:11 2024
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -67,6 +67,7 @@ delivery_bpost
 delivery_dhl
 delivery_easypost
 delivery_fedex
+delivery_fedex_rest
 delivery_iot
 delivery_sendcloud
 delivery_shiprocket
@@ -222,6 +223,7 @@ l10n_co_edi_website_sale
 l10n_co_reports
 l10n_cy_reports
 l10n_cz_reports
+l10n_de_intrastat
 l10n_de_pos_cert
 l10n_de_pos_res_cert
 l10n_de_reports
@@ -239,6 +241,7 @@ l10n_ec_edi_pos
 l10n_ec_reports
 l10n_ec_reports_ats
 l10n_ee_reports
+l10n_ee_rounding
 l10n_es_real_estates
 l10n_es_reports
 l10n_es_reports_2024
@@ -266,11 +269,13 @@ l10n_in_reports_gstr
 l10n_in_reports_gstr_pos
 l10n_in_reports_gstr_spreadsheet
 l10n_it_reports
+l10n_jp_zengin
 l10n_ke_edi_oscu
 l10n_ke_edi_oscu_mrp
 l10n_ke_edi_oscu_stock
 l10n_ke_hr_payroll
 l10n_ke_hr_payroll_account
+l10n_ke_hr_payroll_shif
 l10n_ke_reports
 l10n_kz_reports
 l10n_lt_hr_payroll

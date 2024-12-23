@@ -7,8 +7,8 @@ from .addons_set import AddonsSet
 from .exceptions import UnsupportedOdooSeries
 
 __all__ = [
-    "OdooSeries",
     "OdooEdition",
+    "OdooSeries",
     "detect_from_addon_version",
     "detect_from_addons_set",
 ]

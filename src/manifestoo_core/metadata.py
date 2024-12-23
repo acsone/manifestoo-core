@@ -42,10 +42,10 @@ __all__ = [
     "POST_VERSION_STRATEGY_NINETYNINE_DEVN",
     "POST_VERSION_STRATEGY_NONE",
     "POST_VERSION_STRATEGY_P1_DEVN",
-    "metadata_from_addon_dir",
     "addon_name_to_distribution_name",
     "addon_name_to_requirement",
     "distribution_name_to_addon_name",
+    "metadata_from_addon_dir",
 ]
 
 

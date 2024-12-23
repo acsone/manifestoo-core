@@ -12,11 +12,11 @@ else:
 from ..odoo_series import OdooEdition, OdooSeries
 
 __all__ = [
+    "get_core_addon_license",
     "get_core_addons",
+    "is_core_addon",
     "is_core_ce_addon",
     "is_core_ee_addon",
-    "is_core_addon",
-    "get_core_addon_license",
 ]
 
 

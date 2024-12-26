@@ -1,4 +1,4 @@
-# generated on Sat Oct  5 15:14:26 2024
+# generated on Fri Dec 20 15:30:44 2024
 account
 account_check_printing
 account_debit_note
@@ -137,6 +137,7 @@ l10n_dk
 l10n_do
 l10n_dz
 l10n_ec
+l10n_ec_stock
 l10n_ee
 l10n_eg
 l10n_eg_edi_eta
@@ -180,6 +181,7 @@ l10n_in_tcs_tds
 l10n_in_upi
 l10n_it
 l10n_it_edi
+l10n_it_edi_doi
 l10n_it_edi_pa
 l10n_it_edi_website_sale
 l10n_it_edi_withholding
@@ -197,6 +199,7 @@ l10n_lu_peppol_id
 l10n_lv
 l10n_ma
 l10n_mn
+l10n_mt_pos
 l10n_multilang
 l10n_mx
 l10n_mx_hr

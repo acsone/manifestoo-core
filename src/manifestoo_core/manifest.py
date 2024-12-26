@@ -7,7 +7,7 @@ from .exceptions import InvalidManifest
 T = TypeVar("T")
 VT = TypeVar("VT")
 
-__all__ = ["Manifest", "InvalidManifest", "get_manifest_path", "MANIFEST_NAMES"]
+__all__ = ["MANIFEST_NAMES", "InvalidManifest", "Manifest", "get_manifest_path"]
 
 MANIFEST_NAMES = ("__manifest__.py", "__openerp__.py", "__terp__.py")
 

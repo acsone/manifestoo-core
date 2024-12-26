@@ -12,8 +12,8 @@ from .exceptions import (
 from .manifest import InvalidManifest, Manifest, get_manifest_path
 
 __all__ = [
-    "is_addon_dir",
     "Addon",
+    "is_addon_dir",
 ]
 
 

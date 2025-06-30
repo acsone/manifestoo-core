@@ -402,25 +402,21 @@ def _make_classifiers(odoo_series: OdooSeries, manifest: Manifest) -> List[str]:
         ),
         "gpl-2": "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "gpl-2 or any later version": (
-            "License :: OSI Approved :: "
-            "GNU General Public License v2 or later (GPLv2+)"
+            "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
         ),
         "gpl-3": "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "gpl-3 or any later version": (
-            "License :: OSI Approved :: "
-            "GNU General Public License v3 or later (GPLv3+)"
+            "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
         ),
         "lgpl-2": (
-            "License :: OSI Approved :: "
-            "GNU Lesser General Public License v2 (LGPLv2)"
+            "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)"
         ),
         "lgpl-2 or any later version": (
             "License :: OSI Approved :: "
             "GNU Lesser General Public License v2 or later (LGPLv2+)"
         ),
         "lgpl-3": (
-            "License :: OSI Approved :: "
-            "GNU Lesser General Public License v3 (LGPLv3)"
+            "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)"
         ),
         "lgpl-3 or any later version": (
             "License :: OSI Approved :: "

@@ -1,4 +1,4 @@
-# generated on Fri Dec 20 15:29:50 2024
+# generated on Fri Jul  4 17:43:38 2025
 account
 account_audit_trail
 account_check_printing
@@ -88,6 +88,7 @@ hr_org_chart
 hr_presence
 hr_recruitment
 hr_recruitment_skills
+hr_recruitment_sms
 hr_recruitment_survey
 hr_skills
 hr_skills_slides
@@ -168,6 +169,7 @@ l10n_es_edi_facturae_adm_centers
 l10n_es_edi_facturae_invoice_period
 l10n_es_edi_sii
 l10n_es_edi_tbai
+l10n_es_edi_tbai_multi_refund
 l10n_es_modelo130
 l10n_es_pos
 l10n_es_pos_tbai
@@ -199,6 +201,7 @@ l10n_hu
 l10n_hu_edi
 l10n_id
 l10n_id_efaktur
+l10n_id_efaktur_coretax
 l10n_ie
 l10n_il
 l10n_in
@@ -217,11 +220,14 @@ l10n_it
 l10n_it_edi
 l10n_it_edi_doi
 l10n_it_edi_ndd
+l10n_it_edi_ndd_account_dn
+l10n_it_edi_sale
 l10n_it_edi_website_sale
 l10n_it_edi_withholding
 l10n_it_stock_ddt
 l10n_jo
 l10n_jo_edi
+l10n_jo_edi_extended
 l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
@@ -246,6 +252,7 @@ l10n_mx
 l10n_mx_hr
 l10n_my
 l10n_my_edi
+l10n_my_edi_extended
 l10n_my_ubl_pint
 l10n_mz
 l10n_ne
@@ -264,8 +271,11 @@ l10n_pt
 l10n_qa
 l10n_ro
 l10n_ro_edi
+l10n_ro_edi_stock
+l10n_ro_edi_stock_batch
 l10n_ro_efactura
 l10n_rs
+l10n_rs_edi
 l10n_rw
 l10n_sa
 l10n_sa_edi
@@ -283,6 +293,9 @@ l10n_tg
 l10n_th
 l10n_tn
 l10n_tr
+l10n_tr_nilvera
+l10n_tr_nilvera_edispatch
+l10n_tr_nilvera_einvoice
 l10n_tw
 l10n_tz_account
 l10n_ua

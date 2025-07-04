@@ -1,4 +1,4 @@
-# generated on Fri Dec 20 15:30:11 2024
+# generated on Fri Jul  4 17:43:45 2025
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -27,6 +27,7 @@ account_external_tax
 account_followup
 account_inter_company_rules
 account_intrastat
+account_intrastat_services
 account_invoice_extract
 account_invoice_extract_purchase
 account_online_synchronization
@@ -65,6 +66,7 @@ data_merge_stock_account
 data_merge_utm
 delivery_bpost
 delivery_dhl
+delivery_dhl_rest
 delivery_easypost
 delivery_fedex
 delivery_fedex_rest
@@ -75,6 +77,7 @@ delivery_starshipit
 delivery_ups
 delivery_ups_rest
 delivery_usps
+delivery_usps_rest
 digest_enterprise
 documents
 documents_account
@@ -188,6 +191,7 @@ l10n_be_hr_payroll_dimona
 l10n_be_hr_payroll_fleet
 l10n_be_hr_payroll_sd_worx
 l10n_be_intrastat
+l10n_be_intrastat_services
 l10n_be_reports
 l10n_be_reports_post_wizard
 l10n_be_reports_prorata
@@ -210,6 +214,8 @@ l10n_ca_reports
 l10n_ch_hr_payroll
 l10n_ch_hr_payroll_account
 l10n_ch_hr_payroll_elm
+l10n_ch_hr_payroll_elm_transmission
+l10n_ch_hr_payroll_elm_transmission_account
 l10n_ch_reports
 l10n_cl_edi
 l10n_cl_edi_boletas
@@ -223,6 +229,7 @@ l10n_co_edi_website_sale
 l10n_co_reports
 l10n_cy_reports
 l10n_cz_reports
+l10n_cz_reports_2025
 l10n_de_intrastat
 l10n_de_pos_cert
 l10n_de_pos_res_cert
@@ -240,6 +247,7 @@ l10n_ec_edi
 l10n_ec_edi_pos
 l10n_ec_reports
 l10n_ec_reports_ats
+l10n_ee_intrastat
 l10n_ee_reports
 l10n_ee_rounding
 l10n_es_real_estates
@@ -253,6 +261,7 @@ l10n_fr_fec_import
 l10n_fr_hr_payroll
 l10n_fr_hr_payroll_account
 l10n_fr_reports
+l10n_fr_reports_extended
 l10n_gr_reports
 l10n_hk_hr_payroll
 l10n_hk_hr_payroll_account
@@ -269,9 +278,12 @@ l10n_in_reports_gstr
 l10n_in_reports_gstr_pos
 l10n_in_reports_gstr_spreadsheet
 l10n_it_reports
+l10n_it_riba
+l10n_it_xml_export
 l10n_jp_zengin
 l10n_ke_edi_oscu
 l10n_ke_edi_oscu_mrp
+l10n_ke_edi_oscu_pos
 l10n_ke_edi_oscu_stock
 l10n_ke_hr_payroll
 l10n_ke_hr_payroll_account
@@ -345,6 +357,8 @@ l10n_rw_reports
 l10n_sa_hr_payroll
 l10n_sa_hr_payroll_account
 l10n_se_reports
+l10n_se_sie4_export
+l10n_se_sie4_import
 l10n_se_sie_import
 l10n_sg_reports
 l10n_si_reports

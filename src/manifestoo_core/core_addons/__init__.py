@@ -22,9 +22,13 @@ __all__ = [
 
 @lru_cache()
 def _get_core_addons(odoo_series: OdooSeries, odoo_edition: OdooEdition) -> Set[str]:
-    with package_files("manifestoo_core.core_addons").joinpath(
-        f"addons-{odoo_series.value}-{odoo_edition.value}.txt",
-    ).open() as f:
+    with (
+        package_files("manifestoo_core.core_addons")
+        .joinpath(
+            f"addons-{odoo_series.value}-{odoo_edition.value}.txt",
+        )
+        .open()
+    ) as f:
         return {a.strip() for a in f if not a.startswith("#")}
 
 

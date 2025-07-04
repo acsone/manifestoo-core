@@ -1,3 +1,22 @@
+v1.9 (2025-07-04)
+=================
+
+Features
+--------
+
+- Description can now also be a README.md, a README.txt or extracted from manifest. Mimetype of the description metadata is set accordingly. (`#79 <https://github.com/acsone/manifestoo-core/issues/79>`_)
+- Update core addon lists. (`#92 <https://github.com/acsone/manifestoo-core/issues/92>`_)
+
+v1.8.1
+======
+
+- Update core addon lists. (`#88 <https://github.com/acsone/manifestoo-core/issues/88>`_)
+
+v1.8.1
+======
+
+- Update core addon lists. (`#84 <https://github.com/acsone/manifestoo-core/issues/84>`_, `#88 <https://github.com/acsone/manifestoo-core/issues/88>`_)
+
 v1.8 (2024-09-13)
 =================
 

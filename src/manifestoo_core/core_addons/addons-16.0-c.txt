@@ -1,4 +1,4 @@
-# generated on Fri Dec 20 15:30:44 2024
+# generated on Fri Jul  4 17:43:52 2025
 account
 account_check_printing
 account_debit_note
@@ -144,6 +144,7 @@ l10n_eg_edi_eta
 l10n_es
 l10n_es_edi_sii
 l10n_es_edi_tbai
+l10n_es_edi_tbai_multi_refund
 l10n_et
 l10n_eu_oss
 l10n_fi
@@ -166,6 +167,7 @@ l10n_hr_euro
 l10n_hu
 l10n_id
 l10n_id_efaktur
+l10n_id_efaktur_coretax
 l10n_ie
 l10n_il
 l10n_in

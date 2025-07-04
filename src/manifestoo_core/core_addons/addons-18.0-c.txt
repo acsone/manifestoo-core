@@ -1,4 +1,4 @@
-# generated on Fri Dec 20 15:29:00 2024
+# generated on Fri Jul  4 17:42:08 2025
 account
 account_check_printing
 account_debit_note
@@ -94,6 +94,7 @@ hr_org_chart
 hr_presence
 hr_recruitment
 hr_recruitment_skills
+hr_recruitment_sms
 hr_recruitment_survey
 hr_skills
 hr_skills_slides
@@ -113,6 +114,8 @@ iap_crm
 iap_mail
 im_livechat
 l10n_account_edi_ubl_cii_tests
+l10n_account_withholding_tax
+l10n_account_withholding_tax_pos
 l10n_ae
 l10n_anz_ubl_pint
 l10n_ar
@@ -123,9 +126,11 @@ l10n_at
 l10n_au
 l10n_bd
 l10n_be
+l10n_be_pos_restaurant
 l10n_be_pos_sale
 l10n_bf
 l10n_bg
+l10n_bg_ledger
 l10n_bh
 l10n_bj
 l10n_bo
@@ -188,6 +193,7 @@ l10n_gcc_pos
 l10n_gn
 l10n_gq
 l10n_gr
+l10n_gr_edi
 l10n_gt
 l10n_gw
 l10n_hk
@@ -198,6 +204,7 @@ l10n_hu
 l10n_hu_edi
 l10n_id
 l10n_id_efaktur
+l10n_id_efaktur_coretax
 l10n_id_pos
 l10n_ie
 l10n_il
@@ -220,11 +227,14 @@ l10n_it
 l10n_it_edi
 l10n_it_edi_doi
 l10n_it_edi_ndd
+l10n_it_edi_ndd_account_dn
+l10n_it_edi_sale
 l10n_it_edi_website_sale
 l10n_it_edi_withholding
 l10n_it_stock_ddt
 l10n_jo
 l10n_jo_edi
+l10n_jo_edi_extended
 l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
@@ -251,6 +261,8 @@ l10n_mx
 l10n_mx_hr
 l10n_my
 l10n_my_edi
+l10n_my_edi_extended
+l10n_my_edi_pos
 l10n_my_ubl_pint
 l10n_mz
 l10n_ne
@@ -258,6 +270,7 @@ l10n_ng
 l10n_nl
 l10n_no
 l10n_nz
+l10n_om
 l10n_pa
 l10n_pe
 l10n_pe_pos
@@ -269,7 +282,10 @@ l10n_pt
 l10n_qa
 l10n_ro
 l10n_ro_edi
+l10n_ro_edi_stock
+l10n_ro_edi_stock_batch
 l10n_rs
+l10n_rs_edi
 l10n_rw
 l10n_sa
 l10n_sa_edi
@@ -288,6 +304,8 @@ l10n_tg
 l10n_th
 l10n_tn
 l10n_tr
+l10n_tr_nilvera
+l10n_tr_nilvera_einvoice
 l10n_tw
 l10n_tz_account
 l10n_ua
@@ -351,6 +369,7 @@ payment_demo
 payment_flutterwave
 payment_mercado_pago
 payment_mollie
+payment_nuvei
 payment_paypal
 payment_razorpay
 payment_razorpay_oauth
@@ -366,6 +385,7 @@ pos_adyen
 pos_discount
 pos_epson_printer
 pos_event
+pos_event_sale
 pos_hr
 pos_hr_restaurant
 pos_loyalty
@@ -374,9 +394,11 @@ pos_mrp
 pos_online_payment
 pos_online_payment_self_order
 pos_paytm
+pos_pine_labs
 pos_razorpay
 pos_restaurant
 pos_restaurant_adyen
+pos_restaurant_loyalty
 pos_restaurant_stripe
 pos_sale
 pos_sale_loyalty
@@ -435,6 +457,8 @@ sale_crm
 sale_edi_ubl
 sale_expense
 sale_expense_margin
+sale_gelato
+sale_gelato_stock
 sale_loyalty
 sale_loyalty_delivery
 sale_management
@@ -497,6 +521,7 @@ test_mail_sms
 test_mass_mailing
 test_resource
 test_sale_product_configurators
+test_sale_purchase_edi_ubl
 test_spreadsheet
 test_website
 test_website_modules
@@ -555,6 +580,7 @@ website_sale_autocomplete
 website_sale_collect
 website_sale_comparison
 website_sale_comparison_wishlist
+website_sale_gelato
 website_sale_loyalty
 website_sale_mass_mailing
 website_sale_mondialrelay

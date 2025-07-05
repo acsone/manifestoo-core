@@ -16,7 +16,7 @@ jobs:
       matrix:
         include:
           - python-version: "3.6"
-            machine: ubuntu-20.04
+            machine: ubuntu-22.04
           - python-version: "3.7"
             machine: ubuntu-22.04
           - python-version: "3.8"

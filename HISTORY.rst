@@ -1,5 +1,10 @@
-v1.9 (2025-07-04)
+v1.9 (2025-07-05)
 =================
+
+Deprecations and Removals
+-------------------------
+
+- Drop support for Python 3.6. (`#94 <https://github.com/acsone/manifestoo-core/issues/94>`_)
 
 Features
 --------

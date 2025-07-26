@@ -334,6 +334,10 @@ def distribution_name_to_addon_name(metadata_name: str) -> str:
     if not mo:
         msg = f"{metadata_name} does not look like an Odoo addon package name"
         raise InvalidDistributionName(msg)
+    # Replacing '-' with '_' is not really useful, because the
+    # `addon_name_to_distribution_name` does not replace '_' with '-'. But it is
+    # kept for backward compatibility. If other normalizations such as
+    # lowercasing had been applied, this would not yield the correct addon name.
     return mo.group("addon_name").replace("-", "_")
 
 

@@ -756,8 +756,8 @@ def test_addon_name_to_distribution_name() -> None:
         == "odoo14-addon-addon1"
     )
     assert (
-        addon_name_to_distribution_name("addon_1", OdooSeries.v16_0)
-        == "odoo-addon-addon_1"
+        addon_name_to_distribution_name("Addon_1", OdooSeries.v16_0)
+        == "odoo-addon-Addon_1"
     )
 
 

@@ -1,4 +1,4 @@
-# generated on Sun Nov  3 13:13:56 2019
+# generated on Fri Aug  1 14:17:12 2025
 account
 account_accountant
 account_analytic_default
@@ -216,6 +216,24 @@ stock_picking_wave
 subscription
 survey
 survey_crm
+test_access_rights
+test_assetsbundle
+test_convert
+test_converter
+test_documentation_examples
+test_exceptions
+test_impex
+test_inherit
+test_inherits
+test_limits
+test_lint
+test_mimetypes
+test_new_api
+test_pylint
+test_read_group
+test_rpc
+test_uninstall
+test_workflow
 theme_bootswatch
 theme_default
 utm

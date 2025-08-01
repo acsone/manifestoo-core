@@ -1,4 +1,4 @@
-# generated on Mon Aug 19 13:10:17 2019
+# generated on Fri Aug  1 14:24:02 2025
 account
 account_accountant
 account_analytic_analysis
@@ -224,6 +224,18 @@ stock_picking_wave
 subscription
 survey
 survey_crm
+test_access_rights
+test_convert
+test_converter
+test_documentation_examples
+test_exceptions
+test_impex
+test_inherit
+test_inherits
+test_limits
+test_new_api
+test_uninstall
+test_workflow
 warning
 web
 web_analytics

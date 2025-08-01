@@ -1,4 +1,4 @@
-# generated on Fri Jul  4 17:44:08 2025
+# generated on Fri Aug  1 14:10:54 2025
 account
 account_check_printing
 account_debit_note
@@ -357,12 +357,40 @@ stock_landed_costs
 stock_picking_batch
 stock_sms
 survey
+test_access_rights
+test_action_bindings
+test_apikeys
+test_assetsbundle
+test_auth_custom
 test_base_automation
+test_convert
+test_converter
+test_data_module_install
 test_discuss_full
 test_event_full
+test_exceptions
+test_http
+test_impex
+test_inherit
+test_inherit_depends
+test_inherits
+test_inherits_depends
+test_limits
+test_lint
 test_mail
 test_mail_full
+test_main_flows
 test_mass_mailing
+test_mimetypes
+test_new_api
+test_performance
+test_populate
+test_read_group
+test_rpc
+test_search_panel
+test_testing_utilities
+test_translation_import
+test_uninstall
 test_website
 test_website_modules
 test_website_slides_full

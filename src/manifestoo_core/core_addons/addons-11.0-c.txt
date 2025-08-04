@@ -1,4 +1,4 @@
-# generated on Wed Sep 30 21:15:56 2020
+# generated on Fri Aug  1 14:16:41 2025
 account
 account_analytic_default
 account_asset
@@ -226,6 +226,26 @@ stock_landed_costs
 stock_picking_batch
 survey
 survey_crm
+test_access_rights
+test_assetsbundle
+test_convert
+test_converter
+test_documentation_examples
+test_exceptions
+test_impex
+test_inherit
+test_inherits
+test_limits
+test_lint
+test_main_flows
+test_mimetypes
+test_new_api
+test_performance
+test_pylint
+test_read_group
+test_rpc
+test_translation_import
+test_uninstall
 theme_bootswatch
 theme_default
 transifex

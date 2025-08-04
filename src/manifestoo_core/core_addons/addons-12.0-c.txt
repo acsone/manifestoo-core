@@ -1,4 +1,4 @@
-# generated on Sat Oct 21 15:25:16 2023
+# generated on Fri Aug  1 14:15:58 2025
 account
 account_analytic_default
 account_bank_statement_import
@@ -242,8 +242,29 @@ stock_picking_batch
 stock_zebra
 survey
 survey_crm
+test_access_rights
+test_assetsbundle
+test_convert
+test_converter
+test_exceptions
+test_impex
+test_inherit
+test_inherits
+test_inherits_depends
+test_limits
+test_lint
 test_mail
+test_main_flows
 test_mass_mailing
+test_mimetypes
+test_new_api
+test_performance
+test_pylint
+test_read_group
+test_rpc
+test_testing_utilities
+test_translation_import
+test_uninstall
 test_website
 theme_bootswatch
 theme_default

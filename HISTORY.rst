@@ -1,3 +1,13 @@
+v1.10 (2025-08-04)
+==================
+
+Features
+--------
+
+- All addons found inside upstream ``odoo/addons`` directories are also considered core;
+  this mainly add test addons to the list. (`#97 <https://github.com/acsone/manifestoo-core/issues/97>`_)
+
+
 v1.9 (2025-07-05)
 =================
 

@@ -151,7 +151,8 @@ def metadata_from_addon_dir(
     _set("Metadata-Version", "2.1")
     _set("Name", _addon_name_to_metadata_name(addon_name, odoo_series_info))
     _set("Version", version)
-    _set("Requires-Python", odoo_series_info.python_requires)
+    if odoo_series_info.python_requires:
+        _set("Requires-Python", odoo_series_info.python_requires)
     _set("Requires-Dist", install_requires)
     _set("Summary", _no_nl(manifest.summary or manifest.name))
     _set("Home-page", manifest.website)
@@ -172,7 +173,7 @@ def metadata_from_addon_dir(
 class OdooSeriesInfo:
     odoo_dep: str
     pkg_name_pfx: str
-    python_requires: str
+    python_requires: Optional[str]
     universal_wheel: bool
     git_postversion_strategy: str
     core_addons: Set[str]
@@ -305,10 +306,21 @@ ODOO_SERIES_INFO = {
         pkg_version_specifier="==18.0.*",
         addons_ns="odoo.addons",
         namespace_packages=None,
-        python_requires=">=3.10",  # TODO To be confirmed
+        python_requires=">=3.10",
         universal_wheel=False,
         git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
         core_addons=get_core_addons(OdooSeries.v18_0),
+    ),
+    OdooSeries.v19_0: OdooSeriesInfo(
+        odoo_dep="odoo==19.0.*",
+        pkg_name_pfx="odoo-addon",
+        pkg_version_specifier="==19.0.*",
+        addons_ns="odoo.addons",
+        namespace_packages=None,
+        python_requires=None,  # the dependency on odoo is enough to constrain it
+        universal_wheel=False,
+        git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
+        core_addons=get_core_addons(OdooSeries.v19_0),
     ),
 }
 

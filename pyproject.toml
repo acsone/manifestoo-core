@@ -94,9 +94,11 @@ exclude = [
     "S607", # Starting a process with a partial executable path
 ]
 
-
 [tool.ruff.lint.isort]
 known-first-party = ["manifestoo_core"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 11
 
 
 [tool.coverage.run]

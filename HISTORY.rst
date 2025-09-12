@@ -1,3 +1,12 @@
+1.12 (2025-09-12)
+=================
+
+Features
+--------
+
+- Add Odoo 19 support and update core addon lists. (`#102 <https://github.com/acsone/manifestoo-core/issues/102>`_)
+
+
 v1.11 (2025-08-12)
 ==================
 

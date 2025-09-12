@@ -1,4 +1,4 @@
-# generated on Mon Aug 11 17:54:25 2025
+# generated on Fri Sep 12 10:35:51 2025
 account
 account_check_printing
 account_debit_note
@@ -213,6 +213,7 @@ l10n_il
 l10n_in
 l10n_in_edi
 l10n_in_edi_ewaybill
+l10n_in_ewaybill_port
 l10n_in_ewaybill_stock
 l10n_in_gstin_status
 l10n_in_hr_holidays
@@ -281,6 +282,7 @@ l10n_pe_website_sale
 l10n_ph
 l10n_pk
 l10n_pl
+l10n_pl_taxable_supply_date
 l10n_pt
 l10n_qa
 l10n_ro
@@ -311,6 +313,7 @@ l10n_tr_nilvera
 l10n_tr_nilvera_edispatch
 l10n_tr_nilvera_einvoice
 l10n_tw
+l10n_tw_edi_ecpay
 l10n_tz_account
 l10n_ua
 l10n_ug
@@ -487,6 +490,7 @@ sale_timesheet
 sale_timesheet_margin
 sales_team
 sms
+sms_twilio
 snailmail
 snailmail_account
 social_media

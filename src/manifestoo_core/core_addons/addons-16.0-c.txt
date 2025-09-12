@@ -1,4 +1,4 @@
-# generated on Mon Aug 11 17:56:06 2025
+# generated on Fri Sep 12 10:36:23 2025
 account
 account_check_printing
 account_debit_note
@@ -173,6 +173,7 @@ l10n_il
 l10n_in
 l10n_in_edi
 l10n_in_edi_ewaybill
+l10n_in_ewaybill_port
 l10n_in_pos
 l10n_in_purchase
 l10n_in_purchase_stock

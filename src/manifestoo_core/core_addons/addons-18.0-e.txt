@@ -1,4 +1,4 @@
-# generated on Mon Aug 11 17:54:43 2025
+# generated on Fri Sep 12 10:35:59 2025
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -46,6 +46,7 @@ appointment
 appointment_account_payment
 appointment_crm
 appointment_google_calendar
+appointment_google_reserve
 appointment_hr
 appointment_hr_recruitment
 appointment_microsoft_calendar
@@ -257,6 +258,7 @@ l10n_din5008_industry_fsm
 l10n_din5008_sale_renting
 l10n_dk_intrastat
 l10n_dk_reports
+l10n_dk_rsu
 l10n_dk_saft_import
 l10n_do_check_printing
 l10n_do_reports
@@ -396,6 +398,7 @@ l10n_rs_reports
 l10n_rw_reports
 l10n_sa_hr_payroll
 l10n_sa_hr_payroll_account
+l10n_se_bban
 l10n_se_reports
 l10n_se_sie4_export
 l10n_se_sie4_import

@@ -1,4 +1,4 @@
-# generated on Mon Aug 11 17:55:30 2025
+# generated on Fri Sep 12 10:36:15 2025
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -240,6 +240,7 @@ l10n_din5008_sale_renting
 l10n_dk_edi
 l10n_dk_intrastat
 l10n_dk_reports
+l10n_dk_rsu
 l10n_dk_saft_import
 l10n_do_reports
 l10n_dz_reports
@@ -274,6 +275,7 @@ l10n_in_hr_payroll
 l10n_in_hr_payroll_account
 l10n_in_qr_code_bill_scan
 l10n_in_reports
+l10n_in_reports_debit_note
 l10n_in_reports_gstr
 l10n_in_reports_gstr_document_summary
 l10n_in_reports_gstr_pos

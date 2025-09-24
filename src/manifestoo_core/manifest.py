@@ -40,13 +40,11 @@ def _check_list(value: Any, item_checker: Callable[[Any], T]) -> List[T]:
 def _check_dict(
     value: Any,
     key_checker: Callable[[Any], T],
-    value_checker: Callable[[Any], VT],
-) -> Dict[T, VT]:
+) -> Dict[str, Any]:
     if not isinstance(value, dict):
         raise TypeError
-    for k, v in value.items():
+    for k in value.keys():
         key_checker(k)
-        value_checker(v)
     return value
 
 
@@ -55,9 +53,9 @@ def _check_list_of_str(value: Any) -> List[str]:
     return _check_list(value, item_checker=_check_str)
 
 
-def _check_dict_of_list_of_str(value: Any) -> Dict[str, List[str]]:
+def _check_external_dependencies(value: Any) -> Dict[str, Any]:
     # this could be a partial but mypy does not support it
-    return _check_dict(value, key_checker=_check_str, value_checker=_check_list_of_str)
+    return _check_dict(value, key_checker=_check_str)
 
 
 def get_manifest_path(addon_dir: Path) -> Optional[Path]:
@@ -122,11 +120,11 @@ class Manifest:
         return self._get("depends", _check_list_of_str, default=[])
 
     @property
-    def external_dependencies(self) -> Dict[str, List[str]]:
+    def external_dependencies(self) -> Dict[str, Any]:
         """The value of the external_dependencies field if set, else {}."""
         return self._get(
             "external_dependencies",
-            _check_dict_of_list_of_str,
+            _check_external_dependencies,
             default={},
         )
 

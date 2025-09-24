@@ -1,3 +1,12 @@
+1.13 (2025-09-24)
+=================
+
+Bugfixes
+--------
+
+- Fix for Odoo 19 manifests containing the ``apt`` key which is a dict[str, str]. (`#105 <https://github.com/acsone/manifestoo-core/issues/105>`_)
+
+
 1.12 (2025-09-12)
 =================
 

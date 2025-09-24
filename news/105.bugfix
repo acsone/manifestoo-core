@@ -1,1 +1,0 @@
-Fix for Odoo 19 manifests containing the ``apt`` key which is a dict[str, str].

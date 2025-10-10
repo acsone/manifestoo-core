@@ -1,4 +1,4 @@
-# generated on Fri Sep 12 10:36:07 2025
+# generated on Fri Oct 10 14:48:46 2025
 account
 account_audit_trail
 account_check_printing
@@ -278,6 +278,7 @@ l10n_ro_edi
 l10n_ro_edi_stock
 l10n_ro_edi_stock_batch
 l10n_ro_efactura
+l10n_ro_efactura_synchronize
 l10n_rs
 l10n_rs_edi
 l10n_rw
@@ -587,6 +588,7 @@ website_sale_comparison
 website_sale_comparison_wishlist
 website_sale_loyalty
 website_sale_mondialrelay
+website_sale_mrp
 website_sale_picking
 website_sale_product_configurator
 website_sale_slides

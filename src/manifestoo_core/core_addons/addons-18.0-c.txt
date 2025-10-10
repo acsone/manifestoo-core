@@ -1,4 +1,4 @@
-# generated on Fri Sep 12 10:35:51 2025
+# generated on Fri Oct 10 14:48:29 2025
 account
 account_check_printing
 account_debit_note
@@ -160,6 +160,7 @@ l10n_din5008_repair
 l10n_din5008_sale
 l10n_din5008_stock
 l10n_dk
+l10n_dk_nemhandel
 l10n_dk_oioubl
 l10n_do
 l10n_dz
@@ -289,6 +290,7 @@ l10n_ro
 l10n_ro_edi
 l10n_ro_edi_stock
 l10n_ro_edi_stock_batch
+l10n_ro_efactura_synchronize
 l10n_rs
 l10n_rs_edi
 l10n_rw
@@ -312,6 +314,7 @@ l10n_tr
 l10n_tr_nilvera
 l10n_tr_nilvera_edispatch
 l10n_tr_nilvera_einvoice
+l10n_tr_nilvera_einvoice_extended
 l10n_tw
 l10n_tw_edi_ecpay
 l10n_tz_account
@@ -620,6 +623,7 @@ website_sale_gelato
 website_sale_loyalty
 website_sale_mass_mailing
 website_sale_mondialrelay
+website_sale_mrp
 website_sale_slides
 website_sale_stock
 website_sale_stock_wishlist

@@ -1,4 +1,4 @@
-# generated on Fri Sep 12 10:35:43 2025
+# generated on Fri Oct 10 14:48:20 2025
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -201,6 +201,7 @@ l10n_ae_hr_payroll_account
 l10n_ae_reports
 l10n_ar_edi
 l10n_ar_reports
+l10n_ar_reports_simple
 l10n_at_pos
 l10n_at_reports
 l10n_at_saft
@@ -214,6 +215,7 @@ l10n_bd_hr_payroll_account
 l10n_bd_reports
 l10n_be_coda
 l10n_be_codabox
+l10n_be_codaclean
 l10n_be_fiscal_categories
 l10n_be_fiscal_categories_fleet
 l10n_be_hr_contract_salary
@@ -222,6 +224,7 @@ l10n_be_hr_payroll_account
 l10n_be_hr_payroll_acerta
 l10n_be_hr_payroll_attendance
 l10n_be_hr_payroll_dimona
+l10n_be_hr_payroll_dimona_auto
 l10n_be_hr_payroll_fleet
 l10n_be_hr_payroll_group_s
 l10n_be_hr_payroll_partena
@@ -429,6 +432,7 @@ l10n_sa_reports
 l10n_se_bban
 l10n_se_pos
 l10n_se_reports
+l10n_se_returns
 l10n_se_sie4_export
 l10n_se_sie4_import
 l10n_se_sie_import

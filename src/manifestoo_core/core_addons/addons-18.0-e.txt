@@ -1,4 +1,4 @@
-# generated on Fri Sep 12 10:35:59 2025
+# generated on Fri Oct 10 14:48:37 2025
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -190,6 +190,7 @@ l10n_bd_reports
 l10n_be_account_disallowed_expenses_fleet
 l10n_be_coda
 l10n_be_codabox
+l10n_be_codaclean
 l10n_be_disallowed_expenses
 l10n_be_hr_contract_salary
 l10n_be_hr_contract_salary_mobility_budget

@@ -1,6 +1,6 @@
 import ast
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, TypeVar
+from typing import Any, Callable, Dict, List, Optional, Tuple, TypeVar
 
 from .exceptions import InvalidManifest
 
@@ -137,6 +137,18 @@ class Manifest:
     def author(self) -> Optional[str]:
         """The value of the author field."""
         return self._get("author", _check_optional_str, default=None)
+
+    @property
+    def authors(self) -> Optional[Tuple[str, ...]]:
+        """The value of the author field as a list of authors.
+
+        The author field is split by commas and empty values are removed.
+        Leading and trailing spaces are stripped from each author.
+        """
+        author = self.author
+        if author is None:
+            return None
+        return tuple(a.strip() for a in author.split(",") if a.strip())
 
     @property
     def category(self) -> Optional[str]:

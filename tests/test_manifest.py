@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Tuple
 
 import pytest
 
@@ -76,3 +76,24 @@ def test_manifest_invalid_syntax() -> None:
 def test_manifest_default_value(key: str, default: Any) -> None:
     manifest = Manifest.from_dict({})
     assert getattr(manifest, key) == default
+
+
+@pytest.mark.parametrize(
+    "author,expected",
+    [
+        ("John Doe", ("John Doe",)),
+        (
+            "Odoo S.A.,Odoo Community Association (OCA)",
+            ("Odoo S.A.", "Odoo Community Association (OCA)"),
+        ),
+        (" Alice,Bob, Charlie ", ("Alice", "Bob", "Charlie")),
+        ("Alice,Charlie", ("Alice", "Charlie")),
+        ("", ()),
+        (",", ()),
+        (", ,,", ()),
+        (None, None),
+    ],
+)
+def test_manifest_authors(author: str, expected: Tuple[str, ...]) -> None:
+    manifest = Manifest.from_dict({"author": author} if author is not None else {})
+    assert manifest.authors == expected

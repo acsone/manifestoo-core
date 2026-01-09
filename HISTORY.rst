@@ -1,3 +1,13 @@
+1.14 (2026-01-09)
+=================
+
+Features
+--------
+
+- Add ``authors`` property to ``Manifest`` class. (`#110 <https://github.com/acsone/manifestoo-core/issues/110>`_)
+- Update core addon lists. (`#108 <https://github.com/acsone/manifestoo-core/issues/108>`_, `#112 <https://github.com/acsone/manifestoo-core/issues/112>`_)
+
+
 1.13 (2025-09-24)
 =================
 

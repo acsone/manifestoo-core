@@ -98,8 +98,29 @@ def main() -> None:
 
 def pr():
     assert Path("news").is_dir()
-    check_call("git", "checkout", "-B", "update-core-addon-lists", "origin/main")
     check_call("git", "add", "src/manifestoo_core/core_addons")
+
+    # Check if there are meaningful changes (not just date changes)
+    diff_output = check_output(
+        "git", "diff", "--cached", "src/manifestoo_core/core_addons"
+    )
+
+    # Filter out lines that only contain date changes
+    meaningful_changes = [
+        line
+        for line in diff_output.splitlines()
+        if line.startswith(("+", "-"))
+        and not line.startswith(("+++", "---"))
+        and "# generated on" not in line
+    ]
+
+    if not meaningful_changes:
+        print(
+            "No meaningful changes detected (only date changes). Skipping PR creation."
+        )
+        return
+
+    check_call("git", "checkout", "-B", "update-core-addon-lists", "origin/main")
     check_call("git", "commit", "-m", "Update core addon lists")
     check_call("git", "push", "-f", "origin")
     output = check_output(

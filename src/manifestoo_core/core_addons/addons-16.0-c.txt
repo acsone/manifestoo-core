@@ -1,5 +1,6 @@
-# generated on Fri Oct 10 14:49:02 2025
+# generated on Fri Jan  9 08:41:01 2026
 account
+account_add_gln
 account_check_printing
 account_debit_note
 account_edi
@@ -10,6 +11,7 @@ account_fleet
 account_lock
 account_payment
 account_payment_invoice_online_payment_patch
+account_peppol
 account_qr_code_sepa
 account_sequence
 account_tax_python
@@ -299,6 +301,7 @@ payment_payumoney
 payment_razorpay
 payment_sips
 payment_stripe
+payment_worldline
 phone_validation
 point_of_sale
 portal

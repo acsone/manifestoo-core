@@ -1,5 +1,6 @@
-# generated on Fri Oct 10 14:48:46 2025
+# generated on Fri Jan  9 08:40:16 2026
 account
+account_add_gln
 account_audit_trail
 account_check_printing
 account_debit_note
@@ -249,6 +250,7 @@ l10n_lv
 l10n_ma
 l10n_ml
 l10n_mn
+l10n_mr
 l10n_mt
 l10n_mt_pos
 l10n_mu_account
@@ -372,6 +374,7 @@ payment_razorpay
 payment_razorpay_oauth
 payment_sips
 payment_stripe
+payment_worldline
 payment_xendit
 phone_validation
 point_of_sale

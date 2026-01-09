@@ -1,4 +1,4 @@
-# generated on Fri Oct 10 14:48:20 2025
+# generated on Fri Jan  9 08:39:06 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -85,6 +85,7 @@ data_merge_helpdesk
 data_merge_project
 data_merge_stock_account
 data_merge_utm
+databases
 delivery_bpost
 delivery_dhl
 delivery_dhl_rest
@@ -170,6 +171,7 @@ hr_payroll_fleet
 hr_payroll_holidays
 hr_payroll_planning
 hr_payroll_sale_commission
+hr_recruitment_ai
 hr_recruitment_extract
 hr_recruitment_integration_base
 hr_recruitment_integration_monster
@@ -231,8 +233,10 @@ l10n_be_hr_payroll_partena
 l10n_be_hr_payroll_prisma
 l10n_be_hr_payroll_sd_worx
 l10n_be_hr_payroll_ucm
+l10n_be_intervat
 l10n_be_intrastat
 l10n_be_reports
+l10n_be_reports_client_nihil
 l10n_be_reports_hr_payroll
 l10n_be_reports_sms
 l10n_be_soda
@@ -245,12 +249,16 @@ l10n_bo_reports
 l10n_br_avatax
 l10n_br_avatax_sale
 l10n_br_edi
+l10n_br_edi_fiscal_reform
 l10n_br_edi_pos
+l10n_br_edi_pos_fiscal_reform
 l10n_br_edi_sale
+l10n_br_edi_sale_fiscal_reform
 l10n_br_edi_stock
 l10n_br_edi_website_sale
 l10n_br_reports
 l10n_br_sale_subscription
+l10n_br_website_sale_fiscal_reform
 l10n_ca_check_printing
 l10n_ca_payment_cpa005
 l10n_ca_reports
@@ -259,6 +267,7 @@ l10n_cf_reports
 l10n_cg_reports
 l10n_ch_hr_payroll
 l10n_ch_hr_payroll_account
+l10n_ch_hr_payroll_elm_transmission_5_3
 l10n_ch_reports
 l10n_ci_reports
 l10n_cl_edi
@@ -301,9 +310,11 @@ l10n_eg_hr_payroll
 l10n_eg_hr_payroll_account
 l10n_eg_reports
 l10n_employment_hero
+l10n_es_intrastat
 l10n_es_real_estates
 l10n_es_reports
 l10n_es_reports_2024
+l10n_es_reports_2025
 l10n_es_sale_amazon
 l10n_et_reports
 l10n_eu_iot_scale_cert
@@ -322,6 +333,7 @@ l10n_gt_edi
 l10n_gw_reports
 l10n_hk_hr_payroll
 l10n_hk_hr_payroll_account
+l10n_hk_hr_payroll_empf
 l10n_hk_reports
 l10n_hr_intrastat
 l10n_hr_kuna_reports
@@ -359,6 +371,7 @@ l10n_kh_reports
 l10n_km_reports
 l10n_kr_reports
 l10n_kz_reports
+l10n_lk_reports
 l10n_lt_hr_payroll
 l10n_lt_hr_payroll_account
 l10n_lt_intrastat
@@ -374,6 +387,7 @@ l10n_ma_hr_payroll_account
 l10n_ma_reports
 l10n_ml_reports
 l10n_mn_reports
+l10n_mr_reports
 l10n_mt_reports
 l10n_mu_reports
 l10n_mx_edi
@@ -408,6 +422,7 @@ l10n_pe_edi
 l10n_pe_edi_pos
 l10n_pe_edi_stock
 l10n_pe_reports
+l10n_pe_reports_lib
 l10n_pe_reports_stock
 l10n_ph_check_printing
 l10n_ph_reports
@@ -421,6 +436,7 @@ l10n_pl_reports_pos_jpk
 l10n_pt_reports
 l10n_ro_hr_payroll
 l10n_ro_hr_payroll_account
+l10n_ro_intrastat
 l10n_ro_reports
 l10n_ro_saft
 l10n_ro_saft_import
@@ -461,12 +477,14 @@ l10n_uk_reports
 l10n_uk_reports_cis
 l10n_us_1099
 l10n_us_check_printing
+l10n_us_direct_deposit
 l10n_us_hr_payroll
 l10n_us_hr_payroll_account
 l10n_us_hr_payroll_adp
 l10n_us_payment_nacha
 l10n_us_reports
 l10n_uy_edi
+l10n_uy_edi_stock
 l10n_uy_reports
 l10n_vn_reports
 l10n_za_reports
@@ -543,6 +561,7 @@ project_mrp_workorder_account
 project_sale_subscription
 project_timesheet_forecast
 project_timesheet_forecast_sale
+purchase_accountant
 purchase_intrastat
 purchase_mrp_workorder_quality
 quality
@@ -710,6 +729,7 @@ whatsapp_hr_referral
 whatsapp_payment
 whatsapp_pos
 whatsapp_sale
+whatsapp_sign
 whatsapp_stock
 whatsapp_website_sale
 worksheet

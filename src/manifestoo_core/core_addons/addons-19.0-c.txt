@@ -1,5 +1,6 @@
-# generated on Fri Oct 10 14:47:59 2025
+# generated on Fri Jan  9 08:38:45 2026
 account
+account_add_gln
 account_check_printing
 account_debit_note
 account_edi
@@ -50,6 +51,7 @@ certificate
 cloud_storage
 cloud_storage_azure
 cloud_storage_google
+cloud_storage_migration
 contacts
 crm
 crm_iap_enrich
@@ -86,6 +88,7 @@ hr_fleet
 hr_gamification
 hr_holidays
 hr_holidays_attendance
+hr_holidays_homeworking
 hr_homeworking
 hr_homeworking_calendar
 hr_hourly_cost
@@ -159,6 +162,7 @@ l10n_cy
 l10n_cz
 l10n_de
 l10n_din5008
+l10n_din5008_expense
 l10n_din5008_purchase
 l10n_din5008_repair
 l10n_din5008_sale
@@ -205,6 +209,7 @@ l10n_gw
 l10n_hk
 l10n_hn
 l10n_hr
+l10n_hr_edi
 l10n_hr_kuna
 l10n_hu
 l10n_hu_edi
@@ -245,6 +250,7 @@ l10n_latam_base
 l10n_latam_check
 l10n_latam_invoice_document
 l10n_lb_account
+l10n_lk
 l10n_lt
 l10n_lu
 l10n_lv
@@ -252,6 +258,7 @@ l10n_ma
 l10n_mc
 l10n_ml
 l10n_mn
+l10n_mr
 l10n_mt
 l10n_mt_pos
 l10n_mu_account
@@ -303,8 +310,10 @@ l10n_tr
 l10n_tr_nilvera
 l10n_tr_nilvera_edispatch
 l10n_tr_nilvera_einvoice
+l10n_tr_nilvera_einvoice_extended
 l10n_tw
 l10n_tw_edi_ecpay
+l10n_tw_edi_ecpay_website_sale
 l10n_tz_account
 l10n_ua
 l10n_ug
@@ -385,6 +394,7 @@ portal_rating
 pos_account_tax_python
 pos_adyen
 pos_discount
+pos_dpopay
 pos_event
 pos_event_sale
 pos_glory_cash

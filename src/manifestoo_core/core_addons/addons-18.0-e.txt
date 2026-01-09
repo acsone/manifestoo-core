@@ -1,4 +1,4 @@
-# generated on Fri Oct 10 14:48:37 2025
+# generated on Fri Jan  9 08:39:48 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -32,6 +32,7 @@ account_invoice_extract
 account_invoice_extract_purchase
 account_iso20022
 account_loans
+account_no_followup
 account_online_payment
 account_online_synchronization
 account_reports
@@ -219,19 +220,23 @@ l10n_bo_reports
 l10n_br_avatax
 l10n_br_avatax_sale
 l10n_br_edi
+l10n_br_edi_fiscal_reform
 l10n_br_edi_pos
 l10n_br_edi_sale
+l10n_br_edi_sale_fiscal_reform
 l10n_br_edi_stock
 l10n_br_edi_website_sale
 l10n_br_reports
 l10n_br_sale_subscription
 l10n_br_test_avatax_sale
+l10n_br_website_sale_fiscal_reform
 l10n_ca_check_printing
 l10n_ca_payment_cpa005
 l10n_ca_reports
 l10n_ch_hr_payroll
 l10n_ch_hr_payroll_account
 l10n_ch_hr_payroll_elm_transmission
+l10n_ch_hr_payroll_elm_transmission_5_3
 l10n_ch_hr_payroll_elm_transmission_account
 l10n_ch_reports
 l10n_cl_edi
@@ -343,6 +348,7 @@ l10n_ma_hr_payroll
 l10n_ma_hr_payroll_account
 l10n_ma_reports
 l10n_mn_reports
+l10n_mr_reports
 l10n_mt_reports
 l10n_mx_edi
 l10n_mx_edi_extended
@@ -379,6 +385,7 @@ l10n_pe_edi
 l10n_pe_edi_pos
 l10n_pe_edi_stock
 l10n_pe_reports
+l10n_pe_reports_lib
 l10n_pe_reports_stock
 l10n_ph_check_printing
 l10n_ph_reports
@@ -429,6 +436,7 @@ l10n_us_hr_payroll_state_calculation
 l10n_us_payment_nacha
 l10n_us_reports
 l10n_uy_edi
+l10n_uy_edi_stock
 l10n_vn_reports
 l10n_zm_reports
 mail_enterprise
@@ -470,6 +478,7 @@ pos_iot
 pos_iot_six
 pos_l10n_se
 pos_mobile
+pos_no_followup
 pos_online_payment_self_order_preparation_display
 pos_order_tracking_display
 pos_preparation_display

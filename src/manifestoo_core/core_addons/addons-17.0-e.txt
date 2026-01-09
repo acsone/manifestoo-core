@@ -1,4 +1,4 @@
-# generated on Fri Oct 10 14:48:54 2025
+# generated on Fri Jan  9 08:40:33 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -204,18 +204,22 @@ l10n_bo_reports
 l10n_br_avatax
 l10n_br_avatax_services
 l10n_br_edi
+l10n_br_edi_fiscal_reform
 l10n_br_edi_sale
+l10n_br_edi_sale_fiscal_reform
 l10n_br_edi_sale_services
 l10n_br_edi_services
 l10n_br_reports
 l10n_br_sale_subscription
 l10n_br_test_avatax_sale
+l10n_br_website_sale_fiscal_reform
 l10n_ca_check_printing
 l10n_ca_reports
 l10n_ch_hr_payroll
 l10n_ch_hr_payroll_account
 l10n_ch_hr_payroll_elm
 l10n_ch_hr_payroll_elm_transmission
+l10n_ch_hr_payroll_elm_transmission_5_3
 l10n_ch_hr_payroll_elm_transmission_account
 l10n_ch_reports
 l10n_cl_edi
@@ -307,6 +311,7 @@ l10n_ma_hr_payroll
 l10n_ma_hr_payroll_account
 l10n_ma_reports
 l10n_mn_reports
+l10n_mr_reports
 l10n_mt_reports
 l10n_mx_edi
 l10n_mx_edi_extended

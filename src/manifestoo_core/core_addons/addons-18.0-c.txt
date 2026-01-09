@@ -1,5 +1,6 @@
-# generated on Fri Oct 10 14:48:29 2025
+# generated on Fri Jan  9 08:39:30 2026
 account
+account_add_gln
 account_check_printing
 account_debit_note
 account_edi
@@ -48,6 +49,7 @@ certificate
 cloud_storage
 cloud_storage_azure
 cloud_storage_google
+cloud_storage_migration
 contacts
 crm
 crm_iap_enrich
@@ -155,6 +157,7 @@ l10n_cy
 l10n_cz
 l10n_de
 l10n_din5008
+l10n_din5008_expense
 l10n_din5008_purchase
 l10n_din5008_repair
 l10n_din5008_sale
@@ -202,6 +205,7 @@ l10n_gw
 l10n_hk
 l10n_hn
 l10n_hr
+l10n_hr_edi
 l10n_hr_kuna
 l10n_hu
 l10n_hu_edi
@@ -259,6 +263,7 @@ l10n_ma
 l10n_mc
 l10n_ml
 l10n_mn
+l10n_mr
 l10n_mt
 l10n_mt_pos
 l10n_mu_account
@@ -317,6 +322,7 @@ l10n_tr_nilvera_einvoice
 l10n_tr_nilvera_einvoice_extended
 l10n_tw
 l10n_tw_edi_ecpay
+l10n_tw_edi_ecpay_website_sale
 l10n_tz_account
 l10n_ua
 l10n_ug

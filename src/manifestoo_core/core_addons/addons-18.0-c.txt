@@ -1,4 +1,4 @@
-# generated on Fri Jan  9 08:39:30 2026
+# generated on Tue Mar 24 10:09:57 2026
 account
 account_add_gln
 account_check_printing
@@ -10,6 +10,7 @@ account_edi_ubl_cii_tax_extension
 account_fleet
 account_payment
 account_peppol
+account_peppol_selfbilling
 account_qr_code_emv
 account_qr_code_sepa
 account_tax_python
@@ -163,6 +164,7 @@ l10n_din5008_repair
 l10n_din5008_sale
 l10n_din5008_stock
 l10n_dk
+l10n_dk_fik
 l10n_dk_nemhandel
 l10n_dk_oioubl
 l10n_do
@@ -243,6 +245,7 @@ l10n_it_stock_ddt
 l10n_jo
 l10n_jo_edi
 l10n_jo_edi_extended
+l10n_jo_edi_pos
 l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
@@ -288,10 +291,12 @@ l10n_pe_website_sale
 l10n_ph
 l10n_pk
 l10n_pl
+l10n_pl_edi
 l10n_pl_taxable_supply_date
 l10n_pt
 l10n_qa
 l10n_ro
+l10n_ro_cpv_code
 l10n_ro_edi
 l10n_ro_edi_stock
 l10n_ro_edi_stock_batch
@@ -401,6 +406,7 @@ portal_rating
 pos_account_tax_python
 pos_adyen
 pos_discount
+pos_edi_ubl
 pos_epson_printer
 pos_event
 pos_event_sale

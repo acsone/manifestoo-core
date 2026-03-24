@@ -1,4 +1,4 @@
-# generated on Fri Jan  9 08:40:33 2026
+# generated on Tue Mar 24 10:11:06 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -465,6 +465,7 @@ sale_account_accountant
 sale_account_taxcloud
 sale_amazon
 sale_amazon_avatax
+sale_amazon_channel_management
 sale_amazon_taxcloud
 sale_ebay
 sale_external_tax

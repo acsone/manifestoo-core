@@ -57,6 +57,7 @@ def _m(  # noqa: PLR0913 too many arguments
     odoo_version_override: Optional[str] = None,
     post_version_strategy_override: Optional[str] = None,
     precomputed_metadata_file: Optional[Path] = None,
+    additional_dependencies: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     addon_dir = tmp_path / addon_dir_name
     addon_dir.mkdir()
@@ -96,6 +97,7 @@ def _m(  # noqa: PLR0913 too many arguments
                 "odoo_series_override": odoo_series_override,
                 "odoo_version_override": odoo_version_override,
                 "post_version_strategy_override": post_version_strategy_override,
+                "additional_dependencies": additional_dependencies,
             },
             precomputed_metadata_file=precomputed_metadata_file,
         ),
@@ -501,6 +503,29 @@ def test_precomputed_metadata_path(tmp_path: Path) -> None:
     )
     assert metadata["name"] == "odoo14-addon-addon1"
     assert metadata["version"] == "14.0.1.0.0.3"
+
+
+@pytest.mark.parametrize(
+    ("additional_dependencies", "expected"),
+    [
+        (None, ["odoo>=14.0a,<14.1dev"]),
+        ([], ["odoo>=14.0a,<14.1dev"]),
+        (
+            ["some-package", "some-package2>=1.0"],
+            ["odoo>=14.0a,<14.1dev", "some-package", "some-package2>=1.0"],
+        ),
+    ],
+)
+def test_additional_dependencies(
+    tmp_path: Path,
+    additional_dependencies: Optional[List[str]],
+    expected: List[str],
+) -> None:
+    assert _m(
+        tmp_path,
+        additional_dependencies=additional_dependencies,
+        version="14.0.1.0.0",
+    )["requires_dist"] == sorted(expected)
 
 
 def _make_git_addon(

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
+import os
 import subprocess
 import tempfile
 import time
 from pathlib import Path
-from typing import Iterator, Iterable
+from typing import Iterator, Iterable, Mapping, Optional
 
 from manifestoo_core.addon import Addon, AddonNotFound
 from manifestoo_core.odoo_series import OdooEdition
@@ -48,9 +49,9 @@ def _write_addons_list(addons_dirs: Iterable[Path], suffix: str) -> None:
             print(addon_name, file=f)
 
 
-def check_call(*cmd: str) -> None:
+def check_call(*cmd: str, env: Optional[Mapping[str, str]] = None) -> None:
     print(" ".join(cmd))
-    subprocess.check_call(cmd)
+    subprocess.check_call(cmd, env=env)
 
 
 def check_output(*cmd: str) -> str:
@@ -81,14 +82,26 @@ def main() -> None:
             )
         if enterprise:
             with tempfile.TemporaryDirectory() as tmpdir:
+                # Support a differrent GitHub token to access odoo/enterprise.
+                # This is necessary for the update-core-addons GitHub workflow.
+                if "ODOO_ENTERPRISE_GITHUB_TOKEN" in os.environ:
+                    env = dict(
+                        os.environ,
+                        GITHUB_TOKEN=os.environ["ODOO_ENTERPRISE_GITHUB_TOKEN"],
+                    )
+                else:
+                    env = os.environ
                 check_call(
-                    "git",
+                    "gh",
+                    "repo",
                     "clone",
+                    "odoo/enterprise",
+                    tmpdir,
+                    "--",
                     "--depth=1",
                     "--branch",
                     branch,
-                    "git@github.com:odoo/enterprise",
-                    tmpdir,
+                    env=env,
                 )
                 _write_addons_list(
                     [Path(tmpdir)],

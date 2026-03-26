@@ -146,7 +146,7 @@ def pr():
 
     check_call("git", "checkout", "-B", "update-core-addon-lists")
     check_call("git", "commit", "-m", "Update core addon lists")
-    check_call("git", "push", "-f", "origin")
+    check_call("git", "push", "-f", "origin", "HEAD")
     output = check_output(
         "gh", "pr", "create", "--title", "Update core addon lists", "--body", ""
     )
@@ -155,7 +155,7 @@ def pr():
     news_path.write_text("Update core addon lists.\n")
     check_call("git", "add", str(news_path))
     check_call("git", "commit", "--amend", "--no-edit")
-    check_call("git", "push", "-f")
+    check_call("git", "push", "-f", "origin", "HEAD")
 
 
 if __name__ == "__main__":

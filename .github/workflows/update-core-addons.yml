@@ -35,6 +35,7 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ vars.GIT_COMMITTER_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
           ODOO_ENTERPRISE_GH_TOKEN: ${{ secrets.ODOO_ENTERPRISE_GH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: '1'
         run: |
           gh auth setup-git
           uv run ./mk_core_addons

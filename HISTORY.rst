@@ -1,3 +1,15 @@
+1.15 (2026-03-26)
+=================
+
+Features
+--------
+
+- Add new option  ``additional_dependencies`` to ``MetadataOptions`` which can be used
+  to pass a list of additional dependencies that will be added to
+  ``Requires-Dist`` metadata. (`#117 <https://github.com/acsone/manifestoo-core/issues/117>`_)
+- Update core addon lists. (`#120 <https://github.com/acsone/manifestoo-core/issues/120>`_)
+
+
 1.14 (2026-01-09)
 =================
 

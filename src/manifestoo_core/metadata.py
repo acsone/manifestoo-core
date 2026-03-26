@@ -70,6 +70,7 @@ class MetadataOptions(TypedDict, total=False):
     - ``external_dependencies_only``
     - ``odoo_series_override`` and ``odoo_version_override``
     - ``post_version_strategy_override``
+    - ``additional_dependencies``
     """
 
     depends_override: Optional[Dict[str, str]]
@@ -80,6 +81,7 @@ class MetadataOptions(TypedDict, total=False):
     odoo_series_override: Optional[str]
     odoo_version_override: Optional[str]
     post_version_strategy_override: Optional[str]
+    additional_dependencies: Optional[List[str]]
 
 
 def metadata_from_addon_dir(
@@ -133,6 +135,7 @@ def metadata_from_addon_dir(
         manifest,
         depends_override=options.get("depends_override"),
         external_dependencies_override=options.get("external_dependencies_override"),
+        additional_dependencies=options.get("additional_dependencies"),
     )
     # Update Requires-Dist metadata with dependencies that are not odoo nor odoo addons
     if options.get("external_dependencies_only"):
@@ -476,7 +479,7 @@ def _make_classifiers(odoo_series: OdooSeries, manifest: Manifest) -> List[str]:
     return classifiers
 
 
-def _get_install_requires(
+def _get_install_requires(  # noqa: PLR0913
     odoo_series_info: OdooSeriesInfo,
     manifest: Manifest,
     no_depends: Optional[Set[str]] = None,
@@ -484,6 +487,7 @@ def _get_install_requires(
     external_dependencies_override: Optional[
         Dict[str, Dict[str, Union[str, List[str]]]]
     ] = None,
+    additional_dependencies: Optional[List[str]] = None,
 ) -> List[str]:
     install_requires = []
     # dependency on Odoo
@@ -512,6 +516,8 @@ def _get_install_requires(
             install_requires.extend(final_dep)
         else:
             install_requires.append(final_dep)
+    if additional_dependencies:
+        install_requires.extend(additional_dependencies)
     return sorted(install_requires)
 
 

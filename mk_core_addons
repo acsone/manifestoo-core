@@ -144,7 +144,7 @@ def pr():
         )
         return
 
-    check_call("git", "checkout", "-B", "update-core-addon-lists", "origin/main")
+    check_call("git", "checkout", "-B", "update-core-addon-lists")
     check_call("git", "commit", "-m", "Update core addon lists")
     check_call("git", "push", "-f", "origin")
     output = check_output(

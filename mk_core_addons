@@ -100,8 +100,14 @@ def main() -> None:
                         os.environ,
                         GITHUB_TOKEN=os.environ["ODOO_ENTERPRISE_GITHUB_TOKEN"],
                     )
+                    # Disable the Authorization header that action/checkout sets
+                    # and apparently has precendence over GITHUB_TOKEN. We can't
+                    # disable it globally, as it is necessary later to git push
+                    # the new branch and create the pr.
+                    gitopts = ["-c", "http.https://github.com/.extraHeaders="]
                 else:
                     env = os.environ
+                    gitopts = []
                 check_call(
                     "gh",
                     "repo",
@@ -113,6 +119,7 @@ def main() -> None:
                     "--depth=1",
                     "--branch",
                     branch,
+                    *gitopts,
                     env=env,
                 )
                 _write_addons_list(

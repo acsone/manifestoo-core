@@ -112,7 +112,6 @@ def main() -> None:
                     "gh",
                     "repo",
                     "clone",
-                    "--no-upstream",
                     "odoo/enterprise",
                     tmpdir,
                     "--",

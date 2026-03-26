@@ -92,11 +92,9 @@ def main() -> None:
             with tempfile.TemporaryDirectory() as tmpdir:
                 # Support a differrent GitHub token to access odoo/enterprise.
                 # This is necessary for the update-core-addons GitHub workflow.
-                if "ODOO_ENTERPRISE_GITHUB_TOKEN" in os.environ:
+                if os.getenv("ODOO_ENTERPRISE_GITHUB_TOKEN"):
                     print(
-                        f"Found ODOO_ENTERPRISE_GITHUB_TOKEN "
-                        f"({len(os.environ['ODOO_ENTERPRISE_GITHUB_TOKEN'])}), "
-                        f"using it to clone odoo/enterprise"
+                        "Found ODOO_ENTERPRISE_GITHUB_TOKEN, using it to clone odoo/enterprise"
                     )
                     env = dict(
                         os.environ,
@@ -108,6 +106,7 @@ def main() -> None:
                     "gh",
                     "repo",
                     "clone",
+                    "--no-upstream",
                     "odoo/enterprise",
                     tmpdir,
                     "--",

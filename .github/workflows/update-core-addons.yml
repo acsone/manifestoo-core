@@ -37,5 +37,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh auth setup-git
-          git config --list
           uv run ./mk_core_addons

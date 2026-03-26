@@ -17,8 +17,6 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
 
       - uses: actions/setup-python@v6
         with:
@@ -33,7 +31,8 @@ jobs:
           GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
           GIT_COMMITTER_NAME: ${{ vars.GIT_COMMITTER_NAME || 'github-actions[bot]' }}
           GIT_COMMITTER_EMAIL: ${{ vars.GIT_COMMITTER_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
-          ODOO_ENTERPRISE_GITHUB_TOKEN: ${{ secrets.ODOO_ENTERPRISE_GITHUB_TOKEN }}
+          ODOO_ENTERPRISE_GH_TOKEN: ${{ secrets.ODOO_ENTERPRISE_GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh auth setup-git
           git config --list

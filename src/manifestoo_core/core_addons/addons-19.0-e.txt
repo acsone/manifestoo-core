@@ -1,4 +1,4 @@
-# generated on Fri Jan  9 08:39:06 2026
+# generated on Thu Mar 26 17:18:38 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -116,6 +116,7 @@ documents_l10n_be_hr_payroll
 documents_l10n_ch_hr_payroll
 documents_l10n_hk_hr_payroll
 documents_l10n_ke_hr_payroll
+documents_l10n_mx_hr_payroll_account_edi
 documents_product
 documents_project
 documents_project_sale
@@ -125,6 +126,10 @@ documents_spreadsheet
 documents_spreadsheet_survey
 equity
 esg
+esg_csrd
+esg_csrd_ai
+esg_csrd_hr
+esg_csrd_hr_fleet
 esg_hr
 esg_hr_fleet
 esg_project
@@ -198,12 +203,14 @@ industry_fsm_sms
 industry_fsm_stock
 iot
 knowledge
+l10n_ae_faf
 l10n_ae_hr_payroll
 l10n_ae_hr_payroll_account
 l10n_ae_reports
 l10n_ar_edi
 l10n_ar_reports
 l10n_ar_reports_simple
+l10n_at_intrastat
 l10n_at_pos
 l10n_at_reports
 l10n_at_saft
@@ -227,6 +234,7 @@ l10n_be_hr_payroll_acerta
 l10n_be_hr_payroll_attendance
 l10n_be_hr_payroll_dimona
 l10n_be_hr_payroll_dimona_auto
+l10n_be_hr_payroll_fix
 l10n_be_hr_payroll_fleet
 l10n_be_hr_payroll_group_s
 l10n_be_hr_payroll_partena
@@ -282,6 +290,7 @@ l10n_cn_reports
 l10n_co_dian
 l10n_co_edi
 l10n_co_edi_mandate
+l10n_co_edi_pos
 l10n_co_reports
 l10n_cy_reports
 l10n_cz_intrastat
@@ -308,6 +317,7 @@ l10n_ee_intrastat
 l10n_ee_reports
 l10n_eg_hr_payroll
 l10n_eg_hr_payroll_account
+l10n_eg_iot
 l10n_eg_reports
 l10n_employment_hero
 l10n_es_intrastat
@@ -319,6 +329,7 @@ l10n_es_sale_amazon
 l10n_et_reports
 l10n_eu_iot_scale_cert
 l10n_eu_oss_reports
+l10n_fi_intrastat
 l10n_fi_reports
 l10n_fr_fec_import
 l10n_fr_hr_payroll
@@ -330,6 +341,7 @@ l10n_gn_reports
 l10n_gq_reports
 l10n_gr_reports
 l10n_gt_edi
+l10n_gt_edi_pos
 l10n_gw_reports
 l10n_hk_hr_payroll
 l10n_hk_hr_payroll_account
@@ -352,6 +364,7 @@ l10n_in_pos_urban_piper
 l10n_in_reports
 l10n_in_reports_gstr_pos
 l10n_it_hr_payroll_sd_worx
+l10n_it_intrastat
 l10n_it_pos
 l10n_it_reports
 l10n_it_riba
@@ -431,8 +444,12 @@ l10n_pk_hr_payroll_account
 l10n_pk_reports
 l10n_pl_hr_payroll
 l10n_pl_hr_payroll_account
+l10n_pl_intrastat
 l10n_pl_reports
+l10n_pl_reports_account_saft
+l10n_pl_reports_jpk_fa
 l10n_pl_reports_pos_jpk
+l10n_pt_intrastat
 l10n_pt_reports
 l10n_ro_hr_payroll
 l10n_ro_hr_payroll_account
@@ -457,6 +474,7 @@ l10n_si_intrastat
 l10n_si_reports
 l10n_sk_hr_payroll
 l10n_sk_hr_payroll_account
+l10n_sk_reports
 l10n_sn_reports
 l10n_syscohada_reports
 l10n_td_reports
@@ -523,6 +541,7 @@ pos_avatax
 pos_barcodelookup
 pos_blackbox_be
 pos_enterprise
+pos_enterprise_sms_whatsapp
 pos_event_iot
 pos_hr_mobile
 pos_iot
@@ -533,6 +552,9 @@ pos_iot_worldline
 pos_mobile
 pos_online_payment_self_order_preparation_display
 pos_order_tracking_display
+pos_platform_order
+pos_platform_order_gofood
+pos_platform_order_grabfood
 pos_pricer
 pos_restaurant_appointment
 pos_restaurant_preparation_display
@@ -585,6 +607,7 @@ sale_commission_subscription
 sale_enterprise
 sale_external_tax
 sale_intrastat
+sale_lazada
 sale_management_renting
 sale_mrp_renting
 sale_planning
@@ -652,6 +675,7 @@ test_ai_fields
 test_appointment_full
 test_data_cleaning
 test_discuss_full_enterprise
+test_documents_full
 test_event_full_enterprise
 test_l10n_be_hr_payroll_account
 test_l10n_hk_hr_payroll_account

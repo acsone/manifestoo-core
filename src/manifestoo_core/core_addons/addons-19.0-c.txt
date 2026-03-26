@@ -1,4 +1,4 @@
-# generated on Fri Jan  9 08:38:45 2026
+# generated on Thu Mar 26 17:18:10 2026
 account
 account_add_gln
 account_check_printing
@@ -168,6 +168,7 @@ l10n_din5008_repair
 l10n_din5008_sale
 l10n_din5008_stock
 l10n_dk
+l10n_dk_fik
 l10n_dk_nemhandel
 l10n_dk_oioubl
 l10n_do
@@ -237,6 +238,7 @@ l10n_it_edi_sale
 l10n_it_stock_ddt
 l10n_jo
 l10n_jo_edi
+l10n_jo_edi_pos
 l10n_jp
 l10n_jp_ubl_pint
 l10n_ke
@@ -280,9 +282,11 @@ l10n_pe_pos
 l10n_ph
 l10n_pk
 l10n_pl
+l10n_pl_edi
 l10n_pt
 l10n_qa
 l10n_ro
+l10n_ro_cpv_code
 l10n_ro_edi
 l10n_ro_edi_stock
 l10n_ro_edi_stock_batch
@@ -308,6 +312,7 @@ l10n_th
 l10n_tn
 l10n_tr
 l10n_tr_nilvera
+l10n_tr_nilvera_base_vat
 l10n_tr_nilvera_edispatch
 l10n_tr_nilvera_einvoice
 l10n_tr_nilvera_einvoice_extended
@@ -385,6 +390,7 @@ payment_paypal
 payment_razorpay
 payment_redsys
 payment_stripe
+payment_toss_payments
 payment_worldline
 payment_xendit
 phone_validation
@@ -395,6 +401,7 @@ pos_account_tax_python
 pos_adyen
 pos_discount
 pos_dpopay
+pos_edi_ubl
 pos_event
 pos_event_sale
 pos_glory_cash
@@ -403,6 +410,7 @@ pos_hr_restaurant
 pos_imin
 pos_loyalty
 pos_mercado_pago
+pos_mollie
 pos_mrp
 pos_online_payment
 pos_online_payment_self_order
@@ -414,6 +422,7 @@ pos_restaurant
 pos_restaurant_adyen
 pos_restaurant_loyalty
 pos_restaurant_stripe
+pos_safaricom
 pos_sale
 pos_sale_loyalty
 pos_sale_margin

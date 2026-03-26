@@ -1,4 +1,4 @@
-# generated on Fri Jan  9 08:39:48 2026
+# generated on Thu Mar 26 17:19:25 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -250,6 +250,7 @@ l10n_cn_reports
 l10n_co_dian
 l10n_co_edi
 l10n_co_edi_mandate
+l10n_co_edi_pos
 l10n_co_edi_website_sale
 l10n_co_reports
 l10n_cy_reports
@@ -395,6 +396,8 @@ l10n_pk_reports
 l10n_pl_hr_payroll
 l10n_pl_hr_payroll_account
 l10n_pl_reports
+l10n_pl_reports_account_saft
+l10n_pl_reports_jpk_fa
 l10n_pl_reports_pos_jpk
 l10n_pt_reports
 l10n_ro_hr_payroll
@@ -530,6 +533,7 @@ room
 sale_account_accountant
 sale_amazon
 sale_amazon_avatax
+sale_amazon_channel_management
 sale_commission
 sale_commission_margin
 sale_commission_subscription

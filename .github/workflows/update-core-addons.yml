@@ -10,6 +10,7 @@ on:
 jobs:
   update-core-addons:
     name: Update Core Addons
+    environment: update-core-addons
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -30,5 +31,5 @@ jobs:
           GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
           GIT_COMMITTER_NAME: ${{ vars.GIT_COMMITTER_NAME || 'github-actions[bot]' }}
           GIT_COMMITTER_EMAIL: ${{ vars.GIT_COMMITTER_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
+          ODOO_ENTERPRISE_GITHUB_TOKEN: ${{ secrets.ODOO_ENTERPRISE_GITHUB_TOKEN }}
         run: uv run ./mk_core_addons

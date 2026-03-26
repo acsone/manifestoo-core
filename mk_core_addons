@@ -104,7 +104,7 @@ def main() -> None:
                     # and apparently has precendence over GITHUB_TOKEN. We can't
                     # disable it globally, as it is necessary later to git push
                     # the new branch and create the pr.
-                    gitopts = ["-c", "http.https://github.com/.extraHeaders="]
+                    gitopts = ["-c", "http.https://github.com/.extraheader="]
                 else:
                     env = os.environ
                     gitopts = []

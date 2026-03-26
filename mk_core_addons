@@ -85,6 +85,9 @@ def main() -> None:
                 # Support a differrent GitHub token to access odoo/enterprise.
                 # This is necessary for the update-core-addons GitHub workflow.
                 if "ODOO_ENTERPRISE_GITHUB_TOKEN" in os.environ:
+                    print(
+                        "Found ODOO_ENTERPRISE_GITHUB_TOKEN, using it to clone odoo/enterprise"
+                    )
                     env = dict(
                         os.environ,
                         GITHUB_TOKEN=os.environ["ODOO_ENTERPRISE_GITHUB_TOKEN"],

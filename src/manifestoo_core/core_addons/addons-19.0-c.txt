@@ -1,4 +1,4 @@
-# generated on Thu Mar 26 17:18:10 2026
+# generated on Mon Mar 30 13:08:24 2026
 account
 account_add_gln
 account_check_printing
@@ -330,6 +330,7 @@ l10n_uy_pos
 l10n_ve
 l10n_vn
 l10n_vn_edi_viettel
+l10n_vn_edi_viettel_pos
 l10n_za
 l10n_zm_account
 link_tracker
@@ -399,6 +400,7 @@ portal
 portal_rating
 pos_account_tax_python
 pos_adyen
+pos_cashdro
 pos_discount
 pos_dpopay
 pos_edi_ubl

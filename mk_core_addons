@@ -9,6 +9,7 @@
 
 import os
 import subprocess
+import sys
 import tempfile
 import time
 from pathlib import Path
@@ -148,24 +149,29 @@ def pr():
     check_call("git", "checkout", "-B", "update-core-addon-lists")
     check_call("git", "commit", "-m", update_msg)
     check_call("git", "push", "-f", "origin", "HEAD")
-    try:
-        pr_create_output = check_output("gh", "pr", "create", "--fill")
-    except subprocess.CalledProcessError as e:
-        print("***", repr(e.output))
-        if (
-            'a pull request for branch "update-core-addon-lists" into branch "main" already exists'
-            in e.output
-        ):
-            pass  # PR already exist, that's fine
-        else:
-            raise  # unexpected error
-    else:
-        pr = pr_create_output.strip().rpartition("/")[-1]
+    r = subprocess.run(
+        ["gh", "pr", "create", "--fill"],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if r.returncode == 0:
+        # Commit and push news fragment
+        pr = r.stdout.strip().rpartition("/")[-1]
         news_path = Path("news") / f"{pr}.feature"
         news_path.write_text(update_msg + "\n")
         check_call("git", "add", str(news_path))
         check_call("git", "commit", "--amend", "--no-edit")
         check_call("git", "push", "-f", "origin", "HEAD")
+    else:
+        sys.stderr.write(r.stderr)
+        if (
+            'a pull request for branch "update-core-addon-lists" into branch "main" already exists'
+            in r.stderr
+        ):
+            pass  # PR already exist, that's fine
+        else:
+            sys.exit(r.returncode)
 
 
 if __name__ == "__main__":

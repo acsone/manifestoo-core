@@ -151,12 +151,14 @@ def pr():
     try:
         pr_create_output = check_output("gh", "pr", "create", "--fill")
     except subprocess.CalledProcessError as e:
-        print(e.output)
+        print("***", repr(e.output))
         if (
             'a pull request for branch "update-core-addon-lists" into branch "main" already exists'
-            not in e.output
+            in e.output
         ):
-            raise
+            pass  # PR already exist, that's fine
+        else:
+            raise  # unexpected error
     else:
         pr = pr_create_output.strip().rpartition("/")[-1]
         news_path = Path("news") / f"{pr}.feature"

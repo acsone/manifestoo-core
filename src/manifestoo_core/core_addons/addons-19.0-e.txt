@@ -1,4 +1,4 @@
-# generated on Mon Mar 30 13:08:45 2026
+# generated on Wed Apr  8 03:03:37 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -457,6 +457,7 @@ l10n_ro_intrastat
 l10n_ro_reports
 l10n_ro_saft
 l10n_ro_saft_import
+l10n_ro_saft_stock
 l10n_rs_reports
 l10n_rw_reports
 l10n_sa_hr_payroll

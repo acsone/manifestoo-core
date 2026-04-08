@@ -155,15 +155,7 @@ def pr():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
-    if r.returncode == 0:
-        # Commit and push news fragment
-        pr = r.stdout.strip().rpartition("/")[-1]
-        news_path = Path("news") / f"{pr}.feature"
-        news_path.write_text(update_msg + "\n")
-        check_call("git", "add", str(news_path))
-        check_call("git", "commit", "--amend", "--no-edit")
-        check_call("git", "push", "-f", "origin", "HEAD")
-    else:
+    if r.returncode != 0:
         sys.stderr.write(r.stderr)
         if (
             'a pull request for branch "update-core-addon-lists" into branch "main" already exists'
@@ -172,6 +164,13 @@ def pr():
             pass  # PR already exist, that's fine
         else:
             sys.exit(r.returncode)
+    # Commit and push news fragment
+    pr = r.stdout.strip().rpartition("/")[-1]
+    news_path = Path("news") / f"{pr}.feature"
+    news_path.write_text(update_msg + "\n")
+    check_call("git", "add", str(news_path))
+    check_call("git", "commit", "--amend", "--no-edit")
+    check_call("git", "push", "-f", "origin", "HEAD")
 
 
 if __name__ == "__main__":

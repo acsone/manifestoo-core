@@ -1,3 +1,12 @@
+1.15.2 (2026-04-29)
+===================
+
+Features
+--------
+
+- Update core addon lists. (`#126 <https://github.com/acsone/manifestoo-core/issues/126>`_)
+
+
 1.15.1 (2026-04-08)
 ===================
 

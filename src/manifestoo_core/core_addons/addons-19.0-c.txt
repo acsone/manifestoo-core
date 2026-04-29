@@ -1,4 +1,4 @@
-# generated on Wed Apr  8 03:03:17 2026
+# generated on Wed Apr 29 03:04:38 2026
 account
 account_add_gln
 account_check_printing
@@ -329,6 +329,7 @@ l10n_us
 l10n_us_account
 l10n_uy
 l10n_uy_pos
+l10n_uz
 l10n_ve
 l10n_vn
 l10n_vn_edi_viettel

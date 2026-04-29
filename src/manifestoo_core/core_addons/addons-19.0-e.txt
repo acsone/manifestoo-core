@@ -1,4 +1,4 @@
-# generated on Wed Apr  8 03:03:37 2026
+# generated on Wed Apr 29 03:04:58 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -426,6 +426,7 @@ l10n_nl_hr_payroll
 l10n_nl_hr_payroll_account
 l10n_nl_intrastat
 l10n_nl_reports
+l10n_nl_returns
 l10n_no_reports
 l10n_no_saft
 l10n_nz_eft
@@ -505,6 +506,7 @@ l10n_us_reports
 l10n_uy_edi
 l10n_uy_edi_stock
 l10n_uy_reports
+l10n_uz_reports
 l10n_vn_reports
 l10n_za_reports
 l10n_zm_reports

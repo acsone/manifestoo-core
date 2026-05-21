@@ -1,4 +1,4 @@
-# generated on Wed Apr 29 03:05:15 2026
+# generated on Thu May 21 03:07:22 2026
 account
 account_add_gln
 account_check_printing
@@ -293,6 +293,7 @@ l10n_pe_website_sale
 l10n_ph
 l10n_pk
 l10n_pl
+l10n_pl_bank_verification
 l10n_pl_edi
 l10n_pl_taxable_supply_date
 l10n_pt

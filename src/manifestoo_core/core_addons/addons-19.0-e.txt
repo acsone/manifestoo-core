@@ -1,4 +1,4 @@
-# generated on Wed Apr 29 03:04:58 2026
+# generated on Thu May 21 03:06:57 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -243,6 +243,12 @@ l10n_be_hr_payroll_sd_worx
 l10n_be_hr_payroll_ucm
 l10n_be_intervat
 l10n_be_intrastat
+l10n_be_pos_blackbox
+l10n_be_pos_blackbox_hr
+l10n_be_pos_blackbox_loyalty
+l10n_be_pos_blackbox_self_order
+l10n_be_pos_blackbox_settle_due
+l10n_be_pos_blackbox_urban_piper
 l10n_be_reports
 l10n_be_reports_client_nihil
 l10n_be_reports_hr_payroll

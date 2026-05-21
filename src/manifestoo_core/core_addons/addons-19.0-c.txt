@@ -1,4 +1,4 @@
-# generated on Wed Apr 29 03:04:38 2026
+# generated on Thu May 21 03:06:36 2026
 account
 account_add_gln
 account_check_printing
@@ -284,6 +284,7 @@ l10n_pe_pos
 l10n_ph
 l10n_pk
 l10n_pl
+l10n_pl_bank_verification
 l10n_pl_edi
 l10n_pt
 l10n_qa
@@ -384,6 +385,7 @@ payment_buckaroo
 payment_custom
 payment_demo
 payment_dpo
+payment_ecpay
 payment_flutterwave
 payment_iyzico
 payment_mercado_pago
@@ -438,6 +440,7 @@ pos_self_order_qfpay
 pos_self_order_razorpay
 pos_self_order_sale
 pos_self_order_stripe
+pos_self_order_viva_com
 pos_sms
 pos_stripe
 pos_viva_com

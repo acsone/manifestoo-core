@@ -1,4 +1,4 @@
-# generated on Wed Apr 29 03:04:58 2026
+# generated on Wed Jun 24 03:06:16 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -86,6 +86,7 @@ data_merge_project
 data_merge_stock_account
 data_merge_utm
 databases
+databases_auth
 delivery_bpost
 delivery_dhl
 delivery_dhl_rest
@@ -243,6 +244,12 @@ l10n_be_hr_payroll_sd_worx
 l10n_be_hr_payroll_ucm
 l10n_be_intervat
 l10n_be_intrastat
+l10n_be_pos_blackbox
+l10n_be_pos_blackbox_hr
+l10n_be_pos_blackbox_loyalty
+l10n_be_pos_blackbox_self_order
+l10n_be_pos_blackbox_settle_due
+l10n_be_pos_blackbox_urban_piper
 l10n_be_reports
 l10n_be_reports_client_nihil
 l10n_be_reports_hr_payroll
@@ -353,6 +360,7 @@ l10n_hr_reports
 l10n_hu_reports
 l10n_id_hr_payroll
 l10n_id_hr_payroll_account
+l10n_id_reports
 l10n_ie_intrastat
 l10n_ie_reports
 l10n_il_reports
@@ -456,6 +464,7 @@ l10n_ro_hr_payroll
 l10n_ro_hr_payroll_account
 l10n_ro_intrastat
 l10n_ro_reports
+l10n_ro_reports_d300
 l10n_ro_saft
 l10n_ro_saft_import
 l10n_ro_saft_stock

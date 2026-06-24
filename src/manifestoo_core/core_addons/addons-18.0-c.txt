@@ -1,4 +1,4 @@
-# generated on Wed Apr 29 03:05:15 2026
+# generated on Wed Jun 24 03:06:38 2026
 account
 account_add_gln
 account_check_printing
@@ -195,6 +195,8 @@ l10n_fr_account
 l10n_fr_facturx_chorus_pro
 l10n_fr_hr_holidays
 l10n_fr_hr_work_entry_holidays
+l10n_fr_pdp
+l10n_fr_pdp_pos
 l10n_fr_pos_cert
 l10n_ga
 l10n_gcc_invoice
@@ -293,6 +295,7 @@ l10n_pe_website_sale
 l10n_ph
 l10n_pk
 l10n_pl
+l10n_pl_bank_verification
 l10n_pl_edi
 l10n_pl_taxable_supply_date
 l10n_pt

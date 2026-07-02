@@ -1,4 +1,4 @@
-# generated on Wed Jun 24 03:05:54 2026
+# generated on Thu Jul  2 03:05:29 2026
 account
 account_add_gln
 account_check_printing
@@ -218,6 +218,7 @@ l10n_hr_edi
 l10n_hr_kuna
 l10n_hu
 l10n_hu_edi
+l10n_hu_edi_receive
 l10n_id
 l10n_id_efaktur_coretax
 l10n_id_pos

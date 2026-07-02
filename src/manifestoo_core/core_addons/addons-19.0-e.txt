@@ -1,4 +1,4 @@
-# generated on Wed Jun 24 03:06:16 2026
+# generated on Thu Jul  2 03:05:52 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -224,6 +224,7 @@ l10n_bd_hr_payroll
 l10n_bd_hr_payroll_account
 l10n_bd_reports
 l10n_be_coda
+l10n_be_coda_extension_number
 l10n_be_codabox
 l10n_be_codaclean
 l10n_be_fiscal_categories
@@ -446,6 +447,7 @@ l10n_pe_edi_stock
 l10n_pe_reports
 l10n_pe_reports_lib
 l10n_pe_reports_stock
+l10n_pe_reports_stock_landed_costs
 l10n_ph_check_printing
 l10n_ph_reports
 l10n_pk_hr_payroll

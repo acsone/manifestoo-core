@@ -30,9 +30,10 @@ jobs:
       - name: Update core addons and create PR
         env:
           GIT_AUTHOR_NAME: ${{ vars.GIT_AUTHOR_NAME || 'github-actions[bot]' }}
-          GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
           GIT_COMMITTER_NAME: ${{ vars.GIT_COMMITTER_NAME || 'github-actions[bot]' }}
-          GIT_COMMITTER_EMAIL: ${{ vars.GIT_COMMITTER_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
+          # id of github-actions[bot] here: https://api.github.com/users/github-actions%5Bbot%5D
+          GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
+          GIT_COMMITTER_EMAIL: ${{ vars.GIT_COMMITTER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com' }}
           ODOO_ENTERPRISE_GH_TOKEN: ${{ secrets.ODOO_ENTERPRISE_GH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: '1'

@@ -7,6 +7,7 @@
 # ]
 # ///
 
+import json
 import os
 import subprocess
 import sys
@@ -121,7 +122,7 @@ def main() -> None:
                 )
 
 
-def pr():
+def pr() -> int:
     assert Path("news").is_dir()
     check_call("git", "add", "src/manifestoo_core/core_addons")
 
@@ -143,36 +144,42 @@ def pr():
         print(
             "No meaningful changes detected (only date changes). Skipping PR creation."
         )
-        return
+        return 0
 
     update_msg = "Update core addon lists"
-    check_call("git", "checkout", "-B", "update-core-addon-lists")
+    branch = "update-core-addon-lists"
+    check_call("git", "checkout", "-B", branch)
     check_call("git", "commit", "-m", update_msg)
     check_call("git", "push", "-f", "origin", "HEAD")
     r = subprocess.run(
-        ["gh", "pr", "create", "--fill"],
+        ["gh", "pr", "view", branch, "--json", "state,number"],
         text=True,
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+    )
+    if r == 0:
+        pr_info = json.loads(r.stdout)
+        if pr_info["state"] == "OPEN":
+            print(
+                "Open PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
+            )
+            return 0
+    r = subprocess.run(
+        ["gh", "pr", "create", "--fill", "--json", "number"],
+        text=True,
+        stdout=subprocess.PIPE,
     )
     if r.returncode != 0:
-        sys.stderr.write(r.stderr)
-        if (
-            'a pull request for branch "update-core-addon-lists" into branch "main" already exists'
-            in r.stderr
-        ):
-            pass  # PR already exist, that's fine
-        else:
-            sys.exit(r.returncode)
+        return r.returncode
+    pr_info = json.loads(r.stdout)
     # Commit and push news fragment
-    pr = r.stdout.strip().rpartition("/")[-1]
-    news_path = Path("news") / f"{pr}.feature"
+    news_path = Path("news") / f"{pr_info['number']}.feature"
     news_path.write_text(update_msg + "\n")
     check_call("git", "add", str(news_path))
     check_call("git", "commit", "--amend", "--no-edit")
     check_call("git", "push", "-f", "origin", "HEAD")
+    return 0
 
 
 if __name__ == "__main__":
     main()
-    pr()
+    sys.exit(pr())

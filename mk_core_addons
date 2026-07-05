@@ -14,7 +14,7 @@ import sys
 import tempfile
 import time
 from pathlib import Path
-from typing import Iterator, Iterable, Mapping, Optional
+from typing import Iterator, Iterable, Mapping, Optional, TypedDict
 
 from manifestoo_core.addon import Addon, AddonNotFound
 from manifestoo_core.odoo_series import OdooEdition
@@ -122,6 +122,22 @@ def main() -> None:
                 )
 
 
+class PrState(TypedDict):
+    number: int | None
+    state: str | None
+
+
+def gh_pr_state(branch: str) -> PrState:
+    r = subprocess.run(
+        ["gh", "pr", "view", branch, "--json", "state,number"],
+        text=True,
+        stdout=subprocess.PIPE,
+    )
+    if r == 0:
+        return json.loads(r.stdout)
+    return {"number": None, "state": None}
+
+
 def pr() -> int:
     assert Path("news").is_dir()
     check_call("git", "add", "src/manifestoo_core/core_addons")
@@ -148,35 +164,37 @@ def pr() -> int:
 
     update_msg = "Update core addon lists"
     branch = "update-core-addon-lists"
+
     check_call("git", "checkout", "-B", branch)
     check_call("git", "commit", "-m", update_msg)
     check_call("git", "push", "-f", "origin", "HEAD")
+
+    pr_info = gh_pr_state(branch)
+    if pr_info["state"] == "OPEN":
+        print(
+            "PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
+        )
+        return 0
+
     r = subprocess.run(
-        ["gh", "pr", "view", branch, "--json", "state,number"],
-        text=True,
-        stdout=subprocess.PIPE,
-    )
-    if r == 0:
-        pr_info = json.loads(r.stdout)
-        if pr_info["state"] == "OPEN":
-            print(
-                "Open PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
-            )
-            return 0
-    r = subprocess.run(
-        ["gh", "pr", "create", "--fill", "--json", "number"],
+        ["gh", "pr", "create", "--fill"],
         text=True,
         stdout=subprocess.PIPE,
     )
     if r.returncode != 0:
         return r.returncode
-    pr_info = json.loads(r.stdout)
+
+    pr_info = gh_pr_state(branch)
+    assert pr_info["number"]
+    assert pr_info["state"] == "OPEN"
+
     # Commit and push news fragment
     news_path = Path("news") / f"{pr_info['number']}.feature"
     news_path.write_text(update_msg + "\n")
     check_call("git", "add", str(news_path))
     check_call("git", "commit", "--amend", "--no-edit")
     check_call("git", "push", "-f", "origin", "HEAD")
+
     return 0
 
 

@@ -9,6 +9,7 @@
 
 import json
 import os
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -60,12 +61,12 @@ def _write_addons_list(addons_dirs: Iterable[Path], suffix: str) -> None:
 
 
 def check_call(*cmd: str, env: Optional[Mapping[str, str]] = None) -> None:
-    print(" ".join(cmd))
+    print(shlex.join(cmd))
     subprocess.check_call(cmd, env=env)
 
 
 def check_output(*cmd: str) -> str:
-    print(" ".join(cmd))
+    print(shlex.join(cmd))
     return subprocess.check_output(cmd, text=True)
 
 
@@ -128,14 +129,8 @@ class PrState(TypedDict):
 
 
 def gh_pr_state(branch: str) -> PrState:
-    r = subprocess.run(
-        ["gh", "pr", "view", branch, "--json", "state,number"],
-        text=True,
-        stdout=subprocess.PIPE,
-    )
-    if r == 0:
-        return json.loads(r.stdout)
-    return {"number": None, "state": None}
+    r = check_output("gh", "pr", "view", branch, "--json", "state,number")
+    return json.loads(r)
 
 
 def pr() -> int:
@@ -169,20 +164,20 @@ def pr() -> int:
     check_call("git", "commit", "-m", update_msg)
     check_call("git", "push", "-f", "origin", "HEAD")
 
-    pr_info = gh_pr_state(branch)
-    if pr_info["state"] == "OPEN":
-        print(
-            "PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
-        )
-        return 0
+    try:
+        pr_info = gh_pr_state(branch)
+    except subprocess.CalledProcessError:
+        # PR does not exist, go ahead and create it
+        pass
+    else:
+        if pr_info["state"] == "OPEN":
+            print(
+                "PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
+            )
+            return 0
+        # PR likely exist but is not closed or merged, go ahead and create it
 
-    r = subprocess.run(
-        ["gh", "pr", "create", "--fill"],
-        text=True,
-        stdout=subprocess.PIPE,
-    )
-    if r.returncode != 0:
-        return r.returncode
+    check_output("gh", "pr", "create", "--fill")
 
     pr_info = gh_pr_state(branch)
     assert pr_info["number"]

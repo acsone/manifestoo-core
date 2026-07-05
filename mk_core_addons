@@ -76,6 +76,7 @@ def main() -> None:
             check_call(
                 "git",
                 "clone",
+                "--quiet",
                 "--depth=1",
                 "--branch",
                 branch,
@@ -112,6 +113,7 @@ def main() -> None:
                     "odoo/enterprise",
                     tmpdir,
                     "--",
+                    "--quiet",
                     "--depth=1",
                     "--branch",
                     branch,
@@ -172,7 +174,7 @@ def pr() -> int:
     else:
         if pr_info["state"] == "OPEN":
             print(
-                "PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
+                f"PR {pr_info['number']} already exist for branch {branch!r}. Branch updated."
             )
             return 0
         # PR likely exist but is not closed or merged, go ahead and create it

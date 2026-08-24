@@ -413,8 +413,10 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
         ),
         (
             "agpl-3 or any later version",
-            "License :: OSI Approved :: "
-            "GNU Affero General Public License v3 or later (AGPLv3+)",
+            (
+                "License :: OSI Approved :: "
+                "GNU Affero General Public License v3 or later (AGPLv3+)"
+            ),
         ),
         (
             "gpl-2",
@@ -422,8 +424,10 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
         ),
         (
             "gpl-2 or any later version",
-            "License :: OSI Approved :: "
-            "GNU General Public License v2 or later (GPLv2+)",
+            (
+                "License :: OSI Approved :: "
+                "GNU General Public License v2 or later (GPLv2+)"
+            ),
         ),
         (
             "gpl-3",
@@ -431,8 +435,10 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
         ),
         (
             "gpl-3 or any later version",
-            "License :: OSI Approved :: "
-            "GNU General Public License v3 or later (GPLv3+)",
+            (
+                "License :: OSI Approved :: "
+                "GNU General Public License v3 or later (GPLv3+)"
+            ),
         ),
         (
             "lgpl-2",
@@ -440,8 +446,10 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
         ),
         (
             "lgpl-2 or any later version",
-            "License :: OSI Approved :: "
-            "GNU Lesser General Public License v2 or later (LGPLv2+)",
+            (
+                "License :: OSI Approved :: "
+                "GNU Lesser General Public License v2 or later (LGPLv2+)"
+            ),
         ),
         (
             "lgpl-3",
@@ -449,8 +457,10 @@ def test_classifiers(tmp_path: Path, odoo_series: str) -> None:
         ),
         (
             "lgpl-3 or any later version",
-            "License :: OSI Approved :: "
-            "GNU Lesser General Public License v3 or later (LGPLv3+)",
+            (
+                "License :: OSI Approved :: "
+                "GNU Lesser General Public License v3 or later (LGPLv3+)"
+            ),
         ),
     ],
 )

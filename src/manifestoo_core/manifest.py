@@ -43,7 +43,7 @@ def _check_dict(
 ) -> Dict[str, Any]:
     if not isinstance(value, dict):
         raise TypeError
-    for k in value.keys():
+    for k in value:
         key_checker(k)
     return value
 

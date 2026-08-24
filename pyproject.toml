@@ -81,6 +81,7 @@ extend-select = [
 ]
 ignore = [
     # "C408",   # Unnecessary `dict` call (rewrite as a literal)
+    "FA100",  # from __future__ import annotations to simplify typing
 ]
 exclude = [
     "docs/conf.py",

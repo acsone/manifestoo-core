@@ -141,7 +141,7 @@ def metadata_from_addon_dir(
     if options.get("external_dependencies_only"):
         install_requires = list(_filter_odoo_addon_dependencies(install_requires))
 
-    def _set(key: str, value: Union[None, str, List[str]]) -> None:
+    def _set(key: str, value: Union[str, List[str], None]) -> None:
         if not value:
             return
         if isinstance(value, list):
@@ -482,6 +482,7 @@ def _make_classifiers(odoo_series: OdooSeries, manifest: Manifest) -> List[str]:
 def _get_install_requires(  # noqa: PLR0913
     odoo_series_info: OdooSeriesInfo,
     manifest: Manifest,
+    *,
     no_depends: Optional[Set[str]] = None,
     depends_override: Optional[Dict[str, str]] = None,
     external_dependencies_override: Optional[

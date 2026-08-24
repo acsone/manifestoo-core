@@ -1,4 +1,4 @@
-# generated on Sun Jul  5 15:00:23 2026
+# generated on Mon Aug 24 02:30:55 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -260,6 +260,7 @@ l10n_es_real_estates
 l10n_es_reports
 l10n_es_reports_2024
 l10n_es_reports_modelo130
+l10n_es_reports_pos
 l10n_es_sale_amazon
 l10n_eu_oss_reports
 l10n_fi_reports
@@ -594,6 +595,7 @@ whatsapp
 whatsapp_account
 whatsapp_delivery
 whatsapp_event
+whatsapp_identifiers
 whatsapp_payment
 whatsapp_pos
 whatsapp_sale

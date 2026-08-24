@@ -1,4 +1,4 @@
-# generated on Sun Jul  5 14:58:31 2026
+# generated on Mon Aug 24 02:28:58 2026
 account
 account_add_gln
 account_check_printing
@@ -8,6 +8,7 @@ account_edi_proxy_client
 account_edi_ubl_cii
 account_fleet
 account_payment
+account_payment_interco
 account_peppol
 account_peppol_advanced_fields
 account_peppol_response
@@ -205,6 +206,7 @@ l10n_ga
 l10n_gcc_invoice
 l10n_gcc_invoice_stock_account
 l10n_gcc_pos
+l10n_ge
 l10n_gn
 l10n_gq
 l10n_gr
@@ -258,6 +260,7 @@ l10n_latam_check
 l10n_latam_invoice_document
 l10n_lb_account
 l10n_lk
+l10n_lk_invoice
 l10n_lt
 l10n_lu
 l10n_lv
@@ -289,6 +292,7 @@ l10n_pk
 l10n_pl
 l10n_pl_bank_verification
 l10n_pl_edi
+l10n_pl_edi_jst
 l10n_pt
 l10n_qa
 l10n_ro
@@ -324,6 +328,7 @@ l10n_tr_nilvera_einvoice
 l10n_tr_nilvera_einvoice_extended
 l10n_tw
 l10n_tw_edi_ecpay
+l10n_tw_edi_ecpay_pos
 l10n_tw_edi_ecpay_website_sale
 l10n_tz_account
 l10n_ua
@@ -396,6 +401,7 @@ payment_mollie
 payment_nuvei
 payment_paymob
 payment_paypal
+payment_payu
 payment_razorpay
 payment_redsys
 payment_stripe

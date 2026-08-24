@@ -1,4 +1,4 @@
-# generated on Sun Jul  5 14:59:35 2026
+# generated on Mon Aug 24 02:30:01 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -285,6 +285,7 @@ l10n_es_real_estates
 l10n_es_reports
 l10n_es_reports_2024
 l10n_es_reports_modelo130
+l10n_es_reports_pos
 l10n_es_sale_amazon
 l10n_eu_iot_scale_cert
 l10n_eu_oss_reports
@@ -345,6 +346,7 @@ l10n_lu_hr_payroll
 l10n_lu_hr_payroll_account
 l10n_lu_reports
 l10n_lv_reports
+l10n_lv_tax_report
 l10n_ma_hr_payroll
 l10n_ma_hr_payroll_account
 l10n_ma_reports
@@ -399,6 +401,7 @@ l10n_pl_reports
 l10n_pl_reports_account_saft
 l10n_pl_reports_jpk_fa
 l10n_pl_reports_pos_jpk
+l10n_pl_reports_vat_eu
 l10n_pt_reports
 l10n_ro_hr_payroll
 l10n_ro_hr_payroll_account
@@ -671,6 +674,7 @@ whatsapp_account
 whatsapp_delivery
 whatsapp_event
 whatsapp_hr_referral
+whatsapp_identifiers
 whatsapp_payment
 whatsapp_pos
 whatsapp_sale

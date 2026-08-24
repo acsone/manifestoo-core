@@ -1,4 +1,4 @@
-# generated on Sun Jul  5 14:58:54 2026
+# generated on Mon Aug 24 02:29:21 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -247,7 +247,9 @@ l10n_be_intervat
 l10n_be_intrastat
 l10n_be_pos_blackbox
 l10n_be_pos_blackbox_hr
+l10n_be_pos_blackbox_hr_pos_blackbox_be
 l10n_be_pos_blackbox_loyalty
+l10n_be_pos_blackbox_pos_blackbox_be
 l10n_be_pos_blackbox_self_order
 l10n_be_pos_blackbox_settle_due
 l10n_be_pos_blackbox_urban_piper
@@ -255,10 +257,12 @@ l10n_be_reports
 l10n_be_reports_client_nihil
 l10n_be_reports_hr_payroll
 l10n_be_reports_sms
+l10n_be_reports_vat_comment
 l10n_be_soda
 l10n_bf_reports
 l10n_bg_reports
 l10n_bg_reports_ledger
+l10n_bg_saft
 l10n_bh_reports
 l10n_bj_reports
 l10n_bo_reports
@@ -293,6 +297,7 @@ l10n_cl_edi_pos
 l10n_cl_edi_stock
 l10n_cl_edi_website_sale
 l10n_cl_reports
+l10n_cl_reports_f29
 l10n_cm_reports
 l10n_cn_reports
 l10n_co_dian
@@ -307,6 +312,7 @@ l10n_de_intrastat
 l10n_de_pos_cert
 l10n_de_pos_res_cert
 l10n_de_reports
+l10n_de_reports_elster
 l10n_din5008_account_followup
 l10n_din5008_industry_fsm
 l10n_din5008_sale_renting
@@ -333,6 +339,7 @@ l10n_es_real_estates
 l10n_es_reports
 l10n_es_reports_2024
 l10n_es_reports_2025
+l10n_es_reports_pos
 l10n_es_sale_amazon
 l10n_et_reports
 l10n_eu_iot_scale_cert
@@ -404,6 +411,7 @@ l10n_lu_hr_payroll
 l10n_lu_hr_payroll_account
 l10n_lu_reports
 l10n_lv_reports
+l10n_lv_tax_report
 l10n_ma_hr_payroll
 l10n_ma_hr_payroll_account
 l10n_ma_reports
@@ -460,6 +468,7 @@ l10n_pl_reports
 l10n_pl_reports_account_saft
 l10n_pl_reports_jpk_fa
 l10n_pl_reports_pos_jpk
+l10n_pl_reports_vat_eu
 l10n_pt_intrastat
 l10n_pt_reports
 l10n_ro_hr_payroll
@@ -639,6 +648,7 @@ sale_subscription_external_tax
 sale_subscription_partnership
 sale_subscription_stock
 sale_subscription_timesheet
+sale_tiktok
 sale_timesheet_enterprise
 sale_timesheet_enterprise_holidays
 sign
@@ -764,6 +774,7 @@ whatsapp_calendar
 whatsapp_delivery
 whatsapp_event
 whatsapp_hr_referral
+whatsapp_identifiers
 whatsapp_payment
 whatsapp_pos
 whatsapp_sale

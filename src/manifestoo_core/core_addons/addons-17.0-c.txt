@@ -1,4 +1,4 @@
-# generated on Sun Jul  5 15:00:05 2026
+# generated on Mon Aug 24 10:44:05 2026
 account
 account_add_gln
 account_audit_trail
@@ -14,6 +14,7 @@ account_lock
 account_payment
 account_payment_term
 account_peppol
+account_peppol_response
 account_peppol_selfbilling
 account_qr_code_emv
 account_qr_code_sepa
@@ -189,6 +190,8 @@ l10n_fr_fec
 l10n_fr_hr_holidays
 l10n_fr_hr_work_entry_holidays
 l10n_fr_invoice_addr
+l10n_fr_pdp
+l10n_fr_pdp_pos
 l10n_fr_pos_cert
 l10n_ga
 l10n_gcc_invoice
@@ -504,6 +507,7 @@ test_base_import
 test_convert
 test_converter
 test_crm_full
+test_data_module
 test_data_module_install
 test_discuss_full
 test_event_full

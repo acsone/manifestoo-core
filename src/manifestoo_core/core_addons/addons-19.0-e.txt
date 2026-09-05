@@ -1,4 +1,4 @@
-# generated on Mon Aug 24 02:29:21 2026
+# generated on Sat Sep  5 02:09:16 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -639,6 +639,7 @@ sale_purchase_inter_company_rules
 sale_purchase_stock_inter_company_rules
 sale_renting
 sale_renting_crm
+sale_renting_intrastat
 sale_renting_planning
 sale_renting_project
 sale_shopee
@@ -775,6 +776,7 @@ whatsapp_delivery
 whatsapp_event
 whatsapp_hr_referral
 whatsapp_identifiers
+whatsapp_oauth
 whatsapp_payment
 whatsapp_pos
 whatsapp_sale

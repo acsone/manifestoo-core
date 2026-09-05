@@ -1,4 +1,4 @@
-# generated on Mon Aug 24 02:28:58 2026
+# generated on Sat Sep  5 02:08:54 2026
 account
 account_add_gln
 account_check_printing
@@ -207,10 +207,13 @@ l10n_gcc_invoice
 l10n_gcc_invoice_stock_account
 l10n_gcc_pos
 l10n_ge
+l10n_gf
 l10n_gn
+l10n_gp
 l10n_gq
 l10n_gr
 l10n_gr_edi
+l10n_gr_edi_e_invoo
 l10n_gt
 l10n_gw
 l10n_hk
@@ -268,6 +271,7 @@ l10n_ma
 l10n_mc
 l10n_ml
 l10n_mn
+l10n_mq
 l10n_mr
 l10n_mt
 l10n_mt_pos
@@ -295,6 +299,7 @@ l10n_pl_edi
 l10n_pl_edi_jst
 l10n_pt
 l10n_qa
+l10n_re
 l10n_ro
 l10n_ro_cpv_code
 l10n_ro_edi
@@ -343,6 +348,7 @@ l10n_ve
 l10n_vn
 l10n_vn_edi_viettel
 l10n_vn_edi_viettel_pos
+l10n_yt
 l10n_za
 l10n_zm_account
 link_tracker

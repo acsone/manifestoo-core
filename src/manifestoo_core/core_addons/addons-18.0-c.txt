@@ -1,4 +1,4 @@
-# generated on Mon Aug 24 02:29:45 2026
+# generated on Sat Sep  5 02:09:39 2026
 account
 account_add_gln
 account_check_printing
@@ -206,6 +206,7 @@ l10n_gn
 l10n_gq
 l10n_gr
 l10n_gr_edi
+l10n_gr_edi_e_invoo
 l10n_gt
 l10n_gw
 l10n_hk

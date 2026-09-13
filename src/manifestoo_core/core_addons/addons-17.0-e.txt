@@ -1,4 +1,4 @@
-# generated on Mon Aug 24 02:30:55 2026
+# generated on Sun Sep 13 02:10:42 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -197,6 +197,7 @@ l10n_be_reports
 l10n_be_reports_post_wizard
 l10n_be_reports_prorata
 l10n_be_reports_sms
+l10n_be_saft
 l10n_be_soda
 l10n_be_us_consolidation_demo
 l10n_bg_reports

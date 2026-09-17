@@ -325,6 +325,17 @@ ODOO_SERIES_INFO = {
         git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
         core_addons=get_core_addons(OdooSeries.v19_0),
     ),
+    OdooSeries.v20_0: OdooSeriesInfo(
+        odoo_dep="odoo==20.0.*",
+        pkg_name_pfx="odoo-addon",
+        pkg_version_specifier="==20.0.*",
+        addons_ns="odoo.addons",
+        namespace_packages=None,
+        python_requires=None,  # the dependency on odoo is enough to constrain it
+        universal_wheel=False,
+        git_postversion_strategy=POST_VERSION_STRATEGY_DOT_N,
+        core_addons=get_core_addons(OdooSeries.v20_0),
+    ),
 }
 
 # map names of common python external dependencies in Odoo manifest files

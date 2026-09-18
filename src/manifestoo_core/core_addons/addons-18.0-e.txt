@@ -1,4 +1,4 @@
-# generated on Mon Aug 24 02:30:01 2026
+# generated on Fri Sep 18 02:10:59 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -213,6 +213,7 @@ l10n_be_reports
 l10n_be_reports_post_wizard
 l10n_be_reports_prorata
 l10n_be_reports_sms
+l10n_be_saft
 l10n_be_soda
 l10n_bg_reports
 l10n_bg_reports_ledger
@@ -493,6 +494,7 @@ pos_pricer
 pos_restaurant_appointment
 pos_restaurant_preparation_display
 pos_restaurant_urban_piper
+pos_sale_purchase_stock_inter_company_rules
 pos_sale_stock_renting
 pos_sale_subscription
 pos_self_order_iot

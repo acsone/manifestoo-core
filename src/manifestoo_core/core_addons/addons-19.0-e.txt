@@ -1,4 +1,4 @@
-# generated on Mon Aug 24 02:29:21 2026
+# generated on Fri Sep 18 02:10:20 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -258,6 +258,7 @@ l10n_be_reports_client_nihil
 l10n_be_reports_hr_payroll
 l10n_be_reports_sms
 l10n_be_reports_vat_comment
+l10n_be_saft
 l10n_be_soda
 l10n_bf_reports
 l10n_bg_reports
@@ -582,6 +583,7 @@ pos_pricer
 pos_restaurant_appointment
 pos_restaurant_preparation_display
 pos_restaurant_urban_piper
+pos_sale_purchase_stock_inter_company_rules
 pos_sale_stock_renting
 pos_sale_subscription
 pos_self_order_iot
@@ -639,6 +641,7 @@ sale_purchase_inter_company_rules
 sale_purchase_stock_inter_company_rules
 sale_renting
 sale_renting_crm
+sale_renting_intrastat
 sale_renting_planning
 sale_renting_project
 sale_shopee
@@ -775,6 +778,7 @@ whatsapp_delivery
 whatsapp_event
 whatsapp_hr_referral
 whatsapp_identifiers
+whatsapp_oauth
 whatsapp_payment
 whatsapp_pos
 whatsapp_sale

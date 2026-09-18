@@ -1,3 +1,13 @@
+1.16 (2026-09-18)
+=================
+
+Features
+--------
+
+- Support Odoo 20.0 (`#148 <https://github.com/acsone/manifestoo-core/issues/148>`_)
+- Update core addon lists (`#145 <https://github.com/acsone/manifestoo-core/issues/145>`_)
+
+
 1.15.5 (2026-08-24)
 ===================
 

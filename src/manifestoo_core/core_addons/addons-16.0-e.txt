@@ -1,4 +1,4 @@
-# generated on Fri Sep 18 02:12:19 2026
+# generated on Sat Oct  3 02:13:56 2026
 account_3way_match
 account_accountant
 account_accountant_batch_payment
@@ -65,6 +65,7 @@ delivery_dhl
 delivery_dhl_rest
 delivery_easypost
 delivery_fedex
+delivery_fedex_certified
 delivery_fedex_rest
 delivery_iot
 delivery_sendcloud

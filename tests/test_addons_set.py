@@ -39,3 +39,19 @@ def test_from_missing_dir(tmp_path: Path) -> None:
     addons_set = AddonsSet()
     addons_set.add_from_addons_dirs([tmp_path / "not-a-dir"])
     assert str(addons_set) == ""
+
+
+def test_from_addons_dir_data_module(tmp_path: Path) -> None:
+    """Data-only addons without __init__.py are found since Odoo 13.0."""
+    addons: Dict[str, Dict[str, Any]] = {
+        "a": {"version": "19.0.1.0.0"},
+        "data_module": {"version": "19.0.1.0.0"},
+        "core_data_module": {"version": "0.0.1"},
+        "old_data_module": {"version": "12.0.1.0.0"},
+    }
+    populate_addons_dir(tmp_path, addons)
+    for addon_name in ("data_module", "core_data_module", "old_data_module"):
+        (tmp_path / addon_name / "__init__.py").unlink()
+    addons_set = AddonsSet()
+    addons_set.add_from_addons_dir(tmp_path)
+    assert str(addons_set) == "a,core_data_module,data_module"

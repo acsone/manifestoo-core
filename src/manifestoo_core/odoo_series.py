@@ -1,10 +1,12 @@
 """Odoo Series and Editions."""
 
 from enum import Enum
-from typing import Optional, Set
+from typing import TYPE_CHECKING, Optional, Set
 
-from .addons_set import AddonsSet
 from .exceptions import UnsupportedOdooSeries
+
+if TYPE_CHECKING:
+    from .addons_set import AddonsSet
 
 __all__ = [
     "OdooEdition",
@@ -70,7 +72,7 @@ def detect_from_addon_version(version: str) -> Optional[OdooSeries]:
         return None
 
 
-def detect_from_addons_set(addons_set: AddonsSet) -> Set[OdooSeries]:
+def detect_from_addons_set(addons_set: "AddonsSet") -> Set[OdooSeries]:
     detected: Set[OdooSeries] = set()
     for addon in addons_set.values():
         addon_version = addon.manifest.version

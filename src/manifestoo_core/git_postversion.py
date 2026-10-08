@@ -71,13 +71,23 @@ def _get_git_root(path: Path) -> Path:
     return Path(_run_git_command_bytes(["rev-parse", "--show-toplevel"], cwd=path))
 
 
-def _git_log_iterator(path: Path) -> Iterator[str]:
+def _git_log_iterator(path: Path, first_parent: bool = False) -> Iterator[str]:
     """yield commits using git log -- <dir>"""
     n = 10
     count = 0
     while True:
         lines = _run_git_command_lines(
-            ["log", "--oneline", "-n", str(n), "--skip", str(count), "--", "."],
+            [
+                "log",
+                "--oneline",
+                *(["--first-parent"] if first_parent else []),
+                "-n",
+                str(n),
+                "--skip",
+                str(count),
+                "--",
+                ".",
+            ],
             cwd=path,
         )
         for line in lines:
@@ -86,6 +96,16 @@ def _git_log_iterator(path: Path) -> Iterator[str]:
             yield sha
         if len(lines) < n:
             break
+
+
+def _git_count_commits_since(sha: str, path: Path) -> int:
+    """Count the commits touching <dir> that are in HEAD but not in sha."""
+    return int(
+        _run_git_command_bytes(
+            ["rev-list", "--count", f"{sha}..HEAD", "--", "."],
+            cwd=path,
+        )
+    )
 
 
 def _read_manifest_from_sha(
@@ -157,9 +177,13 @@ def get_git_postversion(  # noqa: C901, PLR0911, PLR0912 too complex
     else:
         uncommitted = False
         count = 0
+    # Find the commit that set the current version. Walk the first parent
+    # chain only: with a plain git log, commits of merged branches are
+    # interleaved by date, and an old commit of a merged branch (with an
+    # older version) would stop the walk too early.
     last_sha = None
     git_root = _get_git_root(addon_dir)
-    for sha in _git_log_iterator(addon_dir):
+    for sha in _git_log_iterator(addon_dir, first_parent=True):
         manifest = _read_manifest_from_sha(sha, addon_dir, git_root)
         if manifest is None:
             break
@@ -167,10 +191,11 @@ def get_git_postversion(  # noqa: C901, PLR0911, PLR0912 too complex
         version_parsed = parse_version(version)
         if version_parsed != last_version_parsed:
             break
-        if last_sha is None:
-            last_sha = sha
-        else:
-            count += 1
+        last_sha = sha
+    if last_sha:
+        # Count all commits touching the addon since that commit, including
+        # the commits brought by merges.
+        count += _git_count_commits_since(last_sha, addon_dir)
     if not count:
         return last_version
     if last_sha:

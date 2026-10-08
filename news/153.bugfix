@@ -1,0 +1,1 @@
+Accept data-only addons without ``__init__.py`` for Odoo 13.0 and later.

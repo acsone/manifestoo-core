@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Tuple
 
 from .exceptions import (
     AddonNotFound,
@@ -10,6 +10,7 @@ from .exceptions import (
     AddonNotFoundNotInstallable,
 )
 from .manifest import InvalidManifest, Manifest, get_manifest_path
+from .odoo_series import OdooSeries, detect_from_addon_version
 
 __all__ = [
     "Addon",
@@ -83,7 +84,27 @@ class Addon:
                 raise AddonNotFoundNotInstallable(msg)
         except InvalidManifest as e:
             raise AddonNotFoundInvalidManifest(str(e)) from e
-        if not addon_dir.joinpath("__init__.py").is_file():
+        if not addon_dir.joinpath("__init__.py").is_file() and _requires_init(manifest):
             msg = f"{addon_dir} is missing an __init__.py"
             raise AddonNotFoundNoInit(msg)
         return cls(manifest, manifest_path)
+
+
+def _requires_init(manifest: Manifest) -> bool:
+    """Whether an addon needs an ``__init__.py`` to be loaded by Odoo.
+
+    Since Odoo 13.0, addons are imported with ``importlib``, so an addon
+    without ``__init__.py`` (a data-only addon) is a valid namespace package.
+    Up to Odoo 12.0, the addon had to be a regular package. The Odoo series
+    is detected from the addon version, when it is recognized.
+    """
+    if not manifest.version:
+        return False
+    odoo_series = detect_from_addon_version(manifest.version)
+    if odoo_series is None:
+        return False
+    return _series_tuple(odoo_series) < _series_tuple(OdooSeries.v13_0)
+
+
+def _series_tuple(odoo_series: str) -> Tuple[int, ...]:
+    return tuple(int(part) for part in odoo_series.split("."))

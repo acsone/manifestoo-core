@@ -118,10 +118,39 @@ def test_no_manifest(addon_dir: Path) -> None:
         Addon.from_addon_dir(addon_dir)
 
 
+@pytest.mark.parametrize(
+    "addon_dir",
+    [
+        {"dir": "a", "manifest": "{'version': '8.0.1.0.0'}"},
+        {"dir": "a", "manifest": "{'version': '12.0.1.0.0'}"},
+    ],
+    indirect=True,
+)
 def test_no_init(addon_dir: Path) -> None:
+    """Up to Odoo 12.0, an addon must be a regular python package."""
     (addon_dir / "__init__.py").unlink()
     with pytest.raises(AddonNotFoundNoInit):
         Addon.from_addon_dir(addon_dir)
+    assert not is_addon_dir(addon_dir)
+
+
+@pytest.mark.parametrize(
+    "addon_dir",
+    [
+        # data-only addon of Odoo >= 13.0 (namespace package)
+        {"dir": "a", "manifest": "{'version': '13.0.1.0.0'}"},
+        {"dir": "a", "manifest": "{'version': '19.0.1.0.0'}"},
+        # Odoo core addons such as test_data_module have a version without series
+        {"dir": "a", "manifest": "{'version': '0.0.1'}"},
+        {"dir": "a", "manifest": "{}"},
+    ],
+    indirect=True,
+)
+def test_no_init_data_module(addon_dir: Path) -> None:
+    (addon_dir / "__init__.py").unlink()
+    addon = Addon.from_addon_dir(addon_dir)
+    assert addon.name == "a"
+    assert is_addon_dir(addon_dir)
 
 
 def test_addon_constructor() -> None:

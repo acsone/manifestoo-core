@@ -1,0 +1,1 @@
+Fix the git postversion computed in presence of merge commits.

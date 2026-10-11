@@ -1,8 +1,9 @@
-# generated on Fri Sep 18 02:09:34 2026
+# generated on Sun Oct 11 02:19:54 2026
 account_3way_match
 account_accountant
 account_accountant_check_printing
 account_accountant_fleet
+account_accountant_payment_interco
 account_asset
 account_asset_fleet
 account_avatax
@@ -47,6 +48,7 @@ accountant_hr_expense
 accountant_knowledge
 ai
 ai_account
+ai_account_reports
 ai_agentic
 ai_agentic_documents
 ai_agentic_knowledge
@@ -74,6 +76,7 @@ ai_marketing_automation_website_sale
 ai_marketing_automation_whatsapp
 ai_mass_mailing
 ai_mcp
+ai_portal
 ai_product
 ai_project
 ai_purchase
@@ -130,6 +133,7 @@ delivery_dhl_rest
 delivery_easypost
 delivery_envia
 delivery_fedex
+delivery_fedex_certified
 delivery_fedex_rest
 delivery_iot
 delivery_sendcloud
@@ -554,8 +558,14 @@ l10n_uy_edi
 l10n_uy_edi_pos
 l10n_uy_edi_stock
 l10n_uy_reports
+l10n_uz_hr_payroll
+l10n_uz_hr_payroll_account
 l10n_uz_reports
+l10n_vn_hr_payroll
+l10n_vn_hr_payroll_account
 l10n_vn_reports
+l10n_za_hr_payroll
+l10n_za_hr_payroll_account
 l10n_za_reports
 l10n_zm_reports
 mail_enterprise
@@ -583,11 +593,17 @@ mrp_workorder
 mrp_workorder_hr_account
 mrp_workorder_plm
 obox
+obox_android
 obox_mrp
 obox_point_of_sale
+obox_point_of_sale_android
+obox_pos_mobile
 obox_pos_self_order
+obox_pos_self_order_android
 obox_quality
+obox_quality_android
 obox_quality_control
+obox_quality_control_android
 partner_commission
 payment_sepa_direct_debit
 planning
@@ -620,6 +636,7 @@ pos_iot_adam_scale
 pos_iot_six
 pos_iot_worldline
 pos_mobile
+pos_mobile_android
 pos_online_payment_self_order_preparation_display
 pos_order_tracking_display
 pos_planning
@@ -631,10 +648,12 @@ pos_restaurant_appointment
 pos_restaurant_preparation_display
 pos_sale_commission
 pos_sale_planning
+pos_sale_purchase_stock_inter_company_rules
 pos_sale_renting_planning
 pos_sale_stock_renting
 pos_sale_subscription
 pos_self_order_iot
+pos_self_order_mobile
 pos_self_order_preparation_display
 pos_self_order_urban_piper
 pos_settle_due

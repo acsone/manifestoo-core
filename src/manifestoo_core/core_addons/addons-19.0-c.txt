@@ -1,4 +1,4 @@
-# generated on Fri Sep 18 02:09:58 2026
+# generated on Sat Oct 17 02:09:47 2026
 account
 account_add_gln
 account_check_printing
@@ -326,6 +326,7 @@ l10n_tg
 l10n_th
 l10n_tn
 l10n_tr
+l10n_tr_gib_invoice_scenarios
 l10n_tr_nilvera
 l10n_tr_nilvera_base_vat
 l10n_tr_nilvera_edispatch

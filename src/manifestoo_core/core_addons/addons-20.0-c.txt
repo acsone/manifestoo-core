@@ -1,4 +1,4 @@
-# generated on Fri Sep 18 02:09:04 2026
+# generated on Sat Oct 31 02:05:46 2026
 account
 account_check_printing
 account_debit_note
@@ -192,6 +192,7 @@ l10n_fr_facturx_chorus_pro
 l10n_fr_hr_holidays
 l10n_fr_payment
 l10n_fr_pdp
+l10n_fr_pdp_penalty_rate
 l10n_fr_pdp_pos
 l10n_fr_pos_cert
 l10n_ga
@@ -207,6 +208,7 @@ l10n_gr
 l10n_gr_edi
 l10n_gr_edi_delivery_note
 l10n_gr_edi_e_invoo
+l10n_gr_edi_e_invoo_bridge
 l10n_gt
 l10n_gw
 l10n_hk
@@ -460,6 +462,7 @@ pos_self_order_sms
 pos_sms
 pos_stock
 pos_stripe
+pos_sumup
 pos_viva_com
 printer
 privacy_lookup

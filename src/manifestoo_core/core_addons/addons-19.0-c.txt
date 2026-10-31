@@ -1,4 +1,4 @@
-# generated on Fri Sep 18 02:09:58 2026
+# generated on Sat Oct 31 02:06:39 2026
 account
 account_add_gln
 account_check_printing
@@ -141,6 +141,7 @@ l10n_bf
 l10n_bg
 l10n_bg_ledger
 l10n_bh
+l10n_bh_pos
 l10n_bj
 l10n_bo
 l10n_br
@@ -200,6 +201,7 @@ l10n_fr_facturx_chorus_pro
 l10n_fr_hr_holidays
 l10n_fr_hr_work_entry_holidays
 l10n_fr_pdp
+l10n_fr_pdp_penalty_rate
 l10n_fr_pdp_pos
 l10n_fr_pos_cert
 l10n_ga
@@ -214,6 +216,7 @@ l10n_gq
 l10n_gr
 l10n_gr_edi
 l10n_gr_edi_e_invoo
+l10n_gr_edi_e_invoo_bridge
 l10n_gt
 l10n_gw
 l10n_hk
@@ -326,6 +329,7 @@ l10n_tg
 l10n_th
 l10n_tn
 l10n_tr
+l10n_tr_gib_invoice_scenarios
 l10n_tr_nilvera
 l10n_tr_nilvera_base_vat
 l10n_tr_nilvera_edispatch

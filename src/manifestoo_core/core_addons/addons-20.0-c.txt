@@ -1,4 +1,4 @@
-# generated on Fri Sep 18 02:09:04 2026
+# generated on Sat Nov  7 02:05:26 2026
 account
 account_check_printing
 account_debit_note
@@ -135,6 +135,7 @@ l10n_bf
 l10n_bg
 l10n_bg_ledger
 l10n_bh
+l10n_bh_pos
 l10n_bj
 l10n_bo
 l10n_br
@@ -181,6 +182,7 @@ l10n_es_edi_verifactu
 l10n_es_edi_verifactu_pos
 l10n_es_pos
 l10n_es_website_sale
+l10n_es_website_sale_id_type
 l10n_et
 l10n_eu_account_vies
 l10n_eu_oss
@@ -192,6 +194,7 @@ l10n_fr_facturx_chorus_pro
 l10n_fr_hr_holidays
 l10n_fr_payment
 l10n_fr_pdp
+l10n_fr_pdp_penalty_rate
 l10n_fr_pdp_pos
 l10n_fr_pos_cert
 l10n_ga
@@ -207,6 +210,7 @@ l10n_gr
 l10n_gr_edi
 l10n_gr_edi_delivery_note
 l10n_gr_edi_e_invoo
+l10n_gr_edi_e_invoo_bridge
 l10n_gt
 l10n_gw
 l10n_hk
@@ -253,6 +257,7 @@ l10n_kr
 l10n_kr_sale
 l10n_kw
 l10n_kz
+l10n_la
 l10n_latam_check
 l10n_latam_invoice_document
 l10n_lb_account
@@ -460,6 +465,7 @@ pos_self_order_sms
 pos_sms
 pos_stock
 pos_stripe
+pos_sumup
 pos_viva_com
 printer
 privacy_lookup

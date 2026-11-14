@@ -1,4 +1,4 @@
-# generated on Fri Sep 18 02:10:44 2026
+# generated on Sat Nov 14 02:07:41 2026
 account
 account_add_gln
 account_check_printing
@@ -121,6 +121,7 @@ l10n_account_edi_ubl_cii_tests
 l10n_account_withholding_tax
 l10n_account_withholding_tax_pos
 l10n_ae
+l10n_ae_ubl_pint
 l10n_anz_ubl_pint
 l10n_ar
 l10n_ar_pos
@@ -196,6 +197,7 @@ l10n_fr_facturx_chorus_pro
 l10n_fr_hr_holidays
 l10n_fr_hr_work_entry_holidays
 l10n_fr_pdp
+l10n_fr_pdp_penalty_rate
 l10n_fr_pdp_pos
 l10n_fr_pos_cert
 l10n_ga
@@ -207,6 +209,7 @@ l10n_gq
 l10n_gr
 l10n_gr_edi
 l10n_gr_edi_e_invoo
+l10n_gr_edi_e_invoo_bridge
 l10n_gt
 l10n_gw
 l10n_hk
